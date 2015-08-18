@@ -19,7 +19,18 @@ class EventController extends Controller {
     {
     	# code...
     }
+
     public function delete()
+    {
+    	# code...
+    }
+
+    public function list()
+    {
+    	# code...
+    }
+
+    public function calendar()
     {
     	# code...
     }

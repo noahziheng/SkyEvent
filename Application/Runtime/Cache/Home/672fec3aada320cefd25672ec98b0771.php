@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?><span style="font-size:12px;"><strong>Bad Request!</strong></span>
