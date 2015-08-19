@@ -3,12 +3,12 @@ namespace Home\Controller;
 use Think\Controller;
 class EventController extends Controller {
     public function index(){
-        $this->show("<span style=\"font-size:48px;\"><strong>Bad Request!</strong></span>");
+    	$this->show("<span style=\"font-size:48px;\"><strong>Bad Request!</strong></span>");
     }
-    public function view(){
-    	echo $_GET['id'];
-    	echo '<br />';
-    	echo $_GET['type'];
+    public function view($id){
+    	$event = D('Event')->getOne($id);
+    	$this->assign('event',$event);
+    	$this->display();
     }
     public function post()
     {

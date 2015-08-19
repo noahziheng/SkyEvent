@@ -32,7 +32,7 @@
                    <h1><a href="{$Think.const.ROOT_URL}">SkyEvent</a><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:130px;height:35px;"></h1>
                 </div>
              </div>
-             <div class="col-md-4">
+             <div class="col-md-3">
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="input-group form">
@@ -44,7 +44,7 @@
                   </div>
                 </div>
              </div>
-             <div class="col-md-3">
+             <div class="col-md-4">
                 <div class="navbar navbar-inverse" role="banner">
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                       <ul class="nav navbar-nav">
@@ -99,7 +99,7 @@
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> {$Think.lang.dashborad}</a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> {$Think.lang.calendar}</a></li>
                     <if condition="$user.group egt 1">
-                      <li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
+                      <li><a href="#" class="nav-btn" data="Event/view/2" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
                     </if>
                     <if condition="$user.group egt 3">
                       <li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
@@ -111,43 +111,61 @@
       </div>
       <div id="body-content" class="col-md-10">
       <div class="row">
-
         <div class="col-md-6">
-          <div class="content-box-header">
-            <div class="panel-title">{$Think.lang.announce}</div>
-          </div>
-          <div class="content-box-large box-with-header">
-            <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
-            <volist name="announce" id="vo">
-              <div class="alert alert-{$vo.type}" role="alert">{$vo.content}</div>
-            </volist>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">{$Think.lang.announce}</div>
+            </div>
+            <div class="panel-body" id="panel1">
+              <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
+              <volist name="announce" id="vo">
+                <div class="alert alert-{$vo.type}" role="alert">{$vo.content}</div>
+              </volist>
+            </div>
           </div>
         </div>
 
         <div class="col-md-6">
-          <div class="content-box-header">
-            <div class="panel-title">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">
+                <if condition="$user.group eq -1">
+                  {$Think.lang.welcome}
+                <else />
+                  {$Think.lang.profile}
+                </if>
+              </div>
+            </div>
+            <div class="panel-body" id="panel2">
               <if condition="$user.group eq -1">
-                {$Think.lang.welcome}
+                  <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
+                  <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
+                  <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button></p>
               <else />
-                {$Think.lang.profile}
               </if>
             </div>
           </div>
-          <div class="content-box-large box-with-header">
-            <if condition="$user.group eq -1">
-                <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
-                <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
-                <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button></p>
-            <else />
-            </if>
-          </div>
         </div>
 
       </div>
-      </div>
-      </div>
-      </div>
+      <volist name="event" id="vo">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">{$vo.title}</div>
+              </div>
+              <div class="panel-body">
+              {$vo.detail}
+              </div>
+            </div>
+          </div>
+        </div>
+      </volist>
+
+    </div>
+  </div>
+  </div>
 
     <footer>
          <div class="container">
@@ -229,5 +247,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{$Think.const.ROOT_URL}Public/js/global.js"></script>
+    <script src="{$Think.const.ROOT_URL}Public/js/index.js"></script>
   </body>
 </html>

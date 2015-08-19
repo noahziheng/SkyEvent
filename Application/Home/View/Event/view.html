@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$event.title} - {$Think.lang.event_title}</h3>
+			</div>
+			<div class="panel-body">
+				<if condition="$event.banner neq null">
+					<p class="eventtext"><a style="color: rgb(34, 89, 133); text-decoration: none; margin: 0px 5px 5px 0px; display: inline-block;"><img src="{$event.banner}" style="border: 0px; vertical-align: middle;width: 100%;"/></a></p>
+				</if>
+				<p class="eventtext">{$event.detail}</p>
+				<br />
+				<p class="eventtext"><span class="eventtextred"><strong>{$Think.lang.event_time}</strong></span></p>
+				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_starttime}:&nbsp;</strong> {$event.starttime}</span></p>
+				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_endtime}:&nbsp;</strong> {$event.endtime}</span></p>
+				<br/>
+				<p class="eventtext"><span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_airport}</strong></span></span></p>
+				<volist name="event.airports" id="vo">
+					<p class="eventtext">{$vo.name} ({$vo.code})</p>
+				</volist>
+				<br/>
+				<p class="eventtext">
+				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span><br/>
+				<volist name="event.route" id="vo" >
+					<em>{$vo.0}</em></span></p>
+					<div class="eventtext">{$vo.1}</div>
+					<br/>
+				</volist>
+				<p class="eventtext"><span class="eventfont"><strong><span class="eventtextred">{$Think.lang.event_charts}</span></strong></p>
+				<volist name="event.country" id="vo" >
+					<volist name="vo['charts']" id="sub">
+					<p class="eventtext"><a href="{$sub.href}" rel="nofollow external">{$sub.name}</a>&nbsp;{$sub.remark}</span></p>
+					<br/>
+					</volist>
+				</volist>
+				<p class="eventtext"><span class="eventtextred"><strong>{$Think.lang.event_scenery}</strong></span></p>
+				<volist name="event.airports" id="vo">
+					<p class="eventtext"> {$vo.name} ({$vo.code})</p>
+					<p class="eventtext">
+						<foreach name="vo['scenery']" item="sub" key="k">
+							<a href="{$sub}" rel="nofollow external">{$k}</a>&nbsp;
+						</foreach>
+					</p>
+					<if condition="$vo.remark neq null">
+						<p class="eventtext"><strong>{$vo.remark}</strong></p>
+					</if>
+				</volist>
+				<br />
+				<br />
+				<volist name="event.divisions" id="vo" >
+					<p class="eventtext"><span class="eventfont">{$vo.remark}</span></p>
+				</volist>
+			</div>
+		</div>
+	</div>
+</div>
