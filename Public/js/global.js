@@ -8,3 +8,7 @@ $(".nav-btn").click(function(event) {
 	$(".current").removeClass('current');
 	$(this).parent().addClass('current')
 });
+$(".body-btn").click(function(event) {
+	var url = $(this).attr("data");
+	body_redirect(url);
+});

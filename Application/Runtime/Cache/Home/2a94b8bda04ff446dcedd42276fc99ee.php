@@ -94,10 +94,9 @@
                     <li class="current"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> <?php echo (L("dashborad")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
-                    <?php if($user["group"] >= 1): ?><li><a href="#" class="nav-btn" data="Event/view/2" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
-                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li><?php endif; ?>
-                    <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
-                    <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
+                    <?php if($user["group"] >= 1): ?><li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                      <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
                 </ul>
              </div>
       </div>
@@ -126,6 +125,7 @@
             </div>
             <div class="panel-body" id="panel2">
               <?php if($user["group"] == -1): ?><p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
+                  <hr>
                   <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
                   <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></p>
               <?php else: endif; ?>
@@ -138,10 +138,16 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <div class="panel-title"><?php echo ($vo["title"]); ?></div>
+                <div class="panel-title">
+                <?php if(is_array($vo['country'])): $i = 0; $__LIST__ = $vo['country'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><img src="<?php echo (ROOT_URL); ?>Public/images/lang/<?php echo ($v); ?>.png">&nbsp;<?php endforeach; endif; else: echo "" ;endif; ?>
+                <a class="body-btn" data="Event/view/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a></div>
               </div>
               <div class="panel-body">
-              <?php echo ($vo["detail"]); ?>
+                <div class="col-md-8">
+                  <?php if($vo["banner"] != null): ?><img src="<?php echo ($vo["banner"]); ?>" style="border: 0px;width: 100%;"/>
+                  <?php else: ?>
+                    <p class="eventtext"><?php echo ($vo["detail"]); ?></p><?php endif; ?>
+                </div>
               </div>
             </div>
           </div>
@@ -199,20 +205,42 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="<?php echo (L("close")); ?>"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="validateModalLabel"><?php echo (L("vaildate")); ?></h4>
+              <h4 class="modal-title" id="validateModalLabel"><?php echo (L("validate")); ?></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="<?php echo (ROOT_URL); ?>User/login">
+            <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
+            <button type="button" class="btn btn-primary btn-lg center-block"  disabled><img src="http://www.vatprc.net/media/images/vatsim.png" style="width:130px;height:35px"><br />SSO</button>
+            <hr>
+            <h5><?php echo (L("validate_code")); ?></h5>
+              <form class="form-horizontal" method="POST" action="<?php echo (ROOT_URL); ?>User/validate">
                 <div class="form-group">
                   <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="inputCid" placeholder="VATSIM CID" required autofoucs>
+                    <input type="text" class="form-control" name="cid" id="vCid" placeholder="VATSIM CID" required autofoucs>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputCid" class="col-sm-2 control-label"><?php echo (L("email")); ?></label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="vEmail" placeholder="<?php echo (L("email")); ?>" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword" class="col-sm-2 control-label"><?php echo (L("password")); ?></label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password" required>
+                    <input type="password" class="form-control" name="pass" id="vPassword" placeholder="<?php echo (L("password")); ?>" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label"><?php echo (L("repassword")); ?></label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" name="repass" id="vRepassword" placeholder="<?php echo (L("repassword")); ?>" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputCid" class="col-sm-2 control-label"><?php echo (L("validate_code")); ?></label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="code" id="vCode" placeholder="<?php echo (L("validate_code")); ?>" required>
                   </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@
 					<div class="eventtext"><?php echo ($vo["1"]); ?></div>
 					<br/><?php endforeach; endif; else: echo "" ;endif; ?>
 				<p class="eventtext"><span class="eventfont"><strong><span class="eventtextred"><?php echo (L("event_charts")); ?></span></strong></p>
-				<?php if(is_array($event["country"])): $i = 0; $__LIST__ = $event["country"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(is_array($vo['charts'])): $i = 0; $__LIST__ = $vo['charts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><p class="eventtext"><a href="<?php echo ($sub["href"]); ?>" rel="nofollow external"><?php echo ($sub["name"]); ?></a>&nbsp;<?php echo ($sub["remark"]); ?></span></p>
+				<?php if(is_array($event["country"])): $i = 0; $__LIST__ = $event["country"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(is_array($vo['charts'])): $i = 0; $__LIST__ = $vo['charts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><p class="eventtext"><a href="<?php echo ($sub["href"]); ?>" rel="nofollow external"><?php echo ($sub["name"]); ?></a>&nbsp;(<?php echo ($sub["remark"]); ?>)</span></p>
 					<br/><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 				<p class="eventtext"><span class="eventtextred"><strong><?php echo (L("event_scenery")); ?></strong></span></p>
 				<?php if(is_array($event["airports"])): $i = 0; $__LIST__ = $event["airports"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"> <?php echo ($vo["name"]); ?> (<?php echo ($vo["code"]); ?>)</p>

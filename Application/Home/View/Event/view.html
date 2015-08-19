@@ -29,7 +29,7 @@
 				<p class="eventtext"><span class="eventfont"><strong><span class="eventtextred">{$Think.lang.event_charts}</span></strong></p>
 				<volist name="event.country" id="vo" >
 					<volist name="vo['charts']" id="sub">
-					<p class="eventtext"><a href="{$sub.href}" rel="nofollow external">{$sub.name}</a>&nbsp;{$sub.remark}</span></p>
+					<p class="eventtext"><a href="{$sub.href}" rel="nofollow external">{$sub.name}</a>&nbsp;({$sub.remark})</span></p>
 					<br/>
 					</volist>
 				</volist>

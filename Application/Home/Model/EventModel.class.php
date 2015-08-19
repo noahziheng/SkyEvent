@@ -40,15 +40,20 @@ class EventModel extends Model{
 
     public function getAll($id)
     {
-        $datas = $this->select();
-        foreach ($datas as $k => $data) {
-	        foreach ($data as $key => $value) {
-	        	if ($key != 'id' and $key != 'starttime' and $key != 'endtime' and $key != 'banner') {
-	        		$data[$key] = json_decode($value,true);
+        $datas = $this->order('starttime desc')->select();
+        foreach ($datas as $k => $data) { 
+	foreach ($data as $key => $value) {
+		if ($key != 'id' and $key != 'starttime' and $key != 'endtime' and $key != 'banner') {
+			$datas[$k][$key] = json_decode($value,true);
 	        	}
-	        }
-	        $datas[$k]['title'] = $data['title'][LANG_SET];
-	        $datas[$k]['detail'] = $data['detail'][LANG_SET];
+	}
+	$datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
+	$datas[$k]['detail'] = $datas[$k]['detail'][LANG_SET];
+	$countrys= M('countrys');
+        	foreach ($datas[$k]['country'] as $key => $value) {
+        		$res = $countrys->find($value);
+        		$datas[$k]['country'][$key] = $res['code'];
+        	}
         }
         return $datas;
     }

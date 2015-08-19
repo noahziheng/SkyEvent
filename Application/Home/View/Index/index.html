@@ -99,13 +99,12 @@
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> {$Think.lang.dashborad}</a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> {$Think.lang.calendar}</a></li>
                     <if condition="$user.group egt 1">
-                      <li><a href="#" class="nav-btn" data="Event/view/2" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
+                      <li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
                     </if>
                     <if condition="$user.group egt 3">
                       <li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
+                      <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
                     </if>
-                    <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
-                    <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
                 </ul>
              </div>
       </div>
@@ -139,6 +138,7 @@
             <div class="panel-body" id="panel2">
               <if condition="$user.group eq -1">
                   <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
+                  <hr>
                   <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
                   <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button></p>
               <else />
@@ -153,10 +153,20 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <div class="panel-title">{$vo.title}</div>
+                <div class="panel-title">
+                <volist name="vo['country']" id="v">
+                  <img src="{$Think.const.ROOT_URL}Public/images/lang/{$v}.png">&nbsp;
+                </volist>
+                <a class="body-btn" data="Event/view/{$vo.id}">{$vo.title}</a></div>
               </div>
               <div class="panel-body">
-              {$vo.detail}
+                <div class="col-md-8">
+                  <if condition="$vo.banner neq null">
+                    <img src="{$vo.banner}" style="border: 0px;width: 100%;"/>
+                  <else />
+                    <p class="eventtext">{$vo.detail}</p>
+                  </if>
+                </div>
               </div>
             </div>
           </div>
@@ -215,20 +225,42 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="{$Think.lang.close}"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="validateModalLabel">{$Think.lang.vaildate}</h4>
+              <h4 class="modal-title" id="validateModalLabel">{$Think.lang.validate}</h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/login">
+            <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
+            <button type="button" class="btn btn-primary btn-lg center-block"  disabled><img src="http://www.vatprc.net/media/images/vatsim.png" style="width:130px;height:35px"><br />SSO</button>
+            <hr>
+            <h5>{$Think.lang.validate_code}</h5>
+              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/validate">
                 <div class="form-group">
                   <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="inputCid" placeholder="VATSIM CID" required autofoucs>
+                    <input type="text" class="form-control" name="cid" id="vCid" placeholder="VATSIM CID" required autofoucs>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.email}</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="vEmail" placeholder="{$Think.lang.email}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.password}</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password" required>
+                    <input type="password" class="form-control" name="pass" id="vPassword" placeholder="{$Think.lang.password}" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.repassword}</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" name="repass" id="vRepassword" placeholder="{$Think.lang.repassword}" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.validate_code}</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="code" id="vCode" placeholder="{$Think.lang.validate_code}" required>
                   </div>
                 </div>
             </div>

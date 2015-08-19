@@ -2,10 +2,6 @@
 return array(
 	'URL_ROUTER_ON'   => true, 
 	'URL_ROUTE_RULES'=>array(
-		'event/:id\d' => array('Event/view', '' , array('method'=>'get')),
-		'event/:id\d' => array('Event/post', '' , array('method'=>'post')),
-		'event/:id\d' => array('Event/edit', '' , array('method'=>'put')),
-		'event/:id\d/:token' => array('Event/delete', '' , array('method'=>'delete')),
 		'api/event/:id\d' =>  array('Event/view' , 'type=json' , array('method'=>'get')),
 		'api/event/:id\d' => array('Event/post', 'type=json' , array('method'=>'post')),
 		'api/event/:id\d' => array('Event/edit', 'type=json' , array('method'=>'put')),

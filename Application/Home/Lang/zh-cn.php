@@ -12,10 +12,14 @@ return  array(
 	'logout' => '登出',
 	'validate' => '验证VATSIM账号',
 	'validate_p' => '验证',
+	'email' => '邮箱',
+	'repassword' => '再输一遍密码',
+	'validate_code' => '验证代码(由VATPRC论坛获取)',
 	'close' => '关闭',
 	'calendar' => '活动日历',
 	'profile' => '个人信息',
 	'list' => '活动管理',
+	'systemadmin' => '系统管理',
 	'nosso' => 'VATSIM SSO因技术原因暂不可用，VATPRC管制员可前往VATPRC论坛管制员交流区找到验证码。',
 	//SkyEvent用户组
 	'usergroup_-2' => '禁止访问用户',
@@ -37,6 +41,5 @@ return  array(
 	'rating_10' => 'I3 高级教员',
 	'rating_11' => 'SUP 监督员',
 	'rating_12' => 'ADM 管理员',
-	//管理部分，仅中文
 	'newevent' => '新建活动',
 );
