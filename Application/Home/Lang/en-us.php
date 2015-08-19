@@ -15,8 +15,17 @@ return  array(
 	'close' => 'Close',
 	'calendar' => 'Calendar',
 	'profile' => 'Profile',
-	'list' => 'List',
+	'list' => 'Event List',
 	'nosso' => 'VATSIM SSO is unavialable because of technology reasons.Please contact VATPRC Staff for validate code.',
+	//SkyEvent usergroup
+	'usergroup_-2' => 'Banned member',
+	'usergroup_-1' => 'Guest',
+	'usergroup_0' => 'No validate member',
+	'usergroup_1' => 'VATSIM Pilot',
+	'usergroup_2' => 'VATSIM Controller',
+	'usergroup_3' => 'VATSIM Staff',
+	'usergroup_4' => 'SkyEvent Administrator',
+	//VATSIM rating
 	'rating_0' => 'Your account is inactive.',
 	'rating_1' => 'OBS Pilot/Observer',
 	'rating_2' => 'S1 Student',

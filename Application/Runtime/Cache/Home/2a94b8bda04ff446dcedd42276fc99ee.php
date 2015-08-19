@@ -29,7 +29,7 @@
              <div class="col-md-3">
                 <!-- Logo -->
                 <div class="logo">
-                   <h1><a href="<?php echo (ROOT_URL); ?>">SkyEvent</a></h1>
+                   <h1><a href="<?php echo (ROOT_URL); ?>">SkyEvent</a><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:130px;height:35px;"></h1>
                 </div>
              </div>
              <div class="col-md-4">
@@ -86,93 +86,54 @@
   </div>
 
     <div class="page-content">
-      <div class="row">
+    <div class="row">
       <div class="col-md-2">
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="#" class="nav-btn" data="Index/home"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <li class="current"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> <?php echo (L("dashborad")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
-                    <li><a href="#" class="nav-btn" data="Event/list" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                    <?php if($user["group"] >= 1): ?><li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li><?php endif; ?>
                     <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
-                    <li><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
                     <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
                 </ul>
              </div>
       </div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="content-box-header">
-              <div class="panel-title"><?php echo (L("announce")); ?></div>
-            </div>
-            <div class="content-box-large box-with-header">
-              <div class="panel-body" style="font-size:12px;">
-                <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-              </div>
-            </div>
-          </div>
+      <div id="body-content" class="col-md-10">
+      <div class="row">
 
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="content-box-header">
-                  <div class="panel-title">
-                    <?php if($user["group"] == -1): echo (L("welcome")); ?>
-                    <?php else: ?>
-                      <?php echo (L("profile")); endif; ?>
-                  </div>
-                </div>
-                <div class="content-box-large box-with-header">
-                  <div class="panel-body" style="font-size:15px;">
-                    <?php if($user["group"] == -1): ?><p><?php echo (L("welcome_full")); ?></p>
-                      <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
-                      <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></p>
-                    <?php else: endif; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="col-md-6">
+          <div class="content-box-header">
+            <div class="panel-title"><?php echo (L("announce")); ?></div>
+          </div>
+          <div class="content-box-large box-with-header">
+            <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
+            <?php if(is_array($announce)): $i = 0; $__LIST__ = $announce;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="alert alert-<?php echo ($vo["type"]); ?>" role="alert"><?php echo ($vo["content"]); ?></div><?php endforeach; endif; else: echo "" ;endif; ?>
           </div>
         </div>
 
-        <div class="row">
-              <div class="col-md-12">
-                <div class="content-box-header">
-                  <div class="panel-title">New vs Returning Visitors</div>
-                
-                <div class="panel-options">
-                  <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                  <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                </div>
-                </div>
-                <div class="content-box-large box-with-header">
-                  
-                  Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.
-                <br /><br />
-              </div>
-              </div>
+        <div class="col-md-6">
+          <div class="content-box-header">
+            <div class="panel-title">
+              <?php if($user["group"] == -1): echo (L("welcome")); ?>
+              <?php else: ?>
+                <?php echo (L("profile")); endif; ?>
             </div>
-
-        <div class="row">
-          <div class="col-md-12 panel-warning">
-            <div class="content-box-header panel-heading">
-              <div class="panel-title ">New vs Returning Visitors</div>
-            </div>
-            <div class="content-box-large box-with-header">
-              Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.
-            <br /><br />
           </div>
+          <div class="content-box-large box-with-header">
+            <?php if($user["group"] == -1): ?><p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
+                <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
+                <button type="button" class="btn btn-lg validate" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></p>
+            <?php else: endif; ?>
           </div>
         </div>
 
-        <div class="content-box-large">
-        Contentbox
-        </div>
       </div>
-    </div>
-    </div>
+      </div>
+      </div>
+      </div>
 
     <footer>
          <div class="container">

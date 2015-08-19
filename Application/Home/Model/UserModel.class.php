@@ -5,7 +5,7 @@ class UserModel extends Model{
     public function getUser($id)
     {
         $data = $this->find($id);
-        $data['groupname'] = M('usergroup')->where('id='.$data['group'])->getField('name');
+        $data['groupname'] = L('usergroup_'.strval($data['group']));
         unset($data['password']);
         return $data;
     }

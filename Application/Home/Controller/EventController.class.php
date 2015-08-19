@@ -25,7 +25,7 @@ class EventController extends Controller {
     	# code...
     }
 
-    public function list()
+    public function eventlist()
     {
     	# code...
     }

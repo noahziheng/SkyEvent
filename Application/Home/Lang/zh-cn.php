@@ -15,8 +15,17 @@ return  array(
 	'close' => '关闭',
 	'calendar' => '活动日历',
 	'profile' => '个人信息',
-	'list' => '活动列表',
+	'list' => '活动管理',
 	'nosso' => 'VATSIM SSO因技术原因暂不可用，VATPRC管制员可前往VATPRC论坛管制员交流区找到验证码。',
+	//SkyEvent用户组
+	'usergroup_-2' => '禁止访问用户',
+	'usergroup_-1' => '游客',
+	'usergroup_0' => '未验证会员',
+	'usergroup_1' => 'VATSIM飞行员',
+	'usergroup_2' => 'VATSIM管制员',
+	'usergroup_3' => 'VATSIM职员',
+	'usergroup_4' => 'SkyEvent 管理员',
+	//VATSIM等级
 	'rating_0' => '您的账号被禁用。',
 	'rating_1' => 'OBS 飞行员/观察员',
 	'rating_2' => 'S1 管制学员',
@@ -28,4 +37,6 @@ return  array(
 	'rating_10' => 'I3 高级教员',
 	'rating_11' => 'SUP 监督员',
 	'rating_12' => 'ADM 管理员',
+	//管理部分，仅中文
+	'newevent' => '新建活动',
 );
