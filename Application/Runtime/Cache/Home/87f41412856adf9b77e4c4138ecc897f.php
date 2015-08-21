@@ -35,4 +35,11 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-md-4">
+		<div class="well">
+			<a href="/Index/index"><button type="button" class="btn-block btn btn-lg btn-default"><?php echo (L("back")); echo (L("home")); ?></button></a><br>
+			<button type="button" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></button>
+			<?php if($user["group"] >= 2): ?><button type="button" class="btn-block btn btn-lg btn-success"><?php echo (L("booking_controller")); ?></button><?php endif; ?>
+		</div>
+	</div>
 </div>

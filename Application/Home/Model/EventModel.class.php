@@ -6,10 +6,11 @@ class EventModel extends Model{
     {
         $data = $this->find($id);
         foreach ($data as $key => $value) {
-        	if ($key != 'id' and $key != 'starttime' and $key != 'endtime' and $key != 'banner') {
+        	if(!in_array($key, C('CUSTOM_EVENT_IGNOREJSON'))){
         		$data[$key] = json_decode($value,true);
         	}
         }
+        $data['status'] = $this->statusCheck($data['status'],$data['starttime'],$data['endtime'],$data['id']);
         $data['title'] = $data['title'][LANG_SET];
         $data['detail'] = $data['detail'][LANG_SET];
         $data['starttime'] = $this->converttime($data['starttime']);
@@ -24,6 +25,8 @@ class EventModel extends Model{
         	$res['scenery'] = json_decode($res['scenery'],true);
         	$data['airports'][$key] = $res;
         } 
+        $user = M('User')->field('firstname,lastname')->find($data['author']);
+        $data['author'] = $user['firstname'] + " " + $user['lastname'];
         $countrys= M('countrys');
         foreach ($data['country'] as $key => $value) {
         	$res = $countrys->find($value);
@@ -40,25 +43,88 @@ class EventModel extends Model{
 
     public function getAll($id)
     {
-        $datas = $this->order('starttime desc')->select();
+        $datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
+        foreach ($datas as $k => $data) {
+        	$statusflaq = $this->statusCheck($data['status'],$data['starttime'],$data['endtime'],$data['id']);
+        	if($statusflaq != false){
+        		$datas[$k]['status'] = $statusflaq;
+        	}
+        }
+        if (!$statusflaq) {
+        	$datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
+        }
+        unset($statusflaq);
         foreach ($datas as $k => $data) { 
 	foreach ($data as $key => $value) {
-		if ($key != 'id' and $key != 'starttime' and $key != 'endtime' and $key != 'banner') {
-			$datas[$k][$key] = json_decode($value,true);
-	        	}
+	        	if(!in_array($key, C('CUSTOM_EVENT_IGNOREJSON'))){
+        			$datas[$k][$key] = json_decode($value,true);
+        		}
 	}
 	$datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
 	$datas[$k]['detail'] = $datas[$k]['detail'][LANG_SET];
+	$datas[$k]['starttime'] = $this->converttime($data['starttime']);
+	$datas[$k]['endtime'] = $this->converttime($data['endtime']);
 	$countrys= M('countrys');
         	foreach ($datas[$k]['country'] as $key => $value) {
-        		$res = $countrys->find($value);
-        		$datas[$k]['country'][$key] = $res['code'];
+        		$res = $countrys->where('id='.$value)->getField('code');
+        		$datas[$k]['country'][$key] = $res;
         	}
         }
         return $datas;
     }
 
-    public function converttime($data=0)
+    public function adminlist()
+    {
+    	$datas = $this->order('endtime asc')->field('id,title,type,status,country,author')->select();
+    	foreach ($datas as $k => $data) {
+    		$countrys= M('countrys');
+    		$datas[$k]['country'] = json_decode($data['country'],true);
+    		foreach ($datas[$k]['country'] as $key => $value) {
+    			$res = $countrys->where('id='.$value)->getField('code');
+        			$datas[$k]['country'][$key] = $res;
+    		}
+    		$user = M('User')->field('firstname,lastname')->find(intval($data['author']));
+    		$datas[$k]['author'] = $user['firstname']." ".$user['lastname'];
+    		$datas[$k]['type'] = L('post_type_'.$data['type']);
+    		$datas[$k]['statusid'] = $data['status'];
+    		$datas[$k]['status'] = L('event_status_'.$data['status']);
+    		$datas[$k]['title'] = json_decode($data['title'],true);
+    		$datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
+    	}
+    	return $datas;
+    }
+
+    private function statusCheck($status,$starttime,$endtime,$id)
+    {
+    	if($status == 2){
+    		return 2;
+    	}
+    	$ctime = time();
+    	if ($ctime > $endtime) {
+    		$data['id'] = $id;
+    		$data['status'] = 2;
+    		$this->save($data);
+    		return false;
+    	}elseif ($ctime < $starttime) {
+    		if ($status == 3) {
+    			return 3;
+    		}
+    		$data['id'] = $id;
+    		$data['status'] = 3;
+    		$this->save($data);
+    		return false;
+    	}else{
+    		if ($status == 4) {
+    			return 4;
+    		}
+    		$data['id'] = $id;
+    		$data['status'] = 4;
+    		$this->save($data);
+    		return false;
+    	}
+    }
+
+    private function converttime($data=0)
     {
     	date_default_timezone_set('UTC');
     	if (LANG_SET == 'zh-cn') {

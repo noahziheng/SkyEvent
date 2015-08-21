@@ -16,7 +16,9 @@ class UserController extends Controller {
             if (!$res) {
                 $this->error(L("nouser"));
             }else{
-                session('user',$res);
+                $user = D("User");
+                $user = $user->getUser($res);
+                session('user',$user);
                 $this->success(L('successlogin'));
             }
         }
@@ -95,8 +97,10 @@ class UserController extends Controller {
         if (!$res) {
             $this->error('Error Code 1');
         }else{
-            session('user',$data['id']);
-            $this->success(L('successvalidate'));
+            $user = D("User");
+            $user = $user->getUser(intval($data['id']));
+            session('user',$user);
+            $this->success(L('successvalidate'),'/Index/index');
         }
     }
 }

@@ -99,10 +99,10 @@
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> {$Think.lang.dashborad}</a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> {$Think.lang.calendar}</a></li>
                     <if condition="$user.group egt 1">
-                      <li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
+                      <li><a href="#post" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
                     </if>
                     <if condition="$user.group egt 3">
-                      <li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
+                      <li><a href="#" class="nav-btn" data="Event/admin" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
                       <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
                     </if>
                 </ul>
@@ -148,8 +148,8 @@
         </div>
 
       </div>
-      <volist name="event" id="vo">
-        <div class="row">
+      <div class="row">
+        <volist name="event" id="vo">
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -157,22 +157,31 @@
                 <volist name="vo['country']" id="v">
                   <img src="{$Think.const.ROOT_URL}Public/images/lang/{$v}.png">&nbsp;
                 </volist>
-                <a class="body-btn" data="Event/view/{$vo.id}">{$vo.title}</a></div>
+                <a class="body-btn" data="Event/view/{$vo.id}" style="cursor:pointer;">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}</div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="height:auto;">
                 <div class="col-md-8">
                   <if condition="$vo.banner neq null">
-                    <img src="{$vo.banner}" style="border: 0px;width: 100%;"/>
+                    <img class="img-responsive" src="{$vo.banner}"/>
                   <else />
                     <p class="eventtext">{$vo.detail}</p>
+                  </if>
+                </div>
+                <div class="col-md-4">
+                  <p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-default">{$vo.starttime}</span></p>
+                  <p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-default">{$vo.endtime}</span></p>
+                  <hr>
+                  <button data="Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary body-btn btn-block center-block">{$Think.lang.detail}</button>
+                  <button type="button" class="btn btn-lg btn-default btn-block center-block">{$Think.lang.booking_flight}</button>
+                  <if condition="$user.group egt 2">
+                    <button type="button" class="btn btn-lg btn-success btn-block center-block">{$Think.lang.booking_controller}</button>
                   </if>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </volist>
-
+        </volist>
+      </div>
     </div>
   </div>
   </div>
@@ -186,6 +195,12 @@
             
          </div>
       </footer>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{$Think.const.ROOT_URL}Public/js/index.js"></script>
+      <script src="{$Think.const.ROOT_URL}Public/js/global.js"></script>
 
       <php>if (isset($user)){</php>
       <!-- Modal -->
@@ -273,12 +288,5 @@
         </div>
       </div>
       <php>}</php>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="{$Think.const.ROOT_URL}Public/js/global.js"></script>
-    <script src="{$Think.const.ROOT_URL}Public/js/index.js"></script>
   </body>
 </html>

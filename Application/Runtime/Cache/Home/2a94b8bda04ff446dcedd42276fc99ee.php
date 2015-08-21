@@ -94,8 +94,8 @@
                     <li class="current"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="User/dashborad" ><i class="glyphicon glyphicon-stats"></i> <?php echo (L("dashborad")); ?></a></li>
                     <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
-                    <?php if($user["group"] >= 1): ?><li><a href="#" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
-                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/eventlist" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                    <?php if($user["group"] >= 1): ?><li><a href="#post" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
                       <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
                 </ul>
              </div>
@@ -134,25 +134,32 @@
         </div>
 
       </div>
-      <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="row">
-          <div class="col-md-12">
+      <div class="row">
+        <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <div class="panel-title">
                 <?php if(is_array($vo['country'])): $i = 0; $__LIST__ = $vo['country'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><img src="<?php echo (ROOT_URL); ?>Public/images/lang/<?php echo ($v); ?>.png">&nbsp;<?php endforeach; endif; else: echo "" ;endif; ?>
-                <a class="body-btn" data="Event/view/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a></div>
+                <a class="body-btn" data="Event/view/<?php echo ($vo["id"]); ?>" style="cursor:pointer;"><?php echo ($vo["title"]); ?></a>&nbsp;<span class="label label-info"><?php echo L('post_type_'.$vo['type']);?></span>&nbsp;<?php echo L('event_status_'.$vo['status']);?></div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="height:auto;">
                 <div class="col-md-8">
-                  <?php if($vo["banner"] != null): ?><img src="<?php echo ($vo["banner"]); ?>" style="border: 0px;width: 100%;"/>
+                  <?php if($vo["banner"] != null): ?><img class="img-responsive" src="<?php echo ($vo["banner"]); ?>"/>
                   <?php else: ?>
                     <p class="eventtext"><?php echo ($vo["detail"]); ?></p><?php endif; ?>
                 </div>
+                <div class="col-md-4">
+                  <p class="eventtext"><strong><?php echo (L("event_starttime")); ?> : </strong> <span class="label label-default"><?php echo ($vo["starttime"]); ?></span></p>
+                  <p class="eventtext"><strong><?php echo (L("event_endtime")); ?> : </strong> <span class="label label-default"><?php echo ($vo["endtime"]); ?></span></p>
+                  <hr>
+                  <button data="Event/view/<?php echo ($vo["id"]); ?>" type="button" class="btn btn-lg btn-primary body-btn btn-block center-block"><?php echo (L("detail")); ?></button>
+                  <button type="button" class="btn btn-lg btn-default btn-block center-block"><?php echo (L("booking_flight")); ?></button>
+                  <?php if($user["group"] >= 2): ?><button type="button" class="btn btn-lg btn-success btn-block center-block"><?php echo (L("booking_controller")); ?></button><?php endif; ?>
+                </div>
               </div>
             </div>
-          </div>
-        </div><?php endforeach; endif; else: echo "" ;endif; ?>
-
+          </div><?php endforeach; endif; else: echo "" ;endif; ?>
+      </div>
     </div>
   </div>
   </div>
@@ -166,6 +173,12 @@
             
          </div>
       </footer>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="<?php echo (ROOT_URL); ?>Public/js/index.js"></script>
+      <script src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
 
       <?php if (isset($user)){ ?>
       <!-- Modal -->
@@ -253,12 +266,5 @@
         </div>
       </div>
       <?php } ?>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
-    <script src="<?php echo (ROOT_URL); ?>Public/js/index.js"></script>
   </body>
 </html>

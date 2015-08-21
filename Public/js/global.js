@@ -1,6 +1,16 @@
 function body_redirect (url) {
 	url = p_rooturl+url;
-	$("#body-content").load(url);
+	$.get(url,function(data,status){
+		if (status != 'success') {
+			alert('Error: ' + status);
+		};
+		var isjson = typeof(data) == "object" && Object.prototype.toString.call(data).toLowerCase() == "[object object]" && !data.length;
+		if (isjson) {
+			alert(data.info);
+		}else{
+			$("#body-content").html(data);
+		};
+	});
 }
 $(".nav-btn").click(function(event) {
 	var url = $(this).attr("data");

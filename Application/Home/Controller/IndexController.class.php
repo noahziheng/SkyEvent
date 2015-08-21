@@ -4,9 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     public function index(){
     	if (session('?user')) {
-    		$uid = session('user');
-	    	$user = D("User");
-	    	$user = $user->getUser(intval($uid));
+    		$user = session('user');
     	}else{
     		$user['group'] = -1;
     	}

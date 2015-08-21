@@ -540,3 +540,4 @@ body {
 .eventtextred{
   color: rgb(178, 34, 34);
 }
+#editor {overflow:scroll; max-height:300px}

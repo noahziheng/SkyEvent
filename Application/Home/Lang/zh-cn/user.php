@@ -6,7 +6,6 @@ return array(
 	's_logout' => '已登出',
 	'nosame' => '两次输入密码不一致',
 	'wrongcode' => '验证码错误！',
-	'confirm' => '确认',
 	'havewrong' => '信息有错误？',
 	'userexist' => '用户已存在！',
 	'v_name' => '姓名',
