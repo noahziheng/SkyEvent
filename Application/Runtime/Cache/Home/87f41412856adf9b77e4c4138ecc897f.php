@@ -16,28 +16,21 @@
 				<?php if(is_array($event["airports"])): $i = 0; $__LIST__ = $event["airports"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><?php echo ($vo["name"]); ?> (<?php echo ($vo["code"]); ?>)</p><?php endforeach; endif; else: echo "" ;endif; ?>
 				<br/>
 				<p class="eventtext">
-				<span class="eventfont"><span class="eventtextred"><strong><?php echo (L("event_route")); ?></strong></span><br/>
-				<?php if(is_array($event["route"])): $i = 0; $__LIST__ = $event["route"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><em><?php echo ($vo["0"]); ?></em></span></p>
+				<span class="eventfont"><span class="eventtextred"><strong><?php echo (L("event_route")); ?></strong></span><br/></p></span>
+				<?php if(is_array($event["route"])): $i = 0; $__LIST__ = $event["route"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><em><?php echo ($vo["0"]); ?></em></p>
 					<div class="eventtext"><?php echo ($vo["1"]); ?></div>
 					<br/><?php endforeach; endif; else: echo "" ;endif; ?>
-				<p class="eventtext"><span class="eventfont"><strong><span class="eventtextred"><?php echo (L("event_charts")); ?></span></strong></p>
-				<?php if(is_array($event["country"])): $i = 0; $__LIST__ = $event["country"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(is_array($vo['charts'])): $i = 0; $__LIST__ = $vo['charts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?><p class="eventtext"><a href="<?php echo ($sub["href"]); ?>" rel="nofollow external"><?php echo ($sub["name"]); ?></a>&nbsp;(<?php echo ($sub["remark"]); ?>)</span></p>
-					<br/><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
-				<p class="eventtext"><span class="eventtextred"><strong><?php echo (L("event_scenery")); ?></strong></span></p>
-				<?php if(is_array($event["airports"])): $i = 0; $__LIST__ = $event["airports"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"> <?php echo ($vo["name"]); ?> (<?php echo ($vo["code"]); ?>)</p>
-					<p class="eventtext">
-						<?php if(is_array($vo['scenery'])): foreach($vo['scenery'] as $k=>$sub): ?><a href="<?php echo ($sub); ?>" rel="nofollow external"><?php echo ($k); ?></a>&nbsp;<?php endforeach; endif; ?>
-					</p>
-					<?php if($vo["remark"] != null): ?><p class="eventtext"><strong><?php echo ($vo["remark"]); ?></strong></p><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-				<br />
-				<br />
-				<?php if(is_array($event["divisions"])): $i = 0; $__LIST__ = $event["divisions"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><span class="eventfont"><?php echo ($vo["remark"]); ?></span></p><?php endforeach; endif; else: echo "" ;endif; ?>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="well">
-			<a href="/Index/index"><button type="button" class="btn-block btn btn-lg btn-default"><?php echo (L("back")); echo (L("home")); ?></button></a><br>
+			<p class="eventtext"><strong><?php echo (L("event_starttime")); ?> : </strong> <span class="label label-primary"><?php echo ($event["starttime"]); ?></span></p><br>
+                  		<p class="eventtext"><strong><?php echo (L("event_endtime")); ?> : </strong> <span class="label label-primary"><?php echo ($event["endtime"]); ?></span></p><br>
+                  		<p class="eventtext"><strong><?php echo (L("event_status")); ?> : </strong> <?php echo L('event_status_'.$event['status']);?></p><br>
+                  		<p class="eventtext"><strong><?php echo (L("post_type")); ?> : </strong> <span class="label label-info"><?php echo L('post_type_'.$event['type']);?></span></p><br>
+                  		<p class="eventtext"><strong><?php echo (L("event_author")); ?> : </strong> <span class="label label-default"><?php echo ($event["author"]); ?></span></p><hr>
+			<a href="/Index/index" class="btn-block btn btn-lg btn-default" onclick="reindex();"><?php echo (L("back")); echo (L("home")); ?></a><br>
 			<button type="button" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></button>
 			<?php if($user["group"] >= 2): ?><button type="button" class="btn-block btn btn-lg btn-success"><?php echo (L("booking_controller")); ?></button><?php endif; ?>
 		</div>

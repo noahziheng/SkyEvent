@@ -37,9 +37,9 @@ class UserController extends Controller {
             if ($_POST['pass'] !== $_POST['repass']) {
                 $this->error(L("nosame"));
             }
-            $code = S("validate_code");
+            $code = F("validate_code");
             if (!$code) {
-                S("validate_code","VATPRC12138");
+                F("validate_code","VATPRC12138");
                 $code = "VATPRC12138";
             }
             if (strtoupper($_POST['code']) !== $code) {
@@ -66,11 +66,6 @@ class UserController extends Controller {
                 }else {
                     $data['group'] = 1;
                 }
-                $data['country'] = $data['origin']['country'];
-                $data['division'] = $data['origin']['division'];
-                $data['reg_date'] = $data['origin']['reg_date'];
-                $data['region'] = $data['origin']['region'];
-                unset($data['origin']);
                 S("validate_".$data['id'],$data);
                 $this->assign('data',$data);
                 $hu['group'] = L('usergroup_'.$data['group']);
@@ -87,11 +82,6 @@ class UserController extends Controller {
     {
         $data = S($_POST['data']);
         S($_POST['data'],null);
-        $con['code'] = $data['country'];
-        $data['country'] = M('countrys')->where($con)->getField('id');
-        unset($con);
-        $con['name'] = strtolower($data['division']);
-        $data['division'] = M('divisions')->where($con)->getField('id');
         $User = D("User");
         $res = $User->data($data)->add();
         if (!$res) {

@@ -13,35 +13,52 @@ var detail = {"cn":"","us":""};
 var routeid = 1;
 var routelist = new Array();
 $("#submit-btn").click(function() {
-	var starttime = human2unix("start");
-	var endtime = human2unix("end");
-	//alert($("input[name='language']:checked").val() + "\n" + $("input[name='type']:checked").val());
-	//alert($("#post_title").val());
+	var tmp_lang = lang.substr(lang.length-2,2);
+	var tmp_title = $("#post_title");
+	var tmp_detail = $("#ckeditor_standard");
+	eval("title."+tmp_lang+" = tmp_title.val();");
+	eval("detail."+tmp_lang+" = tmp_detail.val();");
+	var fdata = {
+		type : $("input[name='type']:checked").val(),
+		title : title,
+		detail : detail,
+		banner : $("#post_banner").val(),
+		starttime : human2unix("start"),
+		endtime : human2unix("end"),
+		route : JSON.stringify(routelist),
+	};
+	$.post(p_rooturl+"Event/submit",fdata,function(data,status){
+		if (status != 'success') {
+			alert(data);
+		}else{
+			if (data == '1') {
+				alert('Error Code 1!');
+			}else if (data == '0'){
+				alert('Success!Waiting for publish....');
+				$.cookie('page', '', { expires: -1 });
+				location.reload(true);
+			}else{
+				alert('Error Code 0 !');
+			};
+		};
+	});
 });
 $("#route_add").click(function() {
-	var dep = $("#post_route_dep").val();
-	var arr = $("#post_route_arr").val();
-	var route = $("#post_route").val();
-	if (dep == '') {
-		alert("Please enter departure airport!");
-	}else if (arr == '') {
-		alert("Please enter arrival airport!");
+	var airport = $("#post_route_dep").val().toUpperCase()+" - "+$("#post_route_arr").val().toUpperCase();
+	var route = $("#post_route").val().toUpperCase();
+	if (airport == ' - ') {
+		alert("Please enter departure and arrival airport!");
 	}else if (route == '') {
 		alert("Please enter route!");
 	}else{
-		$("tbody").append("<tr><th scope=\"row\">" + routeid +"</th><td>" + dep + "</td><td>" + arr + "</td><td>" + route + "</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
-		routelist[routeid] = {"dep":dep,"arr":arr,"route":route};
+		$("tbody").append("<tr id=\"rte-"+routeid+"\"><th scope=\"row\">"+routeid+"</th><td>"+airport+"</td><td>"+route+"</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
+		routelist.push([airport,route]);
 		routeid = routeid + 1;
 	};
 });
-$(".choose-btn").click(function() {
-	var data = $(this).attr("data");
-	$("#chooseModalLabel").append(data);
-	$("#choose-body").load(p_rooturl+"Admin/"+data);
-});
 function delete_rte (obj){
 	$(obj).parent().parent().remove();
-	routelist.splice(Number($(obj).attr("data")),1);
+	routelist.splice(Number($(obj).attr("data"))-1,1);
 }
 function human2unix(status) {
     //功能：把日期转为unix时间戳

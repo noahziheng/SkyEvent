@@ -20,42 +20,23 @@
 				</volist>
 				<br/>
 				<p class="eventtext">
-				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span><br/>
+				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span><br/></p></span>
 				<volist name="event.route" id="vo" >
-					<em>{$vo.0}</em></span></p>
+					<p class="eventtext"><em>{$vo.0}</em></p>
 					<div class="eventtext">{$vo.1}</div>
 					<br/>
-				</volist>
-				<p class="eventtext"><span class="eventfont"><strong><span class="eventtextred">{$Think.lang.event_charts}</span></strong></p>
-				<volist name="event.country" id="vo" >
-					<volist name="vo['charts']" id="sub">
-					<p class="eventtext"><a href="{$sub.href}" rel="nofollow external">{$sub.name}</a>&nbsp;({$sub.remark})</span></p>
-					<br/>
-					</volist>
-				</volist>
-				<p class="eventtext"><span class="eventtextred"><strong>{$Think.lang.event_scenery}</strong></span></p>
-				<volist name="event.airports" id="vo">
-					<p class="eventtext"> {$vo.name} ({$vo.code})</p>
-					<p class="eventtext">
-						<foreach name="vo['scenery']" item="sub" key="k">
-							<a href="{$sub}" rel="nofollow external">{$k}</a>&nbsp;
-						</foreach>
-					</p>
-					<if condition="$vo.remark neq null">
-						<p class="eventtext"><strong>{$vo.remark}</strong></p>
-					</if>
-				</volist>
-				<br />
-				<br />
-				<volist name="event.divisions" id="vo" >
-					<p class="eventtext"><span class="eventfont">{$vo.remark}</span></p>
 				</volist>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="well">
-			<a href="/Index/index"><button type="button" class="btn-block btn btn-lg btn-default">{$Think.lang.back}{$Think.lang.home}</button></a><br>
+			<p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$event.starttime}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$event.endtime}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_status} : </strong> {:L('event_status_'.$event['status'])}</p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.post_type} : </strong> <span class="label label-info">{:L('post_type_'.$event['type'])}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_author} : </strong> <span class="label label-default">{$event.author}</span></p><hr>
+			<a href="/Index/index" class="btn-block btn btn-lg btn-default" onclick="reindex();">{$Think.lang.back}{$Think.lang.home}</a><br>
 			<button type="button" class="btn-block btn btn-lg btn-primary">{$Think.lang.booking_flight}</button>
 			<if condition="$user.group egt 2">
 				<button type="button" class="btn-block btn btn-lg btn-success">{$Think.lang.booking_controller}</button>

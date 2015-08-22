@@ -9,18 +9,6 @@ class IndexController extends Controller {
     		$user['group'] = -1;
     	}
     	$this->assign('user',$user);
-    	$announce = M("Announcement")->select();
-    	foreach ($announce as $key => $a) {
-    		$a['content'] = json_decode($a['content'],true);
-    		foreach ($a['content'] as $k => $value) {
-    			if ($k == LANG_SET) {
-    				$a['content'] = $value;
-    				break;
-    			}
-    		}
-    		$announce[$key] = $a;
-    	}
-    	$this->assign('announce',$announce);
     	$event = D('Event')->getAll();
     	$this->assign('event',$event);
     	$this->display();

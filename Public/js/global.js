@@ -1,4 +1,5 @@
 function body_redirect (url) {
+	$.cookie('page',url);
 	url = p_rooturl+url;
 	$.get(url,function(data,status){
 		if (status != 'success') {
@@ -22,3 +23,6 @@ $(".body-btn").click(function(event) {
 	var url = $(this).attr("data");
 	body_redirect(url);
 });
+function reindex(){
+	$.cookie('page', '', { expires: -1 });
+}

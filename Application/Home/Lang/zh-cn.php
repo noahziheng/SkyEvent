@@ -32,6 +32,9 @@ return  array(
 	'success' => '成功！',
 	'error' => '失败！请重试',
 	'doconfirm' => '你确定要',
+	'manage' => '管理',
+	'user' => '用户',
+	'save' => '保存',
 	//SkyEvent用户组
 	'usergroup_-2' => '禁止访问用户',
 	'usergroup_-1' => '游客',

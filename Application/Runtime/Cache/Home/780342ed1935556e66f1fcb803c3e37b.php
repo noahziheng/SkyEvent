@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><div class="alert alert-success" role="alert">Success !</div>

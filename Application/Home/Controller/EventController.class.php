@@ -24,9 +24,40 @@ class EventController extends Controller {
     	$this->display();
     }
 
-    public function edit()
+    public function edit($id)
     {
-    	# code...
+    	if (!session('?user') OR !IS_AJAX) {
+    		$this->error("Bad Request!");
+    	}
+    	$user = session('user');
+    	if ($user['group'] < 1) {
+    		$this->error("Bad Request!");
+    	}
+    	if (!IS_POST) {
+    		date_default_timezone_set('UTC');
+	    	$event = M("Event")->find($id);
+	    	$event['title'] = json_decode($event['title'],true);
+	    	$event['detail'] = json_decode($event['detail'],true);
+	    	$event['route'] = json_decode($event['route'],true);
+    		$event['charts'] = json_decode($event['charts']);
+	    	$this->assign('event',$event);
+	    	$this->assign('id',$id);
+	    	$this->display();
+    	}else{
+    		$data = $_POST;
+    		$tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
+    		$tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
+    		$tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
+    		$tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
+    		$data['title'] = json_encode($tmp['title']);
+    		$data['detail'] = json_encode($tmp['detail']);
+    		$res = M('Event')->save($data);
+    		if(!$res){
+    			echo 1;
+    		}else{
+    			echo 0;
+    		}
+    	}
     }
 
     public function delete($id)
@@ -60,7 +91,20 @@ class EventController extends Controller {
     	if ($user['group'] < 1) {
     		$this->error("Bad Request!");
     	}
-    	dump($_POST);
+    	$data = $_POST;
+    	$tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
+    	$tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
+    	$tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
+    	$tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
+    	$data['title'] = json_encode($tmp['title']);
+    	$data['detail'] = json_encode($tmp['detail']);
+    	$data['author'] = $user['id'];
+    	$res = M('Event')->add($data);
+    	if(!$res){
+    		echo 1;
+    	}else{
+    		echo 0;
+    	}
     }
 
     public function admin()

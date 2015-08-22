@@ -17,9 +17,11 @@ return array(
 	'post_country' => '参与国家',
 	'post_division' => '参与分部',
 	'post_route' => '活动航路',
-	'post_choose' => '从素材库中选取',
+	'post_charts' => '航图',
 	'admin_publish' => '发布',
 	'admin_edit' => '编辑',
 	'admin_del' => '删除',
+	'admin_remove' => '移除',
 	'admin_unpublish' => '撤下',
+	'admin_booking' => '预定管理',
 );

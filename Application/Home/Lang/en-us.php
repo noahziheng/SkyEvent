@@ -32,6 +32,9 @@ return  array(
 	'success' => 'Success！',
 	'error' => 'Failed! Please Re-try.',
 	'doconfirm' => 'Do you confirm to',
+	'manage' => 'Manage',
+	'user' => 'User',
+	'save' => 'Save',
 	//SkyEvent usergroup
 	'usergroup_-2' => 'Banned member',
 	'usergroup_-1' => 'Guest',
@@ -61,4 +64,6 @@ return  array(
 	'event_status_2' => '<span class="label label-warning">Outdate</span>',
 	'event_status_3' => '<span class="label label-success">Preparing</span>',
 	'event_status_4' => '<span class="label label-info">Active</span>',
+	'event_starttime' => 'Start Time',
+	'event_endtime' => 'End Time',
 );

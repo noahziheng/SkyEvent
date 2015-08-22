@@ -1,19 +1,37 @@
+<script type="text/javascript">var eid = {$id};</script>
 <form class="form-horizontal">
 	<div class="form-group">
 		<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
 		<div class="col-sm-10">
 			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-primary <if condition="$user.group elt 2">active</if>">
-	<input type="radio" name="type" autocomplete="off" value="1" <if condition="$user.group elt 2">checked</if>> {$Think.lang.post_type_1}
+				<label class="btn btn-primary <if condition="$event.type eq 1">active</if>">
+					<input type="radio" name="type" autocomplete="off" value="1" <if condition="$event.type eq 1">checked</if>> {$Think.lang.post_type_1}
 				</label>
-				<if condition="$user.group gt 2">
-	<label class="btn btn-primary  <if condition="$user.group egt 3">active</if>">
-		<input type="radio" name="type" autocomplete="off" value="2" <if condition="$user.group egt 3">checked</if>> {$Think.lang.post_type_2}
-	</label>
-	<label class="btn btn-primary">
-		<input type="radio" name="type" autocomplete="off" value="3"> {$Think.lang.post_type_3}
-	</label>
-				</if>
+				<label class="btn btn-primary  <if condition="$event.type eq 2">active</if>">
+					<input type="radio" name="type" autocomplete="off" value="2" <if condition="$event.type eq 2">checked</if>> {$Think.lang.post_type_2}
+				</label>
+				<label class="btn btn-primary <if condition="$event.type eq 3">active</if>">
+					<input type="radio" name="type" autocomplete="off" value="3" <if condition="$event.type eq 3">checked</if>> {$Think.lang.post_type_3}
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="post_type" class="col-sm-2 control-label">{$Think.lang.event_status}</label>
+		<div class="col-sm-10">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-primary <if condition="$event.status eq 1">active</if>">
+					<input type="radio" name="status" autocomplete="off" value="1" <if condition="$event.status eq 1">checked</if>> {$Think.lang.event_status_1}
+				</label>
+				<label class="btn btn-primary  <if condition="$event.status eq 2">active</if>">
+					<input type="radio" name="status" autocomplete="off" value="2" <if condition="$event.status eq 2">checked</if>> {$Think.lang.event_status_2}
+				</label>
+				<label class="btn btn-primary <if condition="$event.status eq 3">active</if>">
+					<input type="radio" name="status" autocomplete="off" value="3" <if condition="$event.status eq 3">checked</if>> {$Think.lang.event_status_3}
+				</label>
+				<label class="btn btn-primary <if condition="$event.status eq 4">active</if>">
+					<input type="radio" name="status" autocomplete="off" value="4" <if condition="$event.status eq 4">checked</if>> {$Think.lang.event_status_4}
+				</label>
 			</div>
 		</div>
 	</div>
@@ -36,30 +54,30 @@
 	<div class="form-group">
 		<label for="post_title" class="col-sm-2 control-label">{$Think.lang.post_title}</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="post_title" autofocus>
+			<input type="text" class="form-control" id="post_title" value="{:$event['title'][LANG_SET]}" autofocus>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="post_banner" class="col-sm-2 control-label">{$Think.lang.post_banner}</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="post_banner">
+			<input type="text" class="form-control" id="post_banner" value="{$event.banner}" >
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="ckeditor_standard" class="col-sm-2 control-label">{$Think.lang.post_detail}</label>
 		<div class="col-sm-10">
-			<textarea id="ckeditor_standard"></textarea>
+			<textarea id="ckeditor_standard">{:$event['detail'][LANG_SET]}</textarea>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="post_time" class="col-sm-2 control-label">{$Think.lang.event_starttime}</label>
 		<div class="col-sm-3">
-			<input type="text" class="form-control" id="post_starttime_year" placeholder="2015" required><input type="text" class="form-control" id="post_starttime_month" placeholder="01" required><input type="text" class="form-control" id="post_starttime_day" placeholder="01" required><input type="text" class="form-control" id="post_starttime_time" placeholder="1200(UTC)" required>
+			<input type="text" class="form-control" id="post_starttime_year" value="{:date('Y',$event['starttime'])}" placeholder="2015" required><input type="text" class="form-control" id="post_starttime_month" value="{:date('m',$event['starttime'])}" placeholder="01" required><input type="text" class="form-control" id="post_starttime_day" value="{:date('d',$event['starttime'])}" placeholder="01" required><input type="text" class="form-control" id="post_starttime_time" value="{:date('Hi',$event['starttime'])}" placeholder="1200(UTC)" required>
 		</div>
 		<label for="post_time" class="col-sm-2 control-label">{$Think.lang.event_endtime}</label>
 		<div class="col-sm-3">
 			<div class="row">
-				<input type="text" class="form-control" id="post_endtime_year" placeholder="2015" required><input type="text" class="form-control" id="post_endtime_month" placeholder="01" required><input type="text" class="form-control" id="post_endtime_day" placeholder="01" required><input type="text" class="form-control" id="post_endtime_time" placeholder="1200(UTC)" required>
+				<input type="text" class="form-control" id="post_endtime_year" value="{:date('Y',$event['endtime'])}" placeholder="2015" required><input type="text" class="form-control" id="post_endtime_month" value="{:date('m',$event['endtime'])}" placeholder="01" required><input type="text" class="form-control" id="post_endtime_day" value="{:date('d',$event['endtime'])}" placeholder="01" required><input type="text" class="form-control" id="post_endtime_time" value="{:date('Hi',$event['endtime'])}" placeholder="1200(UTC)" required>
 			</div>
 		</div>
 	</div>
@@ -80,58 +98,52 @@
 		<div class="row">
 			<div class="col-md-10 col-md-offset-2">
 				<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Depature</th>
-			<th>Arrival</th>
-			<th>Route</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-	</tbody>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Aiport</th>
+							<th>Route</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="edit-tbody">
+						<script>
+							var routelist = new Array();
+							var routeid = 1;
+						</script>
+						<volist name="event['route']" id="vo" key="k">
+							<tr id="rte-{$k}">
+								<th scope="row">{$k}</th>
+								<td>{$vo.0}</td>
+								<td>{$vo.1}</td>
+								<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_rte(this);" data="{$k}">{$Think.lang.admin_del}</button></td>
+							</tr>
+							<script>
+								routelist.push(["{$vo.0}","{$vo.1}"]);
+								routeid = routeid+1;
+							</script>
+						</volist>
+					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-	<div class="form-group">
-		<label for="post_airport" class="col-sm-2 control-label">{$Think.lang.event_airport}</label>
-		<div class="col-sm-2">
-			<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="airport">{$Think.lang.post_choose}</button>
-		</div>
-		<label for="post_country" class="col-sm-2 control-label">{$Think.lang.post_country}</label>
-		<div class="col-sm-2">
-			<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="country">{$Think.lang.post_choose}</button>
-		</div>
-		<label for="post_division" class="col-sm-2 control-label">{$Think.lang.post_division}</label>
-		<div class="col-sm-2">
-			<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="division">{$Think.lang.post_choose}</button>
-		</div>
-	</div>
-	<div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary btn-block" id="submit-btn">{$Think.lang.submit}</button></div>
 </form>
 
 
 <script src="{$Think.const.ROOT_URL}Public/js/ckeditor/ckeditor.js"></script>
 <script src="{$Think.const.ROOT_URL}Public/js/ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+	var title = {"cn":"","us":''};
+	var detail = {"cn":"","us":''};
+	var charts = {"cn":"","us":''};
+	title.cn = '{$event.title.zh-cn}';
+	title.us = '{$event.title.en-us}';
+	detail.cn = '{$event.detail.zh-cn}';
+	detail.us = '{$event.detail.en-us}';
+	var chartslist = new Array();
+	<volist name="charts['checked']" id="sub">
+	chartslist.push({$sub.id});
+	</volist>
+</script>
 <script src="{$Think.const.ROOT_URL}Public/js/edit.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="chooseModal" tabindex="-1" role="dialog" aria-labelledby="chooseModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="chooseModalLabel">{$Think.lang.post_choose} - </h4>
-      </div>
-      <div class="modal-body" id="choose-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-        <button type="button" class="btn btn-primary">{$Think.lang.confirm}</button>
-      </div>
-    </div>
-  </div>
-</div>

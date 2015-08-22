@@ -13,7 +13,6 @@
 						<th>{$Think.lang.post_type}</th>
 						<th>{$Think.lang.event_status}</th>
 						<th>{$Think.lang.event_author}</th>
-						<th>{$Think.lang.post_country}</th>
 						<th>{$Think.lang.action}</th>
 					</tr>
 				</thead>
@@ -25,16 +24,16 @@
 							<td><span class="label label-info">{$event['type']}</span></td>
 							<td>{$event.status}</td>
 							<td>{$event.author}</td>
-							<td><volist name="event['country']" id="v"><img src="{$Think.const.ROOT_URL}Public/images/lang/{$v}.png">&nbsp;</volist></td>
 							<td>
-								<button type="button" class="btn btn-default btn-sm">booking管理</button>
+								<button type="button" class="btn btn-default btn-sm">{$Think.lang.admin_booking}</button>
 								<if condition="$event.statusid neq '1'">
 									<a href="/Event/unpublish/{$event.id}" class="btn btn-warning btn-sm">{$Think.lang.admin_unpublish}</a>
 								<else />
 									<a href="/Event/publish/{$event.id}" class="btn btn-success btn-sm">{$Think.lang.admin_publish}</a>
 								</if>
-								<button type="button" class="btn btn-default btn-sm">{$Think.lang.admin_edit}</button>
-								<button type="button" class="btn btn-danger btn-sm"  onclick="confirm('{$Think.lang.admin_del}',{$event.id},'del')">{$Think.lang.admin_del}</button></td>
+								<a href="#" class="btn btn-default btn-sm" onclick="editModal({$event.id});">{$Think.lang.admin_edit}</a>
+								<a href="#" class="btn btn-danger btn-sm"  onclick="confirm('{$Think.lang.admin_del}',{$event.id},'del')">{$Think.lang.admin_del}</a>
+							</td>
 						</tr>
 					</volist>
 				</tbody>
@@ -46,23 +45,23 @@
 
 <script src="{$Think.const.ROOT_URL}Public/js/ckeditor/ckeditor.js"></script>
 <script src="{$Think.const.ROOT_URL}Public/js/ckeditor/adapters/jquery.js"></script>
-<script src="{$Think.const.ROOT_URL}Public/js/global.js" type="text/javascript" charset="utf-8"></script>
 <script src="{$Think.const.ROOT_URL}Public/js/eventadmin.js" type="text/javascript" charset="utf-8"></script>
+<script src="{$Think.const.ROOT_URL}Public/js/global.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Modal -->
-<div class="modal fade" id="chooseModal" tabindex="-1" role="dialog" aria-labelledby="chooseModalLabel">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="chooseModalLabel">{$Think.lang.post_choose} - </h4>
+        <h4 class="modal-title" id="editModalLabel">{$Think.lang.admin_edit}</h4>
       </div>
-      <div class="modal-body" id="choose-body">
+      <div class="modal-body" id="edit-body">
         ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-        <button type="button" class="btn btn-primary">{$Think.lang.confirm}</button>
+        <button type="button" class="btn btn-primary" onclick="edit();">{$Think.lang.confirm}</button>
       </div>
     </div>
   </div>

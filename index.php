@@ -15,7 +15,7 @@
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 
 if (defined('IS_SAE')) {
-	define('ROOT_URL', 'http://skyevent.sinaapp.com/');
+	define('ROOT_URL', 'http://2.skyevent.sinaapp.com/');
 }else{
 	define('ROOT_URL', '/');
 }

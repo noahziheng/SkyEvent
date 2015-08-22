@@ -30,3 +30,7 @@ function confirmClose (){
 	$("#confirm-body").html(bak_body);
 	$("#confirmModal").modal('toggle');
 }
+function editModal(id){
+	$("#edit-body").load(p_rooturl+"Event/edit/"+id);
+	$("#editModal").modal('toggle');
+}

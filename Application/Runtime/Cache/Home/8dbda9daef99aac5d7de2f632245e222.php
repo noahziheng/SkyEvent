@@ -86,8 +86,7 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Depature</th>
-											<th>Arrival</th>
+											<th>Aiport</th>
 											<th>Route</th>
 											<th>Action</th>
 										</tr>
@@ -96,20 +95,6 @@
 									</tbody>
 								</table>
 							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="post_airport" class="col-sm-2 control-label"><?php echo (L("event_airport")); ?></label>
-						<div class="col-sm-2">
-							<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="airport"><?php echo (L("post_choose")); ?></button>
-						</div>
-						<label for="post_country" class="col-sm-2 control-label"><?php echo (L("post_country")); ?></label>
-						<div class="col-sm-2">
-							<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="country"><?php echo (L("post_choose")); ?></button>
-						</div>
-						<label for="post_division" class="col-sm-2 control-label"><?php echo (L("post_division")); ?></label>
-						<div class="col-sm-2">
-							<button type="button" class="btn btn-default btn-block choose-btn" data-toggle="modal" data-target="#chooseModal" data="division"><?php echo (L("post_choose")); ?></button>
 						</div>
 					</div>
 					<div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary btn-block" id="submit-btn"><?php echo (L("submit")); ?></button></div>
@@ -123,22 +108,3 @@
 <script src="<?php echo (ROOT_URL); ?>Public/js/ckeditor/ckeditor.js"></script>
 <script src="<?php echo (ROOT_URL); ?>Public/js/ckeditor/adapters/jquery.js"></script>
 <script src="<?php echo (ROOT_URL); ?>Public/js/post.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="chooseModal" tabindex="-1" role="dialog" aria-labelledby="chooseModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="chooseModalLabel"><?php echo (L("post_choose")); ?> - </h4>
-      </div>
-      <div class="modal-body" id="choose-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo (L("close")); ?></button>
-        <button type="button" class="btn btn-primary"><?php echo (L("confirm")); ?></button>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,3 +1,4 @@
+var lang = p_lang;
 $(function() {
 	// Ckeditor standard
 	$( 'textarea#ckeditor_standard' ).ckeditor({width:'98%', height: '150px', toolbar: [
@@ -5,43 +6,66 @@ $(function() {
 		[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
 	]});
+	$( 'textarea#charts_editor' ).ckeditor({width:'98%', height: '150px', toolbar: [
+		{ name: 'document', items: [ 'Source', '-', 'NewPage', 'Preview', '-', 'Templates' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
+		[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
+	]});
 	$("#post_title").focus();
 });
-var lang = p_lang;
-var title = {"cn":"","us":""};
-var detail = {"cn":"","us":""};
-var routeid = 1;
-var routelist = new Array();
-$("#submit-btn").click(function() {
-	var starttime = human2unix("start");
-	var endtime = human2unix("end");
-	//alert($("input[name='language']:checked").val() + "\n" + $("input[name='type']:checked").val());
-	//alert($("#post_title").val());
-});
+function edit() {
+	var tmp_lang = lang.substr(lang.length-2,2);
+	var tmp_title = $("#post_title");
+	var tmp_detail = $("#ckeditor_standard");
+	var tmp_charts = $("#charts_editor");
+	eval("title."+tmp_lang+" = tmp_title.val();");
+	eval("detail."+tmp_lang+" = tmp_detail.val();");
+	eval("charts."+tmp_lang+" = tmp_charts.val();");
+	var fdata = {
+		id : eid,
+		type : $("input[name='type']:checked").val(),
+		status : $("input[name='status']:checked").val(),
+		title : title,
+		detail : detail,
+		charts : charts,
+		banner : $("#post_banner").val(),
+		starttime : human2unix("start"),
+		endtime : human2unix("end"),
+		route : JSON.stringify(routelist),
+	};
+	console.log(fdata);
+	$.post(p_rooturl+"Event/edit/"+fdata.id,fdata,function(data,status){
+		if (status != 'success') {
+			alert(data);
+		}else{
+			if (data == '1') {
+				alert('Error Code 1!');
+			}else if (data == '0'){
+				location.reload(true);
+				$("#editModal").modal('toggle');
+			}else{
+				alert('Error Code 0 !');
+				$("#edit-body").html(data);
+			};
+		};
+	});
+};
 $("#route_add").click(function() {
-	var dep = $("#post_route_dep").val();
-	var arr = $("#post_route_arr").val();
-	var route = $("#post_route").val();
-	if (dep == '') {
-		alert("Please enter departure airport!");
-	}else if (arr == '') {
-		alert("Please enter arrival airport!");
+	var airport = $("#post_route_dep").val().toUpperCase()+" - "+$("#post_route_arr").val().toUpperCase();
+	var route = $("#post_route").val().toUpperCase();
+	if (airport == ' - ') {
+		alert("Please enter departure and arrival airport!");
 	}else if (route == '') {
 		alert("Please enter route!");
 	}else{
-		$("tbody").append("<tr><th scope=\"row\">" + routeid +"</th><td>" + dep + "</td><td>" + arr + "</td><td>" + route + "</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
-		routelist[routeid] = {"dep":dep,"arr":arr,"route":route};
+		$("#edit-tbody").append("<tr id=\"rte-"+routeid+"\"><th scope=\"row\">"+routeid+"</th><td>"+airport+"</td><td>"+route+"</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
+		routelist.push([airport,route]);
 		routeid = routeid + 1;
 	};
 });
-$(".choose-btn").click(function() {
-	var data = $(this).attr("data");
-	$("#chooseModalLabel").append(data);
-	$("#choose-body").load(p_rooturl+"Admin/"+data);
-});
 function delete_rte (obj){
 	$(obj).parent().parent().remove();
-	routelist.splice(Number($(obj).attr("data")),1);
+	routelist.splice(Number($(obj).attr("data"))-1,1);
 }
 function human2unix(status) {
     //功能：把日期转为unix时间戳
@@ -56,7 +80,7 @@ function human2unix(status) {
     return unixTimeStamp;
 } 
 function languagechange(obj) {
-	tmp_lang = lang.substr(lang.length-2,2);
+	var tmp_lang = lang.substr(lang.length-2,2);
 	console.log(eval("title."+tmp_lang));
 	var tmp_title = $("#post_title");
 	var tmp_detail = $("#ckeditor_standard");
