@@ -11,9 +11,9 @@ class EventController extends Controller {
     	$this->assign('event',$event);
     	$this->display();
     }
-    public function post()
+    public function post($id=0)
     {
-    	if (!session('?user') OR !IS_AJAX) {
+    	if (!session('?user')) {
     		$this->error("Bad Request!");
     	}
     	$user = session('user');
@@ -21,48 +21,54 @@ class EventController extends Controller {
     		$this->error("Bad Request!");
     	}
     	$this->assign('user',$user);
+              if ($id !== 0) {
+                  $this->assign('type',1);
+                  date_default_timezone_set('UTC');
+                  $event = M("Event")->find($id);
+                  $event['title'] = json_decode($event['title'],true);
+                  $event['detail'] = json_decode($event['detail'],true);
+                  $event['route'] = json_decode($event['route'],true);
+                  $this->assign('event',$event);
+                  $this->assign('id',$id);
+              }else{
+                  $this->assign('type',0);
+              }
     	$this->display();
     }
 
-    public function edit($id)
+    public function submit($id)
     {
-    	if (!session('?user') OR !IS_AJAX) {
-    		$this->error("Bad Request!");
-    	}
-    	$user = session('user');
-    	if ($user['group'] < 1) {
-    		$this->error("Bad Request!");
-    	}
-    	if (!IS_POST) {
-    		date_default_timezone_set('UTC');
-	    	$event = M("Event")->find($id);
-	    	$event['title'] = json_decode($event['title'],true);
-	    	$event['detail'] = json_decode($event['detail'],true);
-	    	$event['route'] = json_decode($event['route'],true);
-    		$event['charts'] = json_decode($event['charts']);
-	    	$this->assign('event',$event);
-	    	$this->assign('id',$id);
-	    	$this->display();
-    	}else{
-    		$data = $_POST;
-    		$tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
-    		$tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
-    		$tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
-    		$tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
-    		$data['title'] = json_encode($tmp['title']);
-    		$data['detail'] = json_encode($tmp['detail']);
-    		$res = M('Event')->save($data);
-    		if(!$res){
-    			echo 1;
-    		}else{
-    			echo 0;
-    		}
-    	}
+        if (!session('?user') OR !IS_POST) {
+            $this->error('Bad Request');
+        }
+        $user = session('user');
+        if ($user['group'] < 1) {
+            $this->error("Bad Request!");
+        }
+        $data = $_POST;
+        $tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
+        $tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
+        $tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
+        $tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
+        $data['title'] = json_encode($tmp['title']);
+        $data['detail'] = json_encode($tmp['detail']);
+        if ($id !== '0') {
+            $data['id'] = $id;
+            $res = M('Event')->save($data);
+        }else{
+            $data['author'] = $user['id'];
+            $res = M('Event')->add($data);
+        }
+        if(!$res){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 
     public function delete($id)
     {
-    	if (!session('?user') OR !IS_AJAX) {
+    	if (!session('?user')) {
     		$this->error('Bad Request');
     	}
     	$user = session('user');
@@ -82,34 +88,9 @@ class EventController extends Controller {
     	# code...
     }
 
-    public function submit()
-    {
-    	if (!session('?user') OR !IS_POST) {
-    		$this->error('Bad Request');
-    	}
-    	$user = session('user');
-    	if ($user['group'] < 1) {
-    		$this->error("Bad Request!");
-    	}
-    	$data = $_POST;
-    	$tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
-    	$tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
-    	$tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
-    	$tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
-    	$data['title'] = json_encode($tmp['title']);
-    	$data['detail'] = json_encode($tmp['detail']);
-    	$data['author'] = $user['id'];
-    	$res = M('Event')->add($data);
-    	if(!$res){
-    		echo 1;
-    	}else{
-    		echo 0;
-    	}
-    }
-
     public function admin()
     {
-    	if (!session('?user') OR !IS_AJAX) {
+    	if (!session('?user')) {
     		$this->error("Bad Request!");
     	}
     	$user = session('user');

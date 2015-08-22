@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class AdminController extends Controller {
     public function index(){
-        if (!session('?user') OR !IS_AJAX) {
+        if (!session('?user')) {
             $this->show("<span style=\"font-size:48px;\"><strong>Bad Request!</strong></span>");
         }
         $user = session('user');
@@ -12,6 +12,7 @@ class AdminController extends Controller {
         }
         $users = D('User')->getAll();
         $this->assign('users',$users);
+        $this->assign('user',$user);
         $this->display();
     }
     public function usergroup(){
@@ -32,7 +33,7 @@ class AdminController extends Controller {
     }
 
     public function userdel($id){
-        if (!session('?user') OR !IS_AJAX) {
+        if (!session('?user')) {
             $this->show("<span style=\"font-size:48px;\"><strong>Bad Request!</strong></span>");
         }
         $user = session('user');

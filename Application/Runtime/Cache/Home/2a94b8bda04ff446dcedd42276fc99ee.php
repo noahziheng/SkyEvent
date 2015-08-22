@@ -79,41 +79,43 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="<?php echo (ROOT_URL); ?>Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
-                    <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
-                    <?php if($user["group"] >= 1): ?><li><a href="#post" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
-                    <?php if($user["group"] >= 3): ?><li><a href="#" class="nav-btn" data="Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
-                      <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
+                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
+                    <?php if($user["group"] >= 1): ?><li <?php if(ACTION_NAME == 'post' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li <?php if(ACTION_NAME == 'admin' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                      <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Admin'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
                 </ul>
              </div>
       </div>
-      <div id="body-content" class="col-md-10">
-      <div class="row">
-        <?php if($user["group"] == -1): ?><div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <div class="panel-title"><?php echo (L("welcome")); ?></div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <div class="col-md-10" id="page"><div class="row">
+  <?php if($user["group"] == -1): ?><div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title"><?php echo (L("welcome")); ?></div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
+              <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
             </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-                  <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
-                </div>
-                <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
-                <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></div>
-              </div>
-            </div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button><button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></div>
           </div>
-        </div><?php endif; ?>
+        </div>
       </div>
+    </div><?php endif; ?>
+</div>
 
-      <div class="row">
-        <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-md-12">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">
-                  <a class="body-btn" data="Event/view/<?php echo ($vo["id"]); ?>" style="cursor:pointer;"><?php echo ($vo["title"]); ?></a>&nbsp;<span class="label label-info"><?php echo L('post_type_'.$vo['type']);?></span>&nbsp;<?php echo L('event_status_'.$vo['status']);?>
+<div class="row">
+  <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                  <a href="<?php echo (ROOT_URL); ?>Event/view/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a>&nbsp;<span class="label label-info"><?php echo L('post_type_'.$vo['type']);?></span>&nbsp;<?php echo L('event_status_'.$vo['status']);?>
                 </div>
               </div>
               <div class="panel-body" style="height:auto;">
@@ -134,7 +136,7 @@
             </div>
           </div><?php endforeach; endif; else: echo "" ;endif; ?>
       </div>
-    </div>
+    </div></div>
   </div>
   </div>
 
@@ -147,13 +149,6 @@
             
          </div>
       </footer>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script src="<?php echo (ROOT_URL); ?>Public/js/index.js"></script>
-      <script src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
 
       <?php if (isset($user)){ ?>
       <!-- Modal -->

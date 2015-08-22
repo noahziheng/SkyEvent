@@ -1,130 +1,31 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>SkyEvent - Flight Simuate Event Manager</title>
-
-    <!-- Bootstrap -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{$Think.const.ROOT_URL}Public/css/styles.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
-    window.p_rooturl = "{$Think.const.ROOT_URL}";
-    window.p_lang = "{$Think.const.LANG_SET}";
-    </script>
-    </head>
-  <body>
-  <div class="header">
-       <div class="container">
+<div class="row">
+  <if condition="$user.group eq -1">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">{$Think.lang.welcome}</div>
+        </div>
+        <div class="panel-body">
           <div class="row">
-             <div class="col-md-6">
-                <!-- Logo -->
-                <div class="logo">
-                   <h1><a href="{$Think.const.ROOT_URL}Index/index" onclick="reindex();">SkyEvent</a><a href="http://www.vatprc.net"><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:130px;height:35px;"></a></h1>
-                </div>
-             </div>
-             <div class="col-md-4">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <if condition="$user.group eq -1">
-                           {$Think.lang.guest}
-                          <else />
-                          {:L('usergroup_'.$user['group'])} {$user.firstname} {$user.lastname}
-                          </if>
-                          <b class="caret"></b></a>
-                          <ul class="dropdown-menu animated fadeInUp">
-                            <if condition="$user.group eq -1">
-                              <li><a href="#" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</a></li>
-                              <li><a href="#" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</a></li>
-                            <else />
-                              <li><a href="#" class="nav-btn" data="Index/home" >{$Think.lang.dashborad}</a></li>
-                              <li><a href="/User/logout">{$Think.lang.logout}</a></li>
-                            </if>
-                          </ul>
-                        </li>
-                      </ul>
-                    </nav>
-                </div>
-             </div>
-             <div class="col-md-2">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">语言/Language<b class="caret"></b></a>
-                          <ul class="dropdown-menu animated fadeInUp">
-                            <li><a href="/?l=zh-cn"><img src="{$Think.const.ROOT_URL}Public/images/lang/cn.png"> 简体中文</a></li>
-                            <li><a href="/?l=en-us"><img src="{$Think.const.ROOT_URL}Public/images/lang/us.png"> English(United States)</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </nav>
-                </div>
-             </div>
-          </div>
-       </div>
-  </div>
-
-    <div class="page-content">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-                    <!-- Main menu -->
-                    <li class="current"><a href="{$Think.const.ROOT_URL}Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> {$Think.lang.home}</a></li>
-                    <li><a href="#" class="nav-btn" data="Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> {$Think.lang.calendar}</a></li>
-                    <if condition="$user.group egt 1">
-                      <li><a href="#post" class="nav-btn" data="Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
-                    </if>
-                    <if condition="$user.group egt 3">
-                      <li><a href="#" class="nav-btn" data="Event/admin" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
-                      <li><a href="#" class="nav-btn" data="Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
-                    </if>
-                </ul>
-             </div>
-      </div>
-      <div id="body-content" class="col-md-10">
-      <div class="row">
-        <if condition="$user.group eq -1">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <div class="panel-title">{$Think.lang.welcome}</div>
+            <div class="col-md-8">
+              <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
+              <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
             </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
-                  <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
-                </div>
-                <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
-                <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button></div>
-              </div>
-            </div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button><button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button></div>
           </div>
         </div>
-        </if>
       </div>
+    </div>
+  </if>
+</div>
 
-      <div class="row">
-        <volist name="event" id="vo">
-          <div class="col-md-12">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">
-                  <a class="body-btn" data="Event/view/{$vo.id}" style="cursor:pointer;">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}
+<div class="row">
+  <volist name="event" id="vo">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}
                 </div>
               </div>
               <div class="panel-body" style="height:auto;">
@@ -151,111 +52,3 @@
         </volist>
       </div>
     </div>
-  </div>
-  </div>
-
-    <footer>
-         <div class="container">
-         
-            <div class="copy text-center">
-               Copyright 2015 <a href='#'>SkyEvent</a>
-            </div>
-            
-         </div>
-      </footer>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script src="{$Think.const.ROOT_URL}Public/js/index.js"></script>
-      <script src="{$Think.const.ROOT_URL}Public/js/global.js"></script>
-
-      <php>if (isset($user)){</php>
-      <!-- Modal -->
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="{$Think.lang.close}"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="loginModalLabel">{$Think.lang.login}</h4>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/login">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="inputCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.password}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-              <button type="submit" class="btn btn-primary login-btn">{$Think.lang.login}</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="validateModal" tabindex="-1" role="dialog" aria-labelledby="validateModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="{$Think.lang.close}"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="validateModalLabel">{$Think.lang.validate}</h4>
-            </div>
-            <div class="modal-body">
-            <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
-            <button type="button" class="btn btn-primary btn-lg center-block"  disabled><img src="http://www.vatprc.net/media/images/vatsim.png" style="width:130px;height:35px"><br />SSO</button>
-            <hr>
-            <h5>{$Think.lang.validate_code}</h5>
-              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/validate">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="vCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.email}</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="vEmail" placeholder="{$Think.lang.email}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.password}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="vPassword" placeholder="{$Think.lang.password}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.repassword}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="repass" id="vRepassword" placeholder="{$Think.lang.repassword}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.validate_code}</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="code" id="vCode" placeholder="{$Think.lang.validate_code}" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-              <button type="submit" class="btn btn-primary">{$Think.lang.validate_p}</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <php>}</php>
-  </body>
-</html>

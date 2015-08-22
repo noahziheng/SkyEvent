@@ -1,3 +1,4 @@
+var lang = p_lang;
 $(function() {
 	// Ckeditor standard
 	$( 'textarea#ckeditor_standard' ).ckeditor({width:'98%', height: '150px', toolbar: [
@@ -7,12 +8,7 @@ $(function() {
 	]});
 	$("#post_title").focus();
 });
-var lang = p_lang;
-var title = {"cn":"","us":""};
-var detail = {"cn":"","us":""};
-var routeid = 1;
-var routelist = new Array();
-$("#submit-btn").click(function() {
+function edit() {
 	var tmp_lang = lang.substr(lang.length-2,2);
 	var tmp_title = $("#post_title");
 	var tmp_detail = $("#ckeditor_standard");
@@ -27,22 +23,31 @@ $("#submit-btn").click(function() {
 		endtime : human2unix("end"),
 		route : JSON.stringify(routelist),
 	};
-	$.post(p_rooturl+"Event/submit",fdata,function(data,status){
+	if (eid != 0) {
+		fdata.status = $("input[name='status']:checked").val();
+		var url = p_rooturl+"Event/submit/"+eid;
+	}else{
+		var url = p_rooturl+"Event/submit/0";
+	};
+	$.post(url,fdata,function(data,status){
 		if (status != 'success') {
 			alert(data);
 		}else{
 			if (data == '1') {
 				alert('Error Code 1!');
 			}else if (data == '0'){
-				alert('Success!Waiting for publish....');
-				$.cookie('page', '', { expires: -1 });
-				location.reload(true);
+				if (eid != 0) {
+					window.location.href=p_rooturl+'Event/admin';
+				}else{
+					window.location.href=p_rooturl+'Index/index';
+				};
 			}else{
 				alert('Error Code 0 !');
+				$("#page").html(data);
 			};
 		};
 	});
-});
+};
 $("#route_add").click(function() {
 	var airport = $("#post_route_dep").val().toUpperCase()+" - "+$("#post_route_arr").val().toUpperCase();
 	var route = $("#post_route").val().toUpperCase();
@@ -51,7 +56,7 @@ $("#route_add").click(function() {
 	}else if (route == '') {
 		alert("Please enter route!");
 	}else{
-		$("tbody").append("<tr id=\"rte-"+routeid+"\"><th scope=\"row\">"+routeid+"</th><td>"+airport+"</td><td>"+route+"</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
+		$("#edit-tbody").append("<tr id=\"rte-"+routeid+"\"><th scope=\"row\">"+routeid+"</th><td>"+airport+"</td><td>"+route+"</td><td><button type=\"button\" class=\"btn btn-danger btn-sm\" onclick=\"delete_rte(this);\" data=\""+routeid+"\">Delete</button></td></tr>");
 		routelist.push([airport,route]);
 		routeid = routeid + 1;
 	};
@@ -73,7 +78,7 @@ function human2unix(status) {
     return unixTimeStamp;
 } 
 function languagechange(obj) {
-	tmp_lang = lang.substr(lang.length-2,2);
+	var tmp_lang = lang.substr(lang.length-2,2);
 	console.log(eval("title."+tmp_lang));
 	var tmp_title = $("#post_title");
 	var tmp_detail = $("#ckeditor_standard");

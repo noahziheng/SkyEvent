@@ -20,7 +20,7 @@
 					<volist name="events" id="event">
 						<tr id="tr-{$event.id}">
 							<th scope="row">{$event.id}</th>
-							<td><a id="title-{$event.id}" class="body-btn" data="Event/view/{$event.id}" style="cursor:pointer;">{$event.title}</a></td>
+							<td><a id="title-{$event.id}" href="{$Think.const.ROOT_URL}Event/view/{$event.id}">{$event.title}</a></td>
 							<td><span class="label label-info">{$event['type']}</span></td>
 							<td>{$event.status}</td>
 							<td>{$event.author}</td>
@@ -31,7 +31,7 @@
 								<else />
 									<a href="/Event/publish/{$event.id}" class="btn btn-success btn-sm">{$Think.lang.admin_publish}</a>
 								</if>
-								<a href="#" class="btn btn-default btn-sm" onclick="editModal({$event.id});">{$Think.lang.admin_edit}</a>
+								<a href="{$Think.const.ROOT_URL}Event/post/{$event.id}" class="btn btn-default btn-sm">{$Think.lang.admin_edit}</a>
 								<a href="#" class="btn btn-danger btn-sm"  onclick="confirm('{$Think.lang.admin_del}',{$event.id},'del')">{$Think.lang.admin_del}</a>
 							</td>
 						</tr>

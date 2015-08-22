@@ -2,39 +2,82 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">{$Think.lang.newevent}</h3>
+				<h3 class="panel-title"><if condition="$type eq 1">{$Think.lang.admin_edit}<else />{$Think.lang.newevent}</if></h3>
 			</div>
 			<div class="panel-body">
+				<if condition="$type eq 1">
+					<script type="text/javascript">var eid = {$id};</script>
+				<else />
+					<script type="text/javascript">var eid = 0;</script>
+				</if>
 				<form class="form-horizontal">
+					<if condition="$type eq 1">
 					<div class="form-group">
 						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
 						<div class="col-sm-10">
 							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary <if condition="$user.group elt 2">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="1" <if condition="$user.group elt 2">checked</if>> {$Think.lang.post_type_1}
+								<label class="btn btn-primary <if condition="$event.type eq 1">active</if>">
+									<input type="radio" name="type" autocomplete="off" value="1" <if condition="$event.type eq 1">checked</if>> {$Think.lang.post_type_1}
 								</label>
-								<if condition="$user.group gt 2">
-									<label class="btn btn-primary  <if condition="$user.group egt 3">active</if>">
-										<input type="radio" name="type" autocomplete="off" value="2" <if condition="$user.group egt 3">checked</if>> {$Think.lang.post_type_2}
-									</label>
-									<label class="btn btn-primary">
-										<input type="radio" name="type" autocomplete="off" value="3"> {$Think.lang.post_type_3}
-									</label>
-								</if>
+								<label class="btn btn-primary  <if condition="$event.type eq 2">active</if>">
+									<input type="radio" name="type" autocomplete="off" value="2" <if condition="$event.type eq 2">checked</if>> {$Think.lang.post_type_2}
+								</label>
+								<label class="btn btn-primary <if condition="$event.type eq 3">active</if>">
+									<input type="radio" name="type" autocomplete="off" value="3" <if condition="$event.type eq 3">checked</if>> {$Think.lang.post_type_3}
+								</label>
 							</div>
 						</div>
 					</div>
+					<else />
+					<div class="form-group">
+						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
+						<div class="col-sm-10">
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary <if condition="$user.group lt 3">active</if>">
+									<input type="radio" name="type" autocomplete="off" value="1" <if condition="$user.group lt 3">checked</if>> {$Think.lang.post_type_1}
+								</label>
+								<label class="btn btn-primary  <if condition="$user.group egt 3">active</if>">
+									<input type="radio" name="type" autocomplete="off" value="2" <if condition="$user.group egt 3">checked</if>> {$Think.lang.post_type_2}
+								</label>
+								<label class="btn btn-primary">
+									<input type="radio" name="type" autocomplete="off" value="3"> {$Think.lang.post_type_3}
+								</label>
+							</div>
+						</div>
+					</div>
+					</if>
+					<if condition="$type eq 1">
+					<div class="form-group">
+						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.event_status}</label>
+						<div class="col-sm-10">
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary <if condition="$event.status eq 1">active</if>">
+									<input type="radio" name="status" autocomplete="off" value="1" <if condition="$event.status eq 1">checked</if>> {$Think.lang.event_status_1}
+								</label>
+								<label class="btn btn-primary  <if condition="$event.status eq 2">active</if>">
+									<input type="radio" name="status" autocomplete="off" value="2" <if condition="$event.status eq 2">checked</if>> {$Think.lang.event_status_2}
+								</label>
+								<label class="btn btn-primary <if condition="$event.status eq 3">active</if>">
+									<input type="radio" name="status" autocomplete="off" value="3" <if condition="$event.status eq 3">checked</if>> {$Think.lang.event_status_3}
+								</label>
+								<label class="btn btn-primary <if condition="$event.status eq 4">active</if>">
+									<input type="radio" name="status" autocomplete="off" value="4" <if condition="$event.status eq 4">checked</if>> {$Think.lang.event_status_4}
+								</label>
+							</div>
+						</div>
+					</div>
+					</if>
 					<div class="form-group">
 						<label for="post_lang" class="col-sm-2 control-label">{$Think.lang.post_lang}</label>
 						<div class="col-sm-10">
 							<div class="btn-group" data-toggle="buttons">
 								<if condition="LANG_SET neq 'en-us'">
-									<label class="btn btn-primary <if condition="LANG_SET neq 'en-us'">active</if>">
-										<input type="radio" name="language" autocomplete="off" onchange="languagechange(this);" value="zh-cn" <if condition="LANG_SET neq 'en-us'">checked</if>> 简体中文(zh-cn)
-									</label>
+					<label class="btn btn-primary <if condition="LANG_SET neq 'en-us'">active</if>">
+						<input type="radio" name="language" autocomplete="off" onchange="languagechange(this);" value="zh-cn" <if condition="LANG_SET neq 'en-us'">checked</if>> 简体中文(zh-cn)
+					</label>
 								</if>
 								<label class="btn btn-primary  <if condition="LANG_SET eq 'en-us'">active</if>">
-									<input type="radio" name="language" autocomplete="off" onchange="languagechange(this);" value="en-us" <if condition="LANG_SET eq 'en-us'">checked</if>> English(United States) (en-us)
+					<input type="radio" name="language" autocomplete="off" onchange="languagechange(this);" value="en-us" <if condition="LANG_SET eq 'en-us'">checked</if>> English(United States) (en-us)
 								</label>
 							</div>
 							<span id="helpBlock" class="help-block">{$Think.lang.post_lang_help}</span>
@@ -43,21 +86,35 @@
 					<div class="form-group">
 						<label for="post_title" class="col-sm-2 control-label">{$Think.lang.post_title}</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="post_title" autofocus>
+							<input type="text" class="form-control" id="post_title" value="<if condition="$type eq 1">{:$event['title'][LANG_SET]}</if>" autofocus>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="post_banner" class="col-sm-2 control-label">{$Think.lang.post_banner}</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="post_banner">
+							<input type="text" class="form-control" id="post_banner" value="<if condition="$type eq 1">{$event.banner}</if>" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="ckeditor_standard" class="col-sm-2 control-label">{$Think.lang.post_detail}</label>
 						<div class="col-sm-10">
-							<textarea id="ckeditor_standard"></textarea>
+							<textarea id="ckeditor_standard"><if condition="$type eq 1">{:$event['detail'][LANG_SET]}</if></textarea>
 						</div>
 					</div>
+					<if condition="$type eq 1">
+					<div class="form-group">
+						<label for="post_time" class="col-sm-2 control-label">{$Think.lang.event_starttime}</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="post_starttime_year" value="{:date('Y',$event['starttime'])}" placeholder="2015" required><input type="text" class="form-control" id="post_starttime_month" value="{:date('m',$event['starttime'])}" placeholder="01" required><input type="text" class="form-control" id="post_starttime_day" value="{:date('d',$event['starttime'])}" placeholder="01" required><input type="text" class="form-control" id="post_starttime_time" value="{:date('Hi',$event['starttime'])}" placeholder="1200(UTC)" required>
+						</div>
+						<label for="post_time" class="col-sm-2 control-label">{$Think.lang.event_endtime}</label>
+						<div class="col-sm-3">
+							<div class="row">
+								<input type="text" class="form-control" id="post_endtime_year" value="{:date('Y',$event['endtime'])}" placeholder="2015" required><input type="text" class="form-control" id="post_endtime_month" value="{:date('m',$event['endtime'])}" placeholder="01" required><input type="text" class="form-control" id="post_endtime_day" value="{:date('d',$event['endtime'])}" placeholder="01" required><input type="text" class="form-control" id="post_endtime_time" value="{:date('Hi',$event['endtime'])}" placeholder="1200(UTC)" required>
+							</div>
+						</div>
+					</div>
+					<else />
 					<div class="form-group">
 						<label for="post_time" class="col-sm-2 control-label">{$Think.lang.event_starttime}</label>
 						<div class="col-sm-3">
@@ -70,6 +127,7 @@
 							</div>
 						</div>
 					</div>
+					</if>
 					<div class="form-group">
 						<label for="post_route" class="control-label col-md-2">{$Think.lang.post_route}</label>
 						<div class="col-md-2">
@@ -95,14 +153,47 @@
 											<th>Action</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody id="edit-tbody">
+										<script>
+											var routelist = new Array();
+											var routeid = 1;
+										</script>
+										<if condition="$type eq 1">
+										<volist name="event['route']" id="vo" key="k">
+											<tr id="rte-{$k}">
+												<th scope="row">{$k}</th>
+												<td>{$vo.0}</td>
+												<td>{$vo.1}</td>
+												<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_rte(this);" data="{$k}">{$Think.lang.admin_del}</button></td>
+											</tr>
+											<script>
+												routelist.push(["{$vo.0}","{$vo.1}"]);
+												routeid = routeid+1;
+											</script>
+										</volist>
+										</if>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary btn-block" id="submit-btn">{$Think.lang.submit}</button></div>
+					<div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary btn-block" onclick="edit();">{$Think.lang.submit}</button></div>
 				</form>
+
+
+				<script src="{$Think.const.ROOT_URL}Public/js/ckeditor/ckeditor.js"></script>
+				<script src="{$Think.const.ROOT_URL}Public/js/ckeditor/adapters/jquery.js"></script>
+				<script type="text/javascript">
+					var title = {"cn":"","us":''};
+					var detail = {"cn":"","us":''};
+					var charts = {"cn":"","us":''};
+					<if condition="$type eq 1">
+					title.cn = '{$event.title.zh-cn}';
+					title.us = '{$event.title.en-us}';
+					detail.cn = '{$event.detail.zh-cn}';
+					detail.us = '{$event.detail.en-us}';
+					</if>
+				</script>
 			</div>
 		</div>
 	</div>
