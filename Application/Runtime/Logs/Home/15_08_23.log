@@ -8152,3 +8152,390 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000210s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000309s ]
 
+[ 2015-08-23T13:57:02+08:00 ] 127.0.0.1 /Admin/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000064s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000200s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `user`  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000096s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008946s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000076s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000063s ]
+
+[ 2015-08-23T13:57:04+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000106s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000049s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY endtime asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0008s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009077s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009132s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000041s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000057s ]
+
+[ 2015-08-23T13:57:04+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000073s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000128s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000207s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T05:57:08+00:00 ] 127.0.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000063s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000451s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `event` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000073s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013310s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013360s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000044s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000071s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000059s ]
+
+[ 2015-08-23T13:57:14+08:00 ] 127.0.0.1 /Event/submit/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000060s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"Tour of China 2015 & \\u73af\\u4e2d\\u56fd 2015 \\u8d35\\u9633 - \\u4e09\\u4e9a\",\"en-us\":\"Tour of China 2015 Leg10: Guiyang - Sanya\"}',`detail`='{\"zh-cn\":\"\\u672c\\u5468\\u73af\\u4e2d\\u56fd\\u6211\\u4eec\\u5c06\\u98de\\u5411\\u4e2d\\u56fd\\u6700\\u5357\\u7aef\\u65c5\\u6e38\\u57ce\\u5e02\\u9e7f\\u57ce\\u4e09\\u4e9a\\uff01\",\"en-us\":\"Have you participated our \\\"Tour of China 2014\\\" event last year? VATPRC is pround to announce \\\"Tour of China 2015\\\" this year. During the four months, we will take you around China and show you the diverse landscapes of the country.<br \\/><br \\/>This week, we will continue our tour to Sanya, the southern most tourist city of China. Come and fly with us on this Saturday, August 22nd, with full ATC coverage at both airports. We are looking forward to seeing you on the scope!\"}',`banner`='http://forum.vatprc.net/uploads/monthly_08_2015/post-577-0-56088900-1439629176.png',`starttime`='1440244800',`endtime`='1440259200',`route`='[[\"ZUGY - ZJSY\",\"ESNIB B330 MAMSI R343 WUY R339 BHY W70 NYB G221 GIVIL\"]]',`status`='3' WHERE `id` = 2 [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000129s ]
+
+[ 2015-08-23T13:57:14+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000098s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000406s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY endtime asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0008s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012036s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012291s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000044s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000086s ]
+
+[ 2015-08-23T13:57:14+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000115s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000061s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000222s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T13:57:16+08:00 ] 127.0.0.1 /Event/view/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000071s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000054s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `event` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0006s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+NOTIC: [8] Undefined index: airports /home/noah/Develop/skyevent/dev/Application/Runtime/Cache/Home/87f41412856adf9b77e4c4138ecc897f.php 第 110 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009598s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000097s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000043s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000086s ]
+
+[ 2015-08-23T05:57:21+00:00 ] 127.0.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000077s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000054s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `event` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000152s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014326s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014373s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000044s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000071s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000060s ]
+
+[ 2015-08-23T13:57:27+08:00 ] 127.0.0.1 /Event/submit/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000115s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"Tour of China 2015 & \\u73af\\u4e2d\\u56fd 2015 \\u8d35\\u9633 - \\u4e09\\u4e9a\",\"en-us\":\"Tour of China 2015 Leg10: Guiyang - Sanya\"}',`detail`='{\"zh-cn\":\"\\u672c\\u5468\\u73af\\u4e2d\\u56fd\\u6211\\u4eec\\u5c06\\u98de\\u5411\\u4e2d\\u56fd\\u6700\\u5357\\u7aef\\u65c5\\u6e38\\u57ce\\u5e02\\u9e7f\\u57ce\\u4e09\\u4e9a\\uff01\",\"en-us\":\"Have you participated our \\\"Tour of China 2014\\\" event last year? VATPRC is pround to announce \\\"Tour of China 2015\\\" this year. During the four months, we will take you around China and show you the diverse landscapes of the country.<br \\/><br \\/>This week, we will continue our tour to Sanya, the southern most tourist city of China. Come and fly with us on this Saturday, August 22nd, with full ATC coverage at both airports. We are looking forward to seeing you on the scope!\"}',`banner`='http://forum.vatprc.net/uploads/monthly_08_2015/post-577-0-56088900-1439629176.png',`starttime`='1440244800',`endtime`='1440259200',`route`='[[\"ZUGY - ZJSY\",\"ESNIB B330 MAMSI R343 WUY R339 BHY W70 NYB G221 GIVIL\"]]',`status`='2' WHERE `id` = 2 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000056s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000087s ]
+
+[ 2015-08-23T13:57:27+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY endtime asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0006s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010491s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010542s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000061s ]
+
+[ 2015-08-23T13:57:27+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000109s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000053s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000216s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T13:57:32+08:00 ] 127.0.0.1 /Event/view/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000469s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `event` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0010s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+NOTIC: [8] Undefined index: airports /home/noah/Develop/skyevent/dev/Application/Runtime/Cache/Home/87f41412856adf9b77e4c4138ecc897f.php 第 110 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009346s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009388s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000072s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000059s ]
+
+[ 2015-08-23T13:57:34+08:00 ] 127.0.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000106s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime asc  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010063s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010118s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000069s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2015-08-23T13:57:35+08:00 ] 127.0.0.1 /Event/view/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000107s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000049s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `event` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0010s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+NOTIC: [8] Undefined index: airports /home/noah/Develop/skyevent/dev/Application/Runtime/Cache/Home/87f41412856adf9b77e4c4138ecc897f.php 第 110 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010847s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010902s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000063s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000107s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000050s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000096s ]
+
+[ 2015-08-23T13:58:50+08:00 ] 127.0.0.1 /Event/view/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000062s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `event` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0009s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+NOTIC: [8] Undefined index: airports /home/noah/Develop/skyevent/dev/Application/Runtime/Cache/Home/87f41412856adf9b77e4c4138ecc897f.php 第 110 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009699s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009747s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000044s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000050s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000092s ]
+
+[ 2015-08-23T13:58:52+08:00 ] 127.0.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000036s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000160s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000253s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime asc  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009837s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009886s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000057s ]
+
+[ 2015-08-23T14:00:15+08:00 ] 127.0.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000119s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000036s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000169s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime asc  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010697s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010773s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000069s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000119s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000055s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000105s ]
+
