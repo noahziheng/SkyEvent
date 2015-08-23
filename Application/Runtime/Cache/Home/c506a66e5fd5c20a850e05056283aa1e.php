@@ -79,7 +79,7 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
                     <li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
                     <?php if($user["group"] >= 1): ?><li <?php if(ACTION_NAME == 'post' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
                     <?php if($user["group"] >= 3): ?><li <?php if(ACTION_NAME == 'admin' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
@@ -104,6 +104,7 @@
 							<th>id</th>
 							<th><?php echo (L("user_name")); ?></th>
 							<th><?php echo (L("user_rating")); ?></th>
+							<th><?php echo (L("user_lang")); ?></th>
 							<th><?php echo (L("user_group")); ?></th>
 							<th><?php echo (L("user_action")); ?></th>
 						</tr>
@@ -113,6 +114,15 @@
 								<th scope="row"><?php echo ($vo["id"]); ?></th>
 								<td><?php echo ($vo["firstname"]); ?> <?php echo ($vo["lastname"]); ?></td>
 								<td><?php echo L("rating_".$vo['rating']);?></td>
+								<td>
+									<!-- Single button -->
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="userlang_<?php echo ($vo["id"]); ?>"><?php echo ($vo["lang"]); ?></span> <span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#" onclick="userlang(this);" data="zh-cn" data-id="<?php echo ($vo["id"]); ?>">zh-cn</a></li>
+											<li><a href="#" onclick="userlang(this);" data="en-us" data-id="<?php echo ($vo["id"]); ?>">en-us</a></li>
+										</ul>
+									</div></td>
 								<td>
 									<!-- Single button -->
 									<div class="btn-group">

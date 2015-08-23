@@ -17,4 +17,11 @@ class UserModel extends Model{
         }
         return $datas;
     }
+
+    public function getFullname($id)
+    {
+        $data = $this->field('firstname,lastname')->find($id);
+        $data = $data['firstname']." ".$data['lastname'];
+        return $data;
+    }
 }

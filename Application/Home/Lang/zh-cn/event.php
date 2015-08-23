@@ -24,4 +24,5 @@ return array(
 	'admin_remove' => '移除',
 	'admin_unpublish' => '撤下',
 	'admin_booking' => '预定管理',
+	'event_outdate' => '该活动已过期！',
 );

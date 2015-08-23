@@ -79,8 +79,8 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
-                    <li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
+                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <!--<li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>-->
                     <?php if($user["group"] >= 1): ?><li <?php if(ACTION_NAME == 'post' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
                     <?php if($user["group"] >= 3): ?><li <?php if(ACTION_NAME == 'admin' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
                       <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Admin'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
@@ -117,10 +117,10 @@
 							<td><?php echo ($event["status"]); ?></td>
 							<td><?php echo ($event["author"]); ?></td>
 							<td>
-								<button type="button" class="btn btn-default btn-sm"><?php echo (L("admin_booking")); ?></button>
-								<?php if($event["statusid"] != '1'): ?><a href="/Event/unpublish/<?php echo ($event["id"]); ?>" class="btn btn-warning btn-sm"><?php echo (L("admin_unpublish")); ?></a>
+								<a href="<?php echo (ROOT_URL); ?>Admin/booking/<?php echo ($event["id"]); ?>" class="btn btn-default btn-sm"><?php echo (L("admin_booking")); ?></a>
+								<?php if($event["statusid"] != '1'): ?><a href="<?php echo (ROOT_URL); ?>Event/unpublish/<?php echo ($event["id"]); ?>" class="btn btn-warning btn-sm"><?php echo (L("admin_unpublish")); ?></a>
 								<?php else: ?>
-									<a href="/Event/publish/<?php echo ($event["id"]); ?>" class="btn btn-success btn-sm"><?php echo (L("admin_publish")); ?></a><?php endif; ?>
+									<a href="<?php echo (ROOT_URL); ?>Event/publish/<?php echo ($event["id"]); ?>" class="btn btn-success btn-sm"><?php echo (L("admin_publish")); ?></a><?php endif; ?>
 								<a href="<?php echo (ROOT_URL); ?>Event/post/<?php echo ($event["id"]); ?>" class="btn btn-default btn-sm"><?php echo (L("admin_edit")); ?></a>
 								<a href="#" class="btn btn-danger btn-sm"  onclick="confirm('<?php echo (L("admin_del")); ?>',<?php echo ($event["id"]); ?>,'del')"><?php echo (L("admin_del")); ?></a>
 							</td>
@@ -136,25 +136,6 @@
 <script src="<?php echo (ROOT_URL); ?>Public/js/ckeditor/adapters/jquery.js"></script>
 <script src="<?php echo (ROOT_URL); ?>Public/js/eventadmin.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo (ROOT_URL); ?>Public/js/global.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editModalLabel"><?php echo (L("admin_edit")); ?></h4>
-      </div>
-      <div class="modal-body" id="edit-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo (L("close")); ?></button>
-        <button type="button" class="btn btn-primary" onclick="edit();"><?php echo (L("confirm")); ?></button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel">

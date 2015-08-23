@@ -9,7 +9,7 @@ return array(
 	'airport_remark_cn' => '备注(中文)',
 	'airport_remark_en' => '备注(英文)',
 	'user_name'=> '姓名',
-	'user_division' => '分部',
+	'user_lang' => '语言',
 	'user_rating' => '等级',
 	'user_group' => '用户组',
 	'user_action' => '操作',

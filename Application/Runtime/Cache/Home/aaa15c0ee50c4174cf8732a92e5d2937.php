@@ -92,51 +92,52 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <div class="col-md-10" id="page"><div class="row">
-  <?php if($user["group"] == -1): ?><div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title"><?php echo (L("welcome")); ?></div>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-              <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
-            </div>
-            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button><button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></div>
-          </div>
-        </div>
-      </div>
-    </div><?php endif; ?>
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php if($type == 1): echo (L("booking_flight")); else: echo (L("booking_controller")); endif; ?> <?php echo ($event["title"]); ?></h3>
+			</div>
+			<div></div>
+			<?php if($booked != false): ?><div class="panel-body">
+					<div class="alert alert-info" role="alert"><p class="lead"><?php echo (L("notaken")); ?> <?php echo ($booked["callsign"]); ?>&nbsp;&nbsp;&nbsp;<a class="btn btn-warning" href="<?php echo (ROOT_URL); ?>Event/cancel/<?php echo ($booked["id"]); ?>" role="button"><?php echo (L("cancel")); ?></a></p></div>
+				</div><?php endif; ?>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><?php echo (L("callsign")); ?></th>
+						<?php if($type == 1): ?><th><?php echo (L("airport")); ?></th>
+							<th><?php echo (L("route")); ?></th>
+							<th><?php echo (L("pushtime")); ?></th>
+						<?php else: ?>
+							<th><?php echo (L("controllerseat")); ?></th>
+							<th><?php echo (L("onlinetime")); ?></th><?php endif; ?>
+						<th><?php echo (L("bookeduser")); ?></th>
+						<th><?php echo (L("action")); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(is_array($bookings)): $i = 0; $__LIST__ = $bookings;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$booking): $mod = ($i % 2 );++$i;?><tr>
+							<td><strong><?php echo ($booking["callsign"]); ?></strong></td>
+							<?php if($type == 1): ?><td><?php echo ($booking["info"]["airport"]); ?></td>
+								<td><?php echo ($booking["info"]["route"]); ?></td>
+							<?php else: ?>
+								<td><?php echo ($booking["info"]["name"]); ?></td><?php endif; ?>
+							<td><span class="label label-default"><?php echo ($booking["time"]); ?></span></td>
+							<td><?php echo ($booking["user"]); ?></td>
+							<td>
+								<?php if($booked != false): ?><button type="button" class="btn btn-default btn-sm" disabled="disabled"><?php echo (L("notaken")); ?></button>
+								<?php else: ?>
+									<?php if($booking["usermark"] == 0): ?><a href="<?php echo (ROOT_URL); ?>Event/book/<?php echo ($booking["id"]); ?>" class="btn btn-primary btn-sm"><?php echo (L("take")); ?></a>
+									<?php else: ?>
+										<button type="button" class="btn btn-default btn-sm" disabled="disabled"><?php echo (L("taken")); ?></button><?php endif; endif; ?>
+							</td>
+						</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
-
-<div class="row">
-  <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="panel-title">
-                  <a href="<?php echo (ROOT_URL); ?>Event/view/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a>&nbsp;<span class="label label-info"><?php echo L('post_type_'.$vo['type']);?></span>&nbsp;<?php echo L('event_status_'.$vo['status']);?>
-                </div>
-              </div>
-              <div class="panel-body" style="height:auto;">
-                <div class="col-md-8">
-                  <?php if($vo["banner"] != null): ?><img class="img-responsive" src="<?php echo ($vo["banner"]); ?>"/>
-                  <?php else: ?>
-                    <p class="eventtext"><?php echo ($vo["detail"]); ?></p><?php endif; ?>
-                </div>
-                <div class="col-md-4">
-                  <p class="eventtext"><strong><?php echo (L("event_starttime")); ?> : </strong> <span class="label label-primary"><?php echo ($vo["starttime"]); ?></span></p>
-                  <p class="eventtext"><strong><?php echo (L("event_endtime")); ?> : </strong> <span class="label label-primary"><?php echo ($vo["endtime"]); ?></span></p>
-                  <hr>
-                  <a href="<?php echo (ROOT_URL); ?>Event/view/<?php echo ($vo["id"]); ?>" type="button" class="btn btn-lg btn-primary btn-block center-block"><?php echo (L("detail")); ?></a>
-                  <a href="<?php echo (ROOT_URL); ?>Event/booking/1/<?php echo ($vo["id"]); ?>" class="btn btn-lg btn-default btn-block center-block"><?php echo (L("booking_flight")); ?></a>
-                  <?php if($user["group"] >= 2): ?><a href="<?php echo (ROOT_URL); ?>Event/booking/2/<?php echo ($vo["id"]); ?>" class="btn btn-lg btn-success btn-block center-block"><?php echo (L("booking_controller")); ?></a><?php endif; ?>
-                </div>
-              </div>
-            </div>
-          </div><?php endforeach; endif; else: echo "" ;endif; ?>
-      </div>
-    </div></div>
+<script type="text/javascript" src="<?php echo (L("ROOT_URL")); ?>Public/js/booking.js"></script></div>
   </div>
   </div>
 

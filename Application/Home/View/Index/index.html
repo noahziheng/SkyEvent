@@ -40,10 +40,10 @@
                   <p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$vo.starttime}</span></p>
                   <p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$vo.endtime}</span></p>
                   <hr>
-                  <button data="Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary body-btn btn-block center-block">{$Think.lang.detail}</button>
-                  <button type="button" class="btn btn-lg btn-default btn-block center-block">{$Think.lang.booking_flight}</button>
+                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary btn-block center-block">{$Think.lang.detail}</a>
+                  <a href="{$Think.const.ROOT_URL}Event/booking/1/{$vo.id}" class="btn btn-lg btn-default btn-block center-block">{$Think.lang.booking_flight}</a>
                   <if condition="$user.group egt 2">
-                    <button type="button" class="btn btn-lg btn-success btn-block center-block">{$Think.lang.booking_controller}</button>
+                    <a href="{$Think.const.ROOT_URL}Event/booking/2/{$vo.id}" class="btn btn-lg btn-success btn-block center-block">{$Think.lang.booking_controller}</a>
                   </if>
                 </div>
               </div>

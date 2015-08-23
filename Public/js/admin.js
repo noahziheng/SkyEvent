@@ -1,4 +1,25 @@
-$(function (){})
+function userlang (obj) {
+	var data = $(obj).attr('data');
+	var id = $(obj).attr('data-id');
+	var lang = $(obj).html();
+	var fdata = {
+		id : id,
+		lang : data,
+	};
+	$.post(p_rooturl+"Admin/useredit",fdata,function(data,status){
+		if (status != 'success') {
+			alert(data);
+		}else{
+			if (data == '1') {
+				alert('Error Code 1!');
+			}else if (data == '0'){
+				$("#userlang_"+id).html(lang);
+			}else{
+				alert('Error Code 0 !');
+			};
+		};
+	});
+}
 function usergroup (obj) {
 	var data = $(obj).attr('data');
 	var id = $(obj).attr('data-id');
@@ -7,7 +28,7 @@ function usergroup (obj) {
 		id : id,
 		group : data,
 	};
-	$.post(p_rooturl+"Admin/usergroup",fdata,function(data,status){
+	$.post(p_rooturl+"Admin/useredit",fdata,function(data,status){
 		if (status != 'success') {
 			alert(data);
 		}else{

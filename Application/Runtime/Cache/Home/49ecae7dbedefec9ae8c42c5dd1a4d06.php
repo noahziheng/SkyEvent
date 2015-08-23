@@ -92,51 +92,121 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <div class="col-md-10" id="page"><div class="row">
-  <?php if($user["group"] == -1): ?><div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title"><?php echo (L("welcome")); ?></div>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-              <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
-            </div>
-            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button><button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></div>
-          </div>
-        </div>
-      </div>
-    </div><?php endif; ?>
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("booking_flight")); ?></h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingadd/1/<?php echo ($eid); ?>" method="POST">
+					<div class="form-group">
+						<label for="inCallsign"><?php echo (L("callsign")); ?></label>
+						<input type="text" class="form-control" id="inCallsign" name="callsign">
+					</div>
+					<div class="form-group">
+						<label for="inAirport"><?php echo (L("airport")); ?></label>
+						<input type="text" class="form-control" id="inAirport" name="airport">
+					</div>
+					<div class="form-group">
+						<label for="inRoute"><?php echo (L("route")); ?></label>
+						<input type="text" class="form-control" id="inRoute" name="route">
+					</div>
+					<div class="form-group">
+						<label for="inTime"><?php echo (L("pushtime")); ?></label>
+						<input type="text" class="form-control" id="inTime" name="time" placeholder="1200">
+					</div>
+					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;<?php echo (L("add")); ?></button>
+				</form>
+				<br>
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingimport/1/<?php echo ($eid); ?>" method="POST" enctype="multipart/form-data">
+					<input type="file" class="form-control" name="file">
+					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-import" aria-hidden="true"></span>&nbsp;<?php echo (L("importcsv")); ?></button>
+					<a href="<?php echo (ROOT_URL); ?>Admin/bookingexport/1/<?php echo ($eid); ?>" class="btn btn-default"><span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;<?php echo (L("exportcsv")); ?></a>
+				</form>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><?php echo (L("callsign")); ?></th>
+						<th><?php echo (L("airport")); ?></th>
+						<th><?php echo (L("route")); ?></th>
+						<th><?php echo (L("pushtime")); ?></th>
+						<th><?php echo (L("bookeduser")); ?></th>
+						<th><?php echo (L("action")); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(is_array($flights)): $i = 0; $__LIST__ = $flights;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$booking): $mod = ($i % 2 );++$i;?><tr>
+							<td><strong><?php echo ($booking["callsign"]); ?></strong></td>
+							<td><?php echo ($booking["info"]["airport"]); ?></td>
+							<td><?php echo ($booking["info"]["route"]); ?></td>
+							<td><span class="label label-default"><?php echo ($booking["time"]); ?></span></td>
+							<td><?php echo ($booking["user"]); ?></td>
+							<td>
+								<?php if($booking["usermark"] != 0): ?><a href="<?php echo (ROOT_URL); ?>Admin/bookingclean/<?php echo ($booking["id"]); ?>" class="btn btn-default btn-sm"><?php echo (L("cleanbooking")); ?></a><?php endif; ?>
+								<a href="<?php echo (ROOT_URL); ?>Admin/bookingdel/<?php echo ($booking["id"]); ?>" class="btn btn-danger btn-sm"><?php echo (L("admin_del")); ?></a>
+							</td>
+						</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
-
 <div class="row">
-  <?php if(is_array($event)): $i = 0; $__LIST__ = $event;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="panel-title">
-                  <a href="<?php echo (ROOT_URL); ?>Event/view/<?php echo ($vo["id"]); ?>"><?php echo ($vo["title"]); ?></a>&nbsp;<span class="label label-info"><?php echo L('post_type_'.$vo['type']);?></span>&nbsp;<?php echo L('event_status_'.$vo['status']);?>
-                </div>
-              </div>
-              <div class="panel-body" style="height:auto;">
-                <div class="col-md-8">
-                  <?php if($vo["banner"] != null): ?><img class="img-responsive" src="<?php echo ($vo["banner"]); ?>"/>
-                  <?php else: ?>
-                    <p class="eventtext"><?php echo ($vo["detail"]); ?></p><?php endif; ?>
-                </div>
-                <div class="col-md-4">
-                  <p class="eventtext"><strong><?php echo (L("event_starttime")); ?> : </strong> <span class="label label-primary"><?php echo ($vo["starttime"]); ?></span></p>
-                  <p class="eventtext"><strong><?php echo (L("event_endtime")); ?> : </strong> <span class="label label-primary"><?php echo ($vo["endtime"]); ?></span></p>
-                  <hr>
-                  <a href="<?php echo (ROOT_URL); ?>Event/view/<?php echo ($vo["id"]); ?>" type="button" class="btn btn-lg btn-primary btn-block center-block"><?php echo (L("detail")); ?></a>
-                  <a href="<?php echo (ROOT_URL); ?>Event/booking/1/<?php echo ($vo["id"]); ?>" class="btn btn-lg btn-default btn-block center-block"><?php echo (L("booking_flight")); ?></a>
-                  <?php if($user["group"] >= 2): ?><a href="<?php echo (ROOT_URL); ?>Event/booking/2/<?php echo ($vo["id"]); ?>" class="btn btn-lg btn-success btn-block center-block"><?php echo (L("booking_controller")); ?></a><?php endif; ?>
-                </div>
-              </div>
-            </div>
-          </div><?php endforeach; endif; else: echo "" ;endif; ?>
-      </div>
-    </div></div>
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("booking_controller")); ?></h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingadd/1/<?php echo ($eid); ?>" method="POST">
+					<div class="form-group">
+						<label for="inCallsign"><?php echo (L("callsign")); ?></label>
+						<input type="text" class="form-control" id="inCallsign" name="callsign">
+					</div>
+					<div class="form-group">
+						<label for="inName"><?php echo (L("controllerseat")); ?></label>
+						<input type="text" class="form-control" id="inName" name="name">
+					</div>
+					<div class="form-group">
+						<label for="inCustom"><?php echo (L("custom")); ?></label>
+						<input type="text" class="form-control" id="inCustom" name="custom" placeholder="0">
+					</div>
+					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;<?php echo (L("add")); ?></button>
+				</form>
+				<br>
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingimport/2/<?php echo ($eid); ?>" method="POST" enctype="multipart/form-data">
+					<input type="file" class="form-control" name="file">
+					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-import" aria-hidden="true"></span>&nbsp;<?php echo (L("importcsv")); ?></button>
+					<a href="<?php echo (ROOT_URL); ?>Admin/bookingexport/2/<?php echo ($eid); ?>" class="btn btn-default"><span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;<?php echo (L("exportcsv")); ?></a>
+				</form>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><?php echo (L("callsign")); ?></th>
+						<th><?php echo (L("controllerseat")); ?></th>
+						<th><?php echo (L("onlinetime")); ?></th>
+						<th><?php echo (L("bookeduser")); ?></th>
+						<th><?php echo (L("action")); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(is_array($controllers)): $i = 0; $__LIST__ = $controllers;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$booking): $mod = ($i % 2 );++$i;?><tr>
+							<td><strong><?php echo ($booking["callsign"]); ?></strong></td>
+							<td><?php echo ($booking["info"]["name"]); ?></td>
+							<td><span class="label label-default"><?php echo ($booking["time"]); ?></span></td>
+							<td><?php echo ($booking["user"]); ?></td>
+							<td>
+								<?php if($booking["usermark"] != 0): ?><a href="<?php echo (ROOT_URL); ?>Admin/bookingclean/<?php echo ($booking["id"]); ?>" class="btn btn-default btn-sm"><?php echo (L("cleanbooking")); ?></a><?php endif; ?>
+								<a href="<?php echo (ROOT_URL); ?>Admin/bookingdel/<?php echo ($booking["id"]); ?>" class="btn btn-danger btn-sm"><?php echo (L("admin_del")); ?></a>
+							</td>
+						</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div></div>
   </div>
   </div>
 

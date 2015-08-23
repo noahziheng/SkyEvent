@@ -11,8 +11,13 @@ class EventModel extends Model{
         	}
         }
         $data['status'] = $this->statusCheck($data['status'],$data['starttime'],$data['endtime'],$data['id']);
-        $data['title'] = $data['title'][LANG_SET];
-        $data['detail'] = $data['detail'][LANG_SET];
+        if (!$data['title'][LANG_SET]) {
+            $data['title'] = $data['title']['en-us'];
+            $data['detail'] = $data['detail']['en-us'];
+        }else{
+            $data['title'] = $data['title'][LANG_SET];
+            $data['detail'] = $data['detail'][LANG_SET];
+        }
         $data['starttime'] = $this->converttime($data['starttime']);
         $data['endtime'] = $this->converttime($data['endtime']);
         $user = M('User')->field('firstname,lastname')->find($data['author']);
@@ -39,8 +44,13 @@ class EventModel extends Model{
         			$datas[$k][$key] = json_decode($value,true);
         		}
 	}
-	$datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
-	$datas[$k]['detail'] = $datas[$k]['detail'][LANG_SET];
+            if (!$datas[$k]['title'][LANG_SET]) {
+                $datas[$k]['title'] = $datas[$k]['title']['en-us'];
+                $datas[$k]['detail'] = $datas[$k]['detail']['en-us'];
+            }else{
+	   $datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
+	   $datas[$k]['detail'] = $datas[$k]['detail'][LANG_SET];
+            }
 	$datas[$k]['starttime'] = $this->converttime($data['starttime']);
 	$datas[$k]['endtime'] = $this->converttime($data['endtime']);
         }
@@ -57,12 +67,16 @@ class EventModel extends Model{
     		$datas[$k]['statusid'] = $data['status'];
     		$datas[$k]['status'] = L('event_status_'.$data['status']);
     		$datas[$k]['title'] = json_decode($data['title'],true);
-    		$datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
+                         if (!$datas[$k]['title'][LANG_SET]){
+                            $datas[$k]['title'] = $datas[$k]['title']['en-us'];
+                         }else{
+                            $datas[$k]['title'] = $datas[$k]['title'][LANG_SET];
+                         }
     	}
     	return $datas;
     }
 
-    private function statusCheck($status,$starttime,$endtime,$id)
+    public function statusCheck($status,$starttime,$endtime,$id)
     {
     	if($status == 1){
     		return 1;

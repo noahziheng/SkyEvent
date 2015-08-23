@@ -25,11 +25,11 @@
 							<td>{$event.status}</td>
 							<td>{$event.author}</td>
 							<td>
-								<button type="button" class="btn btn-default btn-sm">{$Think.lang.admin_booking}</button>
+								<a href="{$Think.const.ROOT_URL}Admin/booking/{$event.id}" class="btn btn-default btn-sm">{$Think.lang.admin_booking}</a>
 								<if condition="$event.statusid neq '1'">
-									<a href="/Event/unpublish/{$event.id}" class="btn btn-warning btn-sm">{$Think.lang.admin_unpublish}</a>
+									<a href="{$Think.const.ROOT_URL}Event/unpublish/{$event.id}" class="btn btn-warning btn-sm">{$Think.lang.admin_unpublish}</a>
 								<else />
-									<a href="/Event/publish/{$event.id}" class="btn btn-success btn-sm">{$Think.lang.admin_publish}</a>
+									<a href="{$Think.const.ROOT_URL}Event/publish/{$event.id}" class="btn btn-success btn-sm">{$Think.lang.admin_publish}</a>
 								</if>
 								<a href="{$Think.const.ROOT_URL}Event/post/{$event.id}" class="btn btn-default btn-sm">{$Think.lang.admin_edit}</a>
 								<a href="#" class="btn btn-danger btn-sm"  onclick="confirm('{$Think.lang.admin_del}',{$event.id},'del')">{$Think.lang.admin_del}</a>
@@ -47,25 +47,6 @@
 <script src="{$Think.const.ROOT_URL}Public/js/ckeditor/adapters/jquery.js"></script>
 <script src="{$Think.const.ROOT_URL}Public/js/eventadmin.js" type="text/javascript" charset="utf-8"></script>
 <script src="{$Think.const.ROOT_URL}Public/js/global.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editModalLabel">{$Think.lang.admin_edit}</h4>
-      </div>
-      <div class="modal-body" id="edit-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-        <button type="button" class="btn btn-primary" onclick="edit();">{$Think.lang.confirm}</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel">

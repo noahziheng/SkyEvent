@@ -79,8 +79,8 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index" onclick="reindex();"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
-                    <li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>
+                    <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Index'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <!--<li <?php if(ACTION_NAME == 'calendar' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> <?php echo (L("calendar")); ?></a></li>-->
                     <?php if($user["group"] >= 1): ?><li <?php if(ACTION_NAME == 'post' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
                     <?php if($user["group"] >= 3): ?><li <?php if(ACTION_NAME == 'admin' and CONTROLLER_NAME == 'Event'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
                       <li <?php if(ACTION_NAME == 'index' and CONTROLLER_NAME == 'Admin'): ?>class="current"<?php endif; ?>><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
@@ -98,6 +98,7 @@
 				<h3 class="panel-title"><?php echo ($event["title"]); ?> - <?php echo (L("event_title")); ?></h3>
 			</div>
 			<div class="panel-body">
+				<?php if($event["status"] == 2): ?><div class="alert alert-warning" role="alert"><?php echo (L("event_outdate")); ?></div><?php endif; ?>
 				<?php if($event["banner"] != null): ?><p class="eventtext"><a style="color: rgb(34, 89, 133); text-decoration: none; margin: 0px 5px 5px 0px; display: inline-block;"><img src="<?php echo ($event["banner"]); ?>" style="border: 0px; vertical-align: middle;width: 100%;"/></a></p><?php endif; ?>
 				<p class="eventtext"><?php echo ($event["detail"]); ?></p>
 				<br />
@@ -123,9 +124,9 @@
                   		<p class="eventtext"><strong><?php echo (L("event_status")); ?> : </strong> <?php echo L('event_status_'.$event['status']);?></p><br>
                   		<p class="eventtext"><strong><?php echo (L("post_type")); ?> : </strong> <span class="label label-info"><?php echo L('post_type_'.$event['type']);?></span></p><br>
                   		<p class="eventtext"><strong><?php echo (L("event_author")); ?> : </strong> <span class="label label-default"><?php echo ($event["author"]); ?></span></p><hr>
-			<a href="/Index/index" class="btn-block btn btn-lg btn-default" onclick="reindex();"><?php echo (L("back")); echo (L("home")); ?></a><br>
-			<button type="button" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></button>
-			<?php if($user["group"] >= 2): ?><button type="button" class="btn-block btn btn-lg btn-success"><?php echo (L("booking_controller")); ?></button><?php endif; ?>
+			<a href="/Index/index" class="btn-block btn btn-lg btn-default"><?php echo (L("back")); echo (L("home")); ?></a><br>
+			<a href="<?php echo (ROOT_URL); ?>Event/booking/1/<?php echo ($event["id"]); ?>" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></a>
+			<?php if($user["group"] >= 2): ?><a href="<?php echo (ROOT_URL); ?>Event/booking/2/<?php echo ($event["id"]); ?>" class="btn-block btn btn-lg btn-success"><?php echo (L("booking_controller")); ?></a><?php endif; ?>
 		</div>
 	</div>
 </div></div>

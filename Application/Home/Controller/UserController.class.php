@@ -83,6 +83,7 @@ class UserController extends Controller {
         $data = S($_POST['data']);
         S($_POST['data'],null);
         $User = D("User");
+        $data['lang'] = LANG_SET;
         $res = $User->data($data)->add();
         if (!$res) {
             $this->error('Error Code 1');
