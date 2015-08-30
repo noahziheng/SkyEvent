@@ -1,0 +1,493 @@
+[ 2015-08-23T18:56:26+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000134s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000060s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000594s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY status desc,starttime asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0011s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011510s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011569s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000082s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000038s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000069s ]
+
+[ 2015-08-23T18:56:26+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000109s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T19:18:42+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000053s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440328722)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000086s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008169s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008210s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000059s ]
+
+[ 2015-08-23T19:18:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000095s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000242s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440328723)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000103s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011307s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011382s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000102s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000043s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000086s ]
+
+[ 2015-08-23T19:27:41+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000092s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000202s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329261)  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008428s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000091s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000088s ]
+
+[ 2015-08-23T19:29:12+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000163s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000244s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0013s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329352)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008421s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008464s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000070s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000059s ]
+
+[ 2015-08-23T19:32:30+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000053s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329550)  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009399s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009448s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000071s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at /home/noah/Develop/skyevent/dev/ThinkPHP/Common/functions.php:850) /home/noah/Develop/skyevent/dev/ThinkPHP/Library/Think/View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000061s ]
+
+[ 2015-08-23T19:32:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000149s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000068s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000507s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329570)  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000181s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012991s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013066s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000120s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000112s ]
+
+[ 2015-08-23T19:33:17+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000139s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000060s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0019s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY status desc,abs( starttime - 1440329597)  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0007s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008140s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008187s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000103s ]
+
+[ 2015-08-23T19:33:17+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000109s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000206s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T19:33:21+08:00 ] 127.0.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000157s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000235s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329601)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009825s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009863s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000052s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000096s ]
+
+[ 2015-08-23T19:33:23+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY status desc,abs( starttime - 1440329603)  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0008s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012499s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012595s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000133s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000114s ]
+
+[ 2015-08-23T19:33:23+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000091s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000187s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T11:33:24+00:00 ] 127.0.0.1 /Event/post/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000242s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `event` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000123s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012505s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012550s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000041s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000060s ]
+
+[ 2015-08-23T19:33:35+08:00 ] 127.0.0.1 /Event/submit/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000098s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000180s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"\\u5df4\\u57fa\\u65af\\u5766vACC\\u72ec\\u7acb\\u65e5\\u7eaa\\u5ff5\\u6d3b\\u52a8\",\"en-us\":\"SINO-PAKISTAN Friendship\"}',`detail`='{\"zh-cn\":\"\\u5df4\\u57fa\\u65af\\u5766\\u4e00\\u76f4\\u4e0e\\u4e2d\\u56fd\\u6709\\u7740\\u826f\\u597d\\u7684\\u53cb\\u8c0a\\u5173\\u7cfb\\uff0c\\u4e24\\u56fd\\u4fdd\\u6301\\u7740\\u5bc6\\u5207\\u7684\\u6587\\u5316\\u5f80\\u6765\\u3002\\u6b64\\u6b21\\u6211\\u4eec\\u5f88\\u8363\\u5e78\\u7684\\u6536\\u5230\\u5df4\\u57fa\\u65af\\u5766vACC\\u7684\\u9080\\u8bf7\\uff0c\\u5728\\u5df4\\u57fa\\u65af\\u5766\\u72ec\\u7acb\\u65e5\\u5f53\\u5929\\u4e3e\\u884c\\u53cb\\u8c0a\\u8fde\\u98de\\u6d3b\\u52a8\\u3002\\u4e0e\\u6b64\\u540c\\u65f6\\uff0c\\u5df4\\u57fa\\u65af\\u5766vACC\\u4e5f\\u5c06\\u4f1a\\u5728\\u4f0a\\u65af\\u5170\\u5821\\u4e07\\u8c6a\\u9152\\u5e97\\u8fdb\\u884c\\u5168\\u7a0b\\u76f4\\u64ad\\uff0c\\u548c\\u4ed6\\u4eec\\u5468\\u56f4\\u7684\\u670b\\u53cb\\u5206\\u4eab\\u7740\\u98de\\u884c\\u7684\\u4e50\\u8da3\\u3002\\u4f34\\u968f\\u7740\\u9010\\u6e10\\u843d\\u53bb\\u7684\\u5915\\u9633\\uff0c\\u5728\\u5608\\u6742\\u7684\\u65e0\\u7ebf\\u7535\\u9891\\u9053\\u4e2d\\uff0c\\u6211\\u4eec\\u5c06\\u5728\\u4e0b\\u5348\\u4ece\\u5df4\\u57fa\\u65af\\u5766\\u5361\\u62c9\\u5947\\u56fd\\u9645\\u673a\\u573a\\u8d77\\u98de\\uff0c\\u98de\\u5f80\\u6211\\u56fd\\u897f\\u90e8\\u7684\\u4e4c\\u9c81\\u6728\\u9f50\\u3002\\u77ed\\u6682\\u505c\\u7559\\u4e4b\\u540e\\uff0c\\u518d\\u6b21\\u4f34\\u968f\\u7740\\u591c\\u8272\\uff0c\\u60a8\\u53ef\\u4ee5\\u4ece\\u4e4c\\u9c81\\u6728\\u9f50\\u518d\\u6b21\\u8d77\\u98de\\uff0c\\u98de\\u5f80\\u5361\\u62c9\\u5947\\u56fd\\u9645\\u673a\\u573a\\uff0c\\u62c9\\u5408\\u5c14\\u56fd\\u9645\\u673a\\u573a\\u6216\\u4f0a\\u65af\\u5170\\u5821\\u8d1d\\u5a1c\\u9f50\\u5c14\\u5e03\\u6258\\u56fd\\u9645\\u673a\\u573a\\u4e2d\\u7684\\u4efb\\u4f55\\u4e00\\u5ea7\\u673a\\u573a\\uff0c\\u6700\\u540e\\u6ed1\\u884c\\u81f3\\u673a\\u4f4d\\u7ed3\\u675f\\u8fd9\\u573a\\u884c\\u7a0b\\u3002\",\"en-us\":\"No English version.\"}',`banner`='http://forum.vatprc.net/uploads/monthly_07_2015/post-628-0-85587800-1437650188.png',`starttime`='1439542800',`endtime`='1439568000',`route`='[[\"ZWWW - OPLA\",\"KABDO B215 PURPA G325 GT J129 TANGO J186 RN J121 POMAR J162 INDEK J121 HAFIZ\"]]',`status`='4' WHERE `id` = 3 [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000098s ]
+
+[ 2015-08-23T19:33:35+08:00 ] 127.0.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000101s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000045s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000163s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`title`,`type`,`status`,`author` FROM `event` ORDER BY status desc,abs( starttime - 1440329615)  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0005s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `firstname`,`lastname` FROM `user` WHERE `id` = 1248613 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000128s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008756s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008801s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000069s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000057s ]
+
+[ 2015-08-23T19:33:35+08:00 ] 127.0.0.1 /Public/js/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000108s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000212s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+ERR: 无法加载控制器:Public
+
+[ 2015-08-23T19:33:36+08:00 ] 127.0.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000104s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000042s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000369s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440329616)  [ RunTime:0.0004s ]
+SQL: UPDATE `event` SET `status`='2' WHERE `id` = 3 [ RunTime:0.0002s ]
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime asc  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012207s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012264s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2015-08-23T22:31:46+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+
+[ 2015-08-23T22:50:00+08:00 ] 127.0.0.1 /?oauth_token=SSO_DEMO_55d9dd05c9ad83.38840459&oauth_verifier=h0BHEo4QxJi60rz2OUe3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000078s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000207s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440341400)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000155s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010809s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010858s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000076s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000046s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000073s ]
+
+[ 2015-08-23T22:53:15+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000074s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000161s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440341595)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008225s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008270s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000049s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000090s ]
+
+[ 2015-08-23T22:55:47+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000167s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440341747)  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009058s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009102s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000073s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000050s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000092s ]
+
+[ 2015-08-23T22:57:42+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000078s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [2] Missing argument 1 for Home\Model\EventModel::getAll(), called in /home/noah/Develop/skyevent/dev/Application/Home/Controller/IndexController.class.php on line 12 and defined /home/noah/Develop/skyevent/dev/Application/Home/Model/EventModel.class.php 第 28 行.
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,abs( starttime - 1440341862)  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000097s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008818s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000043s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000072s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000052s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000093s ]
+

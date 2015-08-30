@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$event.title} - {$Think.lang.event_title}</h3>
+			</div>
+			<div class="panel-body">
+				<if condition="$event.status eq 2">
+					<div class="alert alert-warning" role="alert">{$Think.lang.event_outdate}</div>
+				</if>
+				<if condition="$event.banner neq null">
+					<p class="eventtext"><a style="color: rgb(34, 89, 133); text-decoration: none; margin: 0px 5px 5px 0px; display: inline-block;"><img src="{$event.banner}" style="border: 0px; vertical-align: middle;width: 100%;"/></a></p>
+				</if>
+				<p class="eventtext">{$event.detail}</p>
+				<br />
+				<p class="eventtext"><span class="eventtextred"><strong>{$Think.lang.event_time}</strong></span></p>
+				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_starttime}:&nbsp;</strong> {$event.starttime}</span></p>
+				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_endtime}:&nbsp;</strong> {$event.endtime}</span></p>
+				<br/>
+				<p class="eventtext">
+				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span><br/></p></span>
+				<volist name="event.route" id="vo" >
+					<p class="eventtext"><em>{$vo.0}</em></p>
+					<div class="eventtext">{$vo.1}</div>
+					<br/>
+				</volist>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="well">
+			<p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$event.starttime}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$event.endtime}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_status} : </strong> {:L('event_status_'.$event['status'])}</p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.post_type} : </strong> <span class="label label-info">{:L('post_type_'.$event['type'])}</span></p><br>
+                  		<p class="eventtext"><strong>{$Think.lang.event_author} : </strong> <span class="label label-default">{$event.author}</span></p><hr>
+			<a href="/Index/index" class="btn-block btn btn-lg btn-default">{$Think.lang.back}{$Think.lang.home}</a><br>
+			<a href="{$Think.const.ROOT_URL}Event/booking/1/{$event.id}" class="btn-block btn btn-lg btn-primary">{$Think.lang.booking_flight}</a>
+			<if condition="$user.group egt 2">
+				<a href="{$Think.const.ROOT_URL}Event/booking/2/{$event.id}" class="btn-block btn btn-lg btn-success">{$Think.lang.booking_controller}</a>
+			</if>
+		</div>
+	</div>
+</div>

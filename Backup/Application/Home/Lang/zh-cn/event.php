@@ -1,0 +1,22 @@
+<?php
+return array(
+	'event_title' => '活动详情',
+	'event_status' => '活动状态',
+	'event_time' => '活动时间',
+	'event_airport' => '活动机场',
+	'event_route' => '航路',
+	'event_author' => '作者',
+	'post_type' => '活动类型',
+	'post_lang' => '语言',
+	'post_title' => '活动标题',
+	'post_detail' => '活动详情',
+	'post_banner' => '活动封面图(请填写完整URL，上传暂不可用)',
+	'post_route' => '活动航路',
+	'admin_publish' => '发布',
+	'admin_edit' => '编辑',
+	'admin_del' => '删除',
+	'admin_remove' => '移除',
+	'admin_unpublish' => '撤下',
+	'admin_booking' => '预定管理',
+	'event_outdate' => '该活动已过期！',
+);

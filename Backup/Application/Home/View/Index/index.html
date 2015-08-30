@@ -1,0 +1,56 @@
+<div class="row">
+  <if condition="$user.group eq -1">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">{$Think.lang.welcome}</div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
+              <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
+            </div>
+            <div class="col-md-3">
+              <a href="/User/login" class="btn btn-primary btn-lg center-block"><img src="http://www.vatprc.net/media/images/vatsim.png" style="width: auto;height:50px"><br />SSO {$Think.lang.login}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </if>
+</div>
+
+<div class="row">
+  <volist name="event" id="vo">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}
+                </div>
+              </div>
+              <div class="panel-body" style="height:auto;">
+                <div class="col-md-8">
+                  <if condition="$vo.banner neq null">
+                    <img class="img-responsive" src="{$vo.banner}" style="width:100%;"/>
+                  <else />
+                    <p class="eventtext">{$vo.detail}</p>
+                  </if>
+                </div>
+                <div class="col-md-4">
+                  <p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$vo.starttime}</span></p>
+                  <p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$vo.endtime}</span></p>
+                  <hr>
+                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary btn-block center-block">{$Think.lang.detail}</a>
+                  <a href="{$Think.const.ROOT_URL}Event/booking/1/{$vo.id}" class="btn btn-lg btn-default btn-block center-block">{$Think.lang.booking_flight}</a>
+                  <if condition="$user.group egt 2">
+                    <a href="{$Think.const.ROOT_URL}Event/booking/2/{$vo.id}" class="btn btn-lg btn-success btn-block center-block">{$Think.lang.booking_controller}</a>
+                  </if>
+                </div>
+              </div>
+            </div>
+          </div>
+        </volist>
+      </div>
+    </div>
