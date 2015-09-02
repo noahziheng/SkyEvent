@@ -32,7 +32,7 @@ class UserController extends Controller {
         $res = json_decode($res,true);
         dump($res);
         $user['id'] = $res['id'];
-        $m = M('User')
+        $m = M('User');
         unset($data);
         session('vatsimauth',null);
         $data = $m->find();
@@ -40,7 +40,6 @@ class UserController extends Controller {
             $this->display();
         }else{
             session('user',$data);
-            $this->success(L('successlogin'));
         }
     }
     public function confirm()
