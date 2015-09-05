@@ -1,0 +1,22 @@
+<div class="row">
+  <if condition="$user.group eq -1">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">{$Think.lang.welcome}</div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
+              <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
+            </div>
+            <div class="col-md-3">
+              <a href="/User/login" class="btn btn-primary btn-lg center-block"><img src="http://www.vatprc.net/media/images/vatsim.png" style="width: auto;height:50px"><br />SSO {$Think.lang.login}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </if>
+</div>
