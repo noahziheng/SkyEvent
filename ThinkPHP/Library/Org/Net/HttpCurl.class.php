@@ -35,6 +35,8 @@ class HttpCurl {
         curl_setopt($cl, CURLOPT_RETURNTRANSFER, 1 );
         $content = curl_exec($cl);
         $status = curl_getinfo($cl);
+        dump($content);
+        dump($status);
         curl_close($cl);
         if (isset($status['http_code']) && $status['http_code'] == 200) {
             if ($data_type == 'json') {

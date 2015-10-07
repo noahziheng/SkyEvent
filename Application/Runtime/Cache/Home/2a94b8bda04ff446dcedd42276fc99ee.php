@@ -92,19 +92,27 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <div class="col-md-10" id="page"><div class="row">
-  <?php if($user["group"] == -1): ?><div class="col-md-12">
+  <?php if($user["group"] == -1): ?><div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-title"><?php echo (L("welcome")); ?></div>
         </div>
         <div class="panel-body">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-              <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
-            </div>
-            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button><button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button></div>
-          </div>
+          <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
+          <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
+          <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title"><?php echo (L("welcome")); ?></div>
+        </div>
+        <div class="panel-body">
+          <p style="font-size:15px;"><?php echo (L("welcome_full")); ?></p>
+          <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal"><?php echo (L("login")); ?></button>
+          <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal"><?php echo (L("validate")); ?></button>
         </div>
       </div>
     </div><?php endif; ?>
