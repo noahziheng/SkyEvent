@@ -27,7 +27,7 @@
 							<td>
 								<a href="{$Think.const.ROOT_URL}Admin/booking/{$event.id}" class="btn btn-default btn-sm">{$Think.lang.admin_booking}</a>
 								<if condition="$event.statusid neq '1'">
-									<a href="{$Think.const.ROOT_URL}Event/unpublish/{$event.id}" class="btn btn-warning btn-sm">{$Think.lang.admin_unpublish}</a>
+									<a href="{$Think.const.ROOT_URL}Event/publish/{$event.id}" class="btn btn-warning btn-sm">{$Think.lang.admin_unpublish}</a>
 								<else />
 									<a href="{$Think.const.ROOT_URL}Event/publish/{$event.id}" class="btn btn-success btn-sm">{$Think.lang.admin_publish}</a>
 								</if>

@@ -56,11 +56,11 @@ return  array(
 	//SkyEvent用户组
 	'usergroup_-2' => '禁止访问用户',
 	'usergroup_-1' => '游客',
-	'usergroup_0' => '未验证会员',
+	'usergroup_0' => '游客',
 	'usergroup_1' => 'VATSIM飞行员',
 	'usergroup_2' => 'VATSIM管制员',
-	'usergroup_3' => 'VATSIM职员',
-	'usergroup_4' => 'SkyEvent 管理员',
+	'usergroup_3' => 'VATSIM分部职员',
+	'usergroup_4' => 'VATSIM 管理员',
 	//VATSIM等级
 	'rating_0' => '您的账号被禁用。',
 	'rating_1' => 'OBS 飞行员/观察员',
@@ -75,13 +75,14 @@ return  array(
 	'rating_12' => 'ADM 管理员',
 	'newevent' => '新建活动',
 	//Event
-	'post_type_1' => '自发活动 (团飞)',
+	'post_type_1' => '自发活动',
 	'post_type_2' => '分部活动',
-	'post_type_3' => '大型活动 (管制员需审批)',
+	'post_type_3' => '大型活动',
 	'event_status_1' => '<span class="label label-default">未发布</span>',
 	'event_status_2' => '<span class="label label-warning">已结束</span>',
 	'event_status_3' => '<span class="label label-success">筹备中</span>',
 	'event_status_4' => '<span class="label label-info">进行中</span>',
 	'event_starttime' => '活动开始时间',
 	'event_endtime' => '活动结束时间',
+	'event_airport' => '活动机场'
 );

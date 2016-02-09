@@ -6,8 +6,7 @@ class AdminController extends Controller {
         if (!session('?user')) {
             $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
-        $user = session('user');
-        if ($user['group'] < 1) {
+        if (!token_ident(3)) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
         $users = D('User')->getAll();
@@ -33,28 +32,6 @@ class AdminController extends Controller {
         }else{
             echo 0;
         }
-    }
-
-    public function userdel($id){
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $res = M('User')->where('id='.$id)->delete();
-        if (!$res) {
-            echo 1;
-        }else{
-            echo 0;
-        }
-    }
-
-    public function validatecode($code)
-    {
-        F("validate_code",$code);
-        $this->show('<div class="alert alert-success" role="alert">Success !</div>','utf-8');
     }
 
     public function booking($id)

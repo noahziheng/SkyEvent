@@ -7,19 +7,33 @@ class UserController extends Controller {
     }
     public function login()
     {
-        if (!$_POST['cid'] OR !$_POST['pass']) {
-            $this->error(L("emptyuser"));
-        }else{
-            $User = D("User");
-            $cond = array('id' => $_POST['cid'] , 'password' => md5($_POST['pass']));
-            $res = $User->where($cond)->getField('id');
+        if (!$_GET['oauth_verifier']) {
+            $res = \Org\Net\HttpCurl::get('http://sso.skyevent.tk/sso/index.php?callback='.$_SERVER['HTTP_HOST'],'json');
+            dump($res);
+            $res = json_decode($res,true);
             if (!$res) {
-                $this->error(L("nouser"));
+                //$this->error(L('error'));
             }else{
-                $user = D("User");
-                $user = $user->getUser($res);
-                session('user',$user);
-                $this->success(L('successlogin'));
+                session('vatsimauth',$res);
+                header('Location: ' . $res[2]);
+                die();
+            }
+        }else{
+            $session = session('vatsimauth');
+            $data['key'] = $session[0];
+            $data['secret'] = $session[1];
+            $data['oauth_verifier'] = $_GET['oauth_verifier'];
+            $res = \Org\Net\HttpCurl::post(SSO_URL.'/confirm.php', $data );
+            $res = json_decode($res,true);
+            $user['id'] = $res['id'];
+            $m = M('User');
+            unset($data);
+            session('vatsimauth',null);
+            $data = $m->find();
+            if (!$data) {
+                $this->confirm();
+            }else{
+                session('user',$data);
             }
         }
     }
@@ -29,69 +43,30 @@ class UserController extends Controller {
         $this->success(L("s_logout"));
     }
 
-    public function validate()
+    public function post($id)
     {
-        if (!$_POST['cid'] OR !$_POST['pass'] OR !$_POST['repass'] OR !$_POST['email'] OR !$_POST['code']) {
-            $this->error(L("emptyuser"));
-        }else{
-            if ($_POST['pass'] !== $_POST['repass']) {
-                $this->error(L("nosame"));
-            }
-            $code = F("validate_code");
-            if (!$code) {
-                F("validate_code","VATPRC12138");
-                $code = "VATPRC12138";
-            }
-            if (strtoupper($_POST['code']) !== $code) {
-                $this->error(L("wrongcode"));
-            }
-            $User = M('User');
-            $res = $User->find($_POST['cid']);
-            if (!$res) {
-                $data['id'] = $_POST['cid'];
-                $json = \Org\Net\HttpCurl::get('http://api.vateud.net/members/id/'.$data['id'].'.json');
-                $data['origin'] = json_decode($json,true);
-                if(!$data['origin']){
-                    $this->error('Error Code 0');
-                }
-                $data['email'] = $_POST['email'];
-                $data['password'] = md5($_POST['pass']);
-                $data['firstname'] = $data['origin']['firstname'];
-                $data['lastname'] = $data['origin']['lastname'];
-                $data['rating'] = $data['origin']['rating'];
-                if ($data['rating'] > 5) {
-                    $data['group'] = 3;
-                }elseif ($data['rating'] > 1) {
-                    $data['group'] = 2;
-                }else {
-                    $data['group'] = 1;
-                }
-                S("validate_".$data['id'],$data);
-                $this->assign('data',$data);
-                $hu['group'] = L('usergroup_'.$data['group']);
-                $hu['rating'] = L('rating_'.$data['rating']);
-                $this->assign('hu',$hu);
-                $this->display();
-            }else{
-                $this->error(L('userexist'));
-            }
-        }
+        $data = $_POST['data'];
     }
 
-    public function confirm()
+    public function delete($id)
     {
-        $data = S($_POST['data']);
-        S($_POST['data'],null);
-        $User = D("User");
-        $data['lang'] = LANG_SET;
-        $res = $User->data($data)->add();
-        if (!$res) {
-            $this->error('Error Code 1');
-        }else{
-            $user = D("User");
-            $user = $user->getUser(intval($data['id']));
-            session('user',$user);
-            $this->success(L('successvalidate'),'/Index/index');
+        if (!session('?user')) {
+            $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
+        $user = session('user');
+        if ($user['group'] < 1) {
+            $this->error(L('nopermission'),ROOT_URL.'Index/index');
+        }
+        $res = M('User')->where('id='.$id)->delete();
+        if (!$res) {
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+    protected function confirm()
+    {
+        echo "Hello";
+        //$this->display();
     }
 }

@@ -142,11 +142,11 @@
 
     <footer>
          <div class="container">
-         
+
             <div class="copy text-center">
                Copyright 2015 <a href='#'>SkyEvent</a>
             </div>
-            
+
          </div>
       </footer>
 

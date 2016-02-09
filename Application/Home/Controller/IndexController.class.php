@@ -31,4 +31,8 @@ This week, we will continue our tour to Sanya, the southern most tourist city of
     	);
     	echo json_encode($data);
     }
+    public function testmail()
+    {
+        dump(think_send_mail("ziheng1719@163.com","Noah Gao","SkyEvent Test Mail2","SkyEvent E-mail 测试2"));
+    }
 }

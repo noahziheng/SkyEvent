@@ -117,18 +117,13 @@ class EventController extends Controller {
     public function publish($id)
     {
         $event = D('Event');
-        $time = $event->field('starttime,endtime')->find($id);
-        $res = $event->statusCheck(5,$time['starttime'],$time['endtime'],$id);
-        if (!$res) {
-            $this->success(L('success'));
+        $time = $event->field('status,starttime,endtime')->find($id);
+        if ($time['status'] == 1) {
+            $res = $event->statusCheck(5,$time['starttime'],$time['endtime'],$id);
         }else{
-            $this->error(L('error'));
+            $data = array('status' => 1);
+            $res = M('Event')->where('id='.$id)->data($data)->save($data);
         }
-    }
-    public function unpublish($id)
-    {
-        $data = array('status' => 1);
-        $res = M('Event')->where('id='.$id)->data($data)->save($data);
         if (!$res) {
             $this->error(L('error'));
         }else{
