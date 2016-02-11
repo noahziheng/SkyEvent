@@ -8,7 +8,7 @@
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright &copy; SkyEvent 2016</p>
+            <p>Copyright &copy; SkyEvent 2016 <span class="pull-right">Create by Ziheng Gao</span></p>
           </div>
         </div>
       </footer>

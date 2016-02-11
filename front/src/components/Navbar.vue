@@ -23,6 +23,15 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
+                <!-- languages selector -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言 / Languages <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a v-lang="zh">简体中文</a></li>
+                    <li><a v-lang="en">English</a></li>
+                  </ul>
+                </li>
+                <!-- Userbar -->
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">C1航路管制员 Ziheng Gao <span class="caret"></span></a>
                   <ul class="dropdown-menu">
