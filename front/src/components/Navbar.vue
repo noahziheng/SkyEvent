@@ -14,12 +14,25 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                  <li>
+                  <li v-link="{ path: '/', exact: true, activeClass: 'active' }">
                       <a v-link="{ path: '/' }">首页</a>
                   </li>
-                  <li>
-                      <a v-link="{ path: '/bar' }">活动</a>
+                  <li v-link="{ path: '/events', exact: true, activeClass: 'active' }">
+                      <a v-link="{ path: '/events' }">活动</a>
                   </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">C1航路管制员 Ziheng Gao <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
               </ul>
           </div>
           <!-- /.navbar-collapse -->

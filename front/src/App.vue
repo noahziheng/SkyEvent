@@ -1,14 +1,14 @@
 <template>
   <div>
     <navbar></navbar>
+    <router-view></router-view>
     <div class="container">
-      <router-view></router-view>
       <hr>
       <!-- Footer -->
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright &copy; SkyEvent 2016</p>
           </div>
         </div>
       </footer>
@@ -26,7 +26,7 @@ export default {
 
 <style>
 body {
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 footer {
