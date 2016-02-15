@@ -4,8 +4,7 @@
   "author": "Noah Gao <ziheng1719@163.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "bin/build.sh",
-    "product": "bash ./product.sh",
+    "build": "bash ./build.sh",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {

@@ -1,1 +1,0 @@
-cd ../../../skyevent-dist/
