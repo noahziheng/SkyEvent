@@ -10,6 +10,7 @@ import ZhMsg from './lang/zh'
 import EnMsg from './lang/en'
 import IndexPages from './Pages/Index'
 import EventsPages from './Pages/Events'
+import Lang from './lang-detect'
 
 // ready translated locales
 var locales = {
@@ -17,15 +18,9 @@ var locales = {
   zh: ZhMsg
 }
 
-var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language
-language = language.substr(0, 2)
-if (language !== 'zh' && language !== 'en') {
-  language = 'en'
-}
-
 // set plugin
 Vue.use(i18n, {
-  lang: language,
+  lang: Lang.get(),
   locales: locales
 })
 Vue.use(VueRouter)
@@ -38,10 +33,9 @@ router.map({
     component: EventsPages
   }
 })
-Vue.directive('lang', function (lang) {
-  console.log(lang)
-  // Vue.config.lang = lang
-  console.log(Vue.config.lang)
-})
 import App from './App'
+App.methods.language = function (lang) {
+  Lang.set(lang)
+  location.reload()
+}
 router.start(App, '#app')

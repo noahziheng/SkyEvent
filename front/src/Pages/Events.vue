@@ -1,16 +1,30 @@
 <template>
-  <jumbotron></jumbotron>
-  <features></features>
+  <div class="container">
+    <div class="jumbotron hero-spacer">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="page-header">{{ $t('index.events') }}
+          </h2>
+        </div>
+      </div>
+
+      <eventlist></eventlist>
+    </div>
+  </div>
 </template>
 
 <script>
-import Jumbotron from '../components/Jumbotron'
-import Features from '../components/Features'
+import Eventlist from '../components/Eventlist'
 
 export default {
   components: {
-    Jumbotron,
-    Features
+    Eventlist
   }
 }
 </script>
+
+<style>
+.hero-spacer {
+    margin-top: 50px;
+}
+</style>

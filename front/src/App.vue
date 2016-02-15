@@ -18,9 +18,24 @@
 
 <script>
 import Navbar from './components/Navbar'
+import User from './model/user'
+import Events from './model/events'
+import Version from './version'
 
 export default {
-  components: { Navbar }
+  components: {
+    Navbar
+  },
+  data: function () {
+    return {
+      version: Version.data,
+      user: User,
+      events: Events
+    }
+  },
+  methods: {
+    language: function (lang) {}
+  }
 }
 </script>
 
