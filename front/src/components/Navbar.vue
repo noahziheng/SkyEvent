@@ -3,16 +3,16 @@
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">SkyEvent</a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse">
+          <div id="bs-navbar"  class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                   <li v-link="{ path: '/', exact: true, activeClass: 'active' }">
                       <a v-link="{ path: '/' }">{{ $t('message.home') }}</a>
@@ -57,7 +57,4 @@ export default {
 </script>
 
 <style>
-.vlink {
-  cursor: pointer;
-}
 </style>

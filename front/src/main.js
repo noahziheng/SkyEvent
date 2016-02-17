@@ -10,6 +10,7 @@ import ZhMsg from './lang/zh'
 import EnMsg from './lang/en'
 import IndexPages from './Pages/Index'
 import EventsPages from './Pages/Events'
+import EventPages from './Pages/Event'
 import Lang from './lang-detect'
 
 // ready translated locales
@@ -31,6 +32,9 @@ router.map({
   },
   '/events': {
     component: EventsPages
+  },
+  '/event/:id': {
+    component: EventPages
   }
 })
 import App from './App'

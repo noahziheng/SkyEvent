@@ -20,7 +20,7 @@
 import Navbar from './components/Navbar'
 import User from './model/user'
 import Events from './model/events'
-import Version from './version'
+import Version from './version.json'
 
 export default {
   components: {
@@ -28,7 +28,7 @@ export default {
   },
   data: function () {
     return {
-      version: Version.data,
+      version: Version,
       user: User,
       events: Events
     }
@@ -46,5 +46,8 @@ body {
 
 footer {
     margin: 50px 0;
+}
+.vlink {
+  cursor: pointer;
 }
 </style>

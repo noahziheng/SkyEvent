@@ -4,7 +4,6 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $t('message.guest') }} <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="#">{{ $t('user.login') }}</a></li>
-      <li><a href="#">{{ $t('user.reg') }}</a></li>
     </ul>
   </li>
   <!-- User -->
@@ -12,8 +11,6 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">C1航路管制员 Ziheng Gao <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
       <li role="separator" class="divider"></li>
       <li><a href="#">{{ $t('user.logout') }}</a></li>
     </ul>

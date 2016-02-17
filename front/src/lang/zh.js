@@ -12,12 +12,14 @@ export default {
   index: {
     events: '活动列表',
     flights: '航班列表',
-    versionlog: '版本更新记录',
-    description: 'SkyEvent是VATPRC旗下管理各种模拟飞行活动网站，您可以选择您感兴趣活动的活动报名参加，并获得活动有关的信息，您可通过参与活动加入积分评比。更多功能不断加入中...'
+    description: 'SkyEvent是VATPRC旗下管理各种模拟飞行活动的网站，您可以选择您感兴趣活动的活动报名参加，并获得活动有关的信息，您可通过参与活动加入积分评比。更多功能不断加入中...'
   },
   user: {
-    login: '登录',
-    reg: '注册',
+    login: 'VATSIM SSO 登录',
     logout: '登出'
+  },
+  event: {
+    detail: '查看详情',
+    'more': '更多'
   }
 }
