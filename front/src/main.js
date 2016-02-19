@@ -5,6 +5,7 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import i18n from 'vue-i18n'
 import ZhMsg from './lang/zh'
 import EnMsg from './lang/en'
@@ -25,6 +26,7 @@ Vue.use(i18n, {
   locales: locales
 })
 Vue.use(VueRouter)
+Vue.use(VueResource)
 var router = new VueRouter()
 router.map({
   '/': {

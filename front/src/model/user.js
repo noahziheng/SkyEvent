@@ -1,5 +1,5 @@
-export default {
-  getState: function () {
+export default class UserModel {
+  getState () {
     return true
   }
 }

@@ -18,19 +18,20 @@
 
 <script>
 import Navbar from './components/Navbar'
-import User from './model/user'
+import UserModel from './model/user'
 import Events from './model/events'
 import Version from './version.json'
 
 export default {
+  ready: function () {},
   components: {
     Navbar
   },
   data: function () {
     return {
       version: Version,
-      user: User,
-      events: Events
+      events: Events,
+      user: new UserModel()
     }
   },
   methods: {
