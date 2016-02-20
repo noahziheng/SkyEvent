@@ -4,7 +4,6 @@
 // call the package we need
 var express = require('express');
 var app = express();
-var test = "";
 var bodyParser = require('body-parser');
 
 // configure app to use middleware bodyParser()

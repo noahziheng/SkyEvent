@@ -4,7 +4,7 @@
   "description": "build simple restful server by express4",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "npm install && nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
