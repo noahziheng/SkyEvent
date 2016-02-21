@@ -8,6 +8,7 @@ use Vatsim\OAuth\SSO;
 $sso = new SSO($base, $key, $secret, $method, $cert);
 // Outside Laravel
 $session = $_SESSION['vatsimauth'];
+
 var_dump($session);
 $sso->validate(
     $session['key'],
