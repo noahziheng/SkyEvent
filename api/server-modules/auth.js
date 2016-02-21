@@ -20,6 +20,7 @@ pub.check = function (token) {
   query.equalTo('logintoken', token);
   query.find().then(function(results) {
     results = results[0];
+    
     return results;
   }, function(error) {
     return {

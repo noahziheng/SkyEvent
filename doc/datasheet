@@ -62,11 +62,11 @@
 }
 //standard user data
 {
-  "id":"[string/VATSIM PID]",
+  "pid":"[string/VATSIM PID]",
   "lastname":"[string/VATSIM PID]",
   "firstname":"[string/VATSIM PID]",
   "usergroup":"[number/0user1admin]",
-  "level":"[number/VATSIM Level]",
+  "rating":"[object/VATSIM Level]",
   "division":"[string]",
   "logintoken":"[string/Token by UserAuth Subsystem]"
 }

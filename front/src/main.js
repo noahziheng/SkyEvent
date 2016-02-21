@@ -32,6 +32,10 @@ router.map({
   '/': {
     component: IndexPages
   },
+  '/userauth/:token': {
+    component: IndexPages,
+    auth: true
+  },
   '/events': {
     component: EventsPages
   },

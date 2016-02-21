@@ -21,16 +21,20 @@ import Navbar from './components/Navbar'
 import UserModel from './model/user'
 import Events from './model/events'
 import Version from './version.json'
+import Cookies from 'js-cookie'
 
 export default {
-  ready: function () {
-    this.$http.post('http://localhost:3000/events', {test: true}).then(function (response) {
-      console.log('Test Succeed')
-      console.log(response)
-    }, function (response) {
-      console.log('Test Error')
-      console.log(response)
-    })
+  created: function () {
+    if (this.$route.auth) {
+      Cookies.set('usertoken', this.$route.params.token)
+      /* this.$http.post(this.baseurl + '/events', {logintoken}).then(function (response) {
+        console.log('Test Succeed')
+        console.log(response)
+      }, function (response) {
+        console.log('Test Error')
+        console.log(response)
+      }) */
+    }
   },
   components: {
     Navbar
