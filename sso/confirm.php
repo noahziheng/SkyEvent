@@ -4,6 +4,8 @@
 require 'vendor/autoload.php';
 require 'config.php';
 
+session_start();
+
 use Vatsim\OAuth\SSO;
 $sso = new SSO($base, $key, $secret, $method, $cert);
 // Outside Laravel
