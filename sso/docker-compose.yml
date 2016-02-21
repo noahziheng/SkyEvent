@@ -1,4 +1,4 @@
 vatsimsso:
     build: .
     ports:
-        - "5000:80"
+        - "80:80"

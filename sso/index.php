@@ -7,10 +7,11 @@ require 'config.php';
 use Vatsim\OAuth\SSO;
 $sso = new SSO($base, $key, $secret, $method, $cert);
 // Outside Laravel
-$return = $_POST['callback'];
 $sso->login(
     $return,
     function($key, $secret, $url) {
-    	echo json_encode(array($key,$secret,$url));
+    	$_SESSION['vatsimauth'] = compact('key', 'secret');
+      header('Location: ' . $url);
+      die();
     }
 );
