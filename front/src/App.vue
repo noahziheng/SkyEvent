@@ -23,7 +23,15 @@ import Events from './model/events'
 import Version from './version.json'
 
 export default {
-  ready: function () {},
+  ready: function () {
+    this.$http.post('http://localhost:3000/events', {test: true}).then(function (response) {
+      console.log('Test Succeed')
+      console.log(response)
+    }, function (response) {
+      console.log('Test Error')
+      console.log(response)
+    })
+  },
   components: {
     Navbar
   },

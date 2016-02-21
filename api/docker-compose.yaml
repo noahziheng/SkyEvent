@@ -1,6 +1,0 @@
-web:
-  build: .
-  ports:
-    - "8888:8888"
-  volumes:
-    - .:/usr/src/app
