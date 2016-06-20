@@ -5,7 +5,7 @@
 
 ## 子系统构建方案
 
-*  中心数据系统：开放API调用，子系统相互链接【Docker镜像Golang项目，部署于镜像列表所列各数据站】
+*  中心数据系统：开放API调用，子系统相互链接【Docker镜像PHP/Laravel项目，部署于镜像列表所列各数据站】
 *  中心数据库：Docker Link到中心数据系统【Docker镜像MongoDb，部署于Vultr东京站】
 *  访问前端子系统：提供前端访问，根据设备类型、网络环境选择数据系统源。【暂时部署在Coding Pages服务上，仅承担页面渲染，未来实现为Docker镜像Nodejs+Nginx项目承接前端访问与后端数据API】
 *  用户验证子系统：与VATSIM SSO链接，中转用户数据【PHP项目，部属在LA的自有VPS上】
