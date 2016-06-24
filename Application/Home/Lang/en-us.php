@@ -1,9 +1,8 @@
 <?php
 return  array(
 	'title' => 'Flight Simulator Event Manager',
-	'welcome' => 'Welcome to SkyEvent',
+	'userpanel' => 'User Panel',
 	'announce' => 'Announcement',
-	'welcome_full' => 'We advise you sign in skyevent for better services,You can verify your VATSIM ID by SSO or validate code if you don\'t have our account.',
 	'back' => 'Back to ',
 	'guest' => 'Guest',
 	'home' => 'Home',

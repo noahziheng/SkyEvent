@@ -10,7 +10,7 @@ return array(
 	'event_author' => '作者',
 	'post_type' => '活动类型',
 	'post_lang' => '语言',
-	'post_lang_help' => '请至少填写en-us版本，中文活动建议两种都写齐',
+	'post_lang_help' => '请至少填写英文版本，中文活动建议两种都写齐',
 	'post_title' => '活动标题',
 	'post_detail' => '活动详情',
 	'post_banner' => '活动封面图(请填写完整URL，上传暂不可用)',

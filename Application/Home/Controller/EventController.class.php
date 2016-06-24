@@ -16,9 +16,9 @@ class EventController extends Controller {
         }
         $this->assign('user',$user);
         $event = D('Event')->getOne($id);
-        if ($event['status'] == 1 and $user['group'] < 3) {
+        /*if ($event['status'] == 1 and $user['group'] < 3) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
+        }*/
         $this->assign('event',$event);
         $this->display();
     }
@@ -94,11 +94,6 @@ class EventController extends Controller {
         }
     }
 
-    public function calendar()
-    {
-    	# code...
-    }
-
     public function admin()
     {
         if (!session('?user')) {
@@ -118,11 +113,12 @@ class EventController extends Controller {
     {
         $event = D('Event');
         $time = $event->field('status,starttime,endtime')->find($id);
+        dump($time);
         if ($time['status'] == 1) {
             $res = $event->statusCheck(5,$time['starttime'],$time['endtime'],$id);
         }else{
-            $data = array('status' => 1);
-            $res = M('Event')->where('id='.$id)->data($data)->save($data);
+            $data = array('id'=>$id,'status' => 1);
+            $res = M('Event')->save($data);
         }
         if (!$res) {
             $this->error(L('error'));

@@ -2,16 +2,26 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
+				<h3 class="panel-title">{$Think.lang.manage} {$Think.lang.validate_code}</h3>
+			</div>
+			<div class="panel-body" id="validate-body">
+				<input id="inputCode" type="text" class="form-control" placeholder="Validate Code"><button id="save-btn" type="button" class="btn btn-default">{$Think.lang.save}</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
 				<h3 class="panel-title">{$Think.lang.manage} {$Think.lang.user}</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>id</th>
+							<th>VATSIM ID</th>
 							<th>{$Think.lang.user_name}</th>
-							<th>{$Think.lang.user_rating}</th>
-							<th>{$Think.lang.user_lang}</th>
 							<th>{$Think.lang.user_group}</th>
 							<th>{$Think.lang.user_action}</th>
 						</tr>
@@ -20,17 +30,7 @@
 						<volist name="users" id="vo">
 							<tr id="user_{$vo.id}">
 								<th scope="row">{$vo.id}</th>
-								<td>{$vo.firstname} {$vo.lastname}</td>
-								<td>{:L("rating_".$vo['rating'])}</td>
-								<td>
-									<!-- Single button -->
-									<div class="btn-group">
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="userlang_{$vo.id}">{$vo.lang}</span> <span class="caret"></span></button>
-										<ul class="dropdown-menu">
-											<li><a href="#" onclick="userlang(this);" data="zh-cn" data-id="{$vo.id}">zh-cn</a></li>
-											<li><a href="#" onclick="userlang(this);" data="en-us" data-id="{$vo.id}">en-us</a></li>
-										</ul>
-									</div></td>
+								<td>{$vo.name}</td>
 								<td>
 									<!-- Single button -->
 									<div class="btn-group">
@@ -49,18 +49,6 @@
 						</volist>
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$Think.lang.manage} {$Think.lang.validate_code}</h3>
-			</div>
-			<div class="panel-body" id="validate-body">
-				<input id="inputCode" type="text" class="form-control" placeholder="Validate Code"><button id="save-btn" type="button" class="btn btn-default">{$Think.lang.save}</button>
 			</div>
 		</div>
 	</div>

@@ -5,36 +5,14 @@ class UserController extends Controller {
     public function dashborad(){
         #
     }
-    public function login()
+    public function login($id)
     {
-        if (!$_GET['oauth_verifier']) {
-            $res = \Org\Net\HttpCurl::get('http://sso.skyevent.tk/sso/index.php?callback='.$_SERVER['HTTP_HOST'],'json');
-            dump($res);
-            $res = json_decode($res,true);
-            if (!$res) {
-                //$this->error(L('error'));
-            }else{
-                session('vatsimauth',$res);
-                header('Location: ' . $res[2]);
-                die();
-            }
+        $user = D('User')->get($id);
+        if (!$user) {
+            $this->error(L('nologin'),SSO_URL);
         }else{
-            $session = session('vatsimauth');
-            $data['key'] = $session[0];
-            $data['secret'] = $session[1];
-            $data['oauth_verifier'] = $_GET['oauth_verifier'];
-            $res = \Org\Net\HttpCurl::post(SSO_URL.'/confirm.php', $data );
-            $res = json_decode($res,true);
-            $user['id'] = $res['id'];
-            $m = M('User');
-            unset($data);
-            session('vatsimauth',null);
-            $data = $m->find();
-            if (!$data) {
-                $this->confirm();
-            }else{
-                session('user',$data);
-            }
+            session('user',$user);
+            $this->success(L("successlogin"),ROOT_URL);
         }
     }
     public function logout()
@@ -63,10 +41,5 @@ class UserController extends Controller {
         }else{
             echo 0;
         }
-    }
-    protected function confirm()
-    {
-        echo "Hello";
-        //$this->display();
     }
 }

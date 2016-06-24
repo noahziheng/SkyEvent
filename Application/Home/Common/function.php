@@ -38,7 +38,6 @@ function export_csv($filename,$data) {
 
 function token_ident($group){
     $user = session('user');
-    $user = S('token_'.$user);
     if (!$user) {
         return false;
     }

@@ -24,73 +24,66 @@
     </head>
   <body>
   <div class="header">
-       <div class="container">
-          <div class="row">
-             <div class="col-md-6">
-                <!-- Logo -->
-                <div class="logo">
-                   <h1><a href="{$Think.const.ROOT_URL}Index/index" onclick="reindex();">SkyEvent</a><a href="http://www.vatprc.net"><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:130px;height:35px;"></a></h1>
-                </div>
-             </div>
-             <div class="col-md-4">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <if condition="$user.group eq -1">
-                           {$Think.lang.guest}
-                          <else />
-                          {:L('usergroup_'.$user['group'])} {$user.firstname} {$user.lastname}
-                          </if>
-                          <b class="caret"></b></a>
-                          <ul class="dropdown-menu animated fadeInUp">
-                            <if condition="$user.group eq -1">
-                              <li><a href="#" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</a></li>
-                              <li><a href="#" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</a></li>
-                            <else />
-                              <li><a href="#" class="nav-btn" data="Index/home" >{$Think.lang.dashborad}</a></li>
-                              <li><a href="/User/logout">{$Think.lang.logout}</a></li>
-                            </if>
-                          </ul>
-                        </li>
-                      </ul>
-                    </nav>
-                </div>
-             </div>
-             <div class="col-md-2">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">语言/Language<b class="caret"></b></a>
-                          <ul class="dropdown-menu animated fadeInUp">
-                            <li><a href="/?l=zh-cn"><img src="{$Think.const.ROOT_URL}Public/images/lang/cn.png"> 简体中文</a></li>
-                            <li><a href="/?l=en-us"><img src="{$Think.const.ROOT_URL}Public/images/lang/us.png"> English(United States)</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </nav>
-                </div>
-             </div>
+       <nav class ="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand"><a href="{$Think.const.ROOT_URL}Index/index" style="font-size:25px;color:#FFF;" onclick="reindex();"><strong>SkyEvent</strong></a><a href="http://www.vatprc.net"><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:130px;height:35px;"></a></div>
           </div>
-       </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">语言/Language<b class="caret"></b></a>
+                <ul class="dropdown-menu animated fadeInUp">
+                  <li><a href="/?l=zh-cn"><img src="{$Think.const.ROOT_URL}Public/images/lang/cn.png"> 简体中文</a></li>
+                  <li><a href="/?l=en-us"><img src="{$Think.const.ROOT_URL}Public/images/lang/us.png"> English(United States)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
   </div>
 
     <div class="page-content">
     <div class="row">
       <div class="col-md-2">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">{$Think.lang.userpanel}</div>
+              </div>
+              <div class="panel-body">
+                <if condition="$user.group eq -1">
+                  <a href="{$Think.const.SSO_URL}" class="btn btn-primary btn-lg btn-block"><img class="img-responsive" src="{$Think.const.ROOT_URL}Public/images/vatsim.png">SSO {$Think.lang.login}</a>
+                <else />
+                  <div class="text-center">
+                    <p><strong>{$user.id}</strong></p>
+                    <p><strong>{$user.firstname} {$user.lastname}</strong></p>
+                    <p><strong>{:L('usergroup_'.$user['group'])}</strong></p>
+                    <a href="/User/logout" class="btn btn-default btn-lg btn-block">{$Think.lang.logout}</a>
+                  </div>
+                </if>
+              </div>
+            </div>
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li <if condition="ACTION_NAME eq 'index' and CONTROLLER_NAME eq 'Index'"> class="current"</if>><a href="{$Think.const.ROOT_URL}Index/index"><i class="glyphicon glyphicon-home"></i> {$Think.lang.home}</a></li>
-                    <!--<li <if condition="ACTION_NAME eq 'calendar' and CONTROLLER_NAME eq 'Event'"> class="current"</if>><a href="{$Think.const.ROOT_URL}Event/calendar" ><i class="glyphicon glyphicon-calendar"></i> {$Think.lang.calendar}</a></li>-->
+                    <li class="pointer"><a href="{$Think.const.ROOT_URL}Index/index"><i class="glyphicon glyphicon-home"></i> {$Think.lang.home}</a></li>
                     <if condition="$user.group egt 1">
-                      <li <if condition="ACTION_NAME eq 'post' and CONTROLLER_NAME eq 'Event'"> class="current"</if>><a href="{$Think.const.ROOT_URL}Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
+                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
                     </if>
                     <if condition="$user.group egt 3">
-                      <li <if condition="ACTION_NAME eq 'admin' and CONTROLLER_NAME eq 'Event'"> class="current"</if>><a href="{$Think.const.ROOT_URL}Event/admin" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
-                      <li <if condition="ACTION_NAME eq 'index' and CONTROLLER_NAME eq 'Admin'"> class="current"</if>><a href="{$Think.const.ROOT_URL}Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
+                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Event/admin" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
+                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
                     </if>
                 </ul>
              </div>
@@ -105,99 +98,13 @@
 
     <footer>
          <div class="container">
-         
+
             <div class="copy text-center">
-               Copyright 2015 <a href='#'>SkyEvent</a>
+               Copyright 2015 <a href='#'>SkyEvent</a><br>
+              V{$Think.const.VERSION} {$Think.const.BUILDTAG}
             </div>
-            
+
          </div>
       </footer>
-
-      <php>if (isset($user)){</php>
-      <!-- Modal -->
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="{$Think.lang.close}"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="loginModalLabel">{$Think.lang.login}</h4>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/login">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="inputCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.password}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-              <button type="submit" class="btn btn-primary login-btn">{$Think.lang.login}</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="validateModal" tabindex="-1" role="dialog" aria-labelledby="validateModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="{$Think.lang.close}"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="validateModalLabel">{$Think.lang.validate}</h4>
-            </div>
-            <div class="modal-body">
-            <div class="alert alert-warning" role="alert">{$Think.lang.nosso}</div>
-            <button type="button" class="btn btn-primary btn-lg center-block"  disabled><img src="http://www.vatprc.net/media/images/vatsim.png" style="width:130px;height:35px"><br />SSO</button>
-            <hr>
-            <h5>{$Think.lang.validate_code}</h5>
-              <form class="form-horizontal" method="POST" action="{$Think.const.ROOT_URL}User/validate">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="vCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.email}</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="vEmail" placeholder="{$Think.lang.email}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.password}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="vPassword" placeholder="{$Think.lang.password}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">{$Think.lang.repassword}</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="repass" id="vRepassword" placeholder="{$Think.lang.repassword}" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">{$Think.lang.validate_code}</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="code" id="vCode" placeholder="{$Think.lang.validate_code}" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
-              <button type="submit" class="btn btn-primary">{$Think.lang.validate_p}</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <php>}</php>
   </body>
 </html>

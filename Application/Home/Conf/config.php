@@ -1,6 +1,6 @@
 <?php
 return array(
-	'URL_ROUTER_ON'   => true, 
+	'URL_ROUTER_ON'   => true,
 	'URL_ROUTE_RULES'=>array(
 		'api/event/:id\d' =>  array('Event/view' , 'type=json' , array('method'=>'get')),
 		'api/event/:id\d' => array('Event/post', 'type=json' , array('method'=>'post')),
@@ -12,6 +12,9 @@ return array(
 	'LANG_LIST'        => 'zh-cn,en-us', // 允许切换的语言列表 用逗号分隔
 	'VAR_LANGUAGE'     => 'l', // 默认语言切换变量
 	'CUSTOM_EVENT_IGNOREJSON' => array('id' , 'starttime' , 'endtime' , 'banner' , 'type' , 'status' ),
+	'DATA_CACHE_TYPE'       =>  'Redis',
+	'REDIS_HOST' => '216.189.52.222',
 	'LAYOUT_ON'=>true,
 	'LAYOUT_NAME'=>'layout',
+	'SHOW_PAGE_TRACE' =>true,
 );

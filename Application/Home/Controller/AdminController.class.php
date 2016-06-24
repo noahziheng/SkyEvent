@@ -3,7 +3,10 @@ namespace Home\Controller;
 use Think\Controller;
 class AdminController extends Controller {
     public function index(){
-        if (!session('?user')) {
+        $user = D('User')->get("1248613");
+        if (session('?user')) {
+            $user = session('user');
+        }else{
             $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
         if (!token_ident(3)) {
@@ -153,15 +156,15 @@ class AdminController extends Controller {
         if ($user['group'] < 1) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
-        $filename = $_FILES['file']['tmp_name']; 
-        if (empty ($filename)) { 
+        $filename = $_FILES['file']['tmp_name'];
+        if (empty ($filename)) {
             $this->error(L('error'));
-        } 
-        $handle = fopen($filename, 'r'); 
-        $result = \input_csv($handle); //解析csv 
-        $len_result = count($result); 
-        if($len_result==0){ 
-            $this->error('没有任何数据！'); 
+        }
+        $handle = fopen($filename, 'r');
+        $result = \input_csv($handle); //解析csv
+        $len_result = count($result);
+        if($len_result==0){
+            $this->error('没有任何数据！');
         }
         foreach ($result as $key => $r) {
             $data['user'] = 0;
@@ -186,7 +189,7 @@ class AdminController extends Controller {
                 $this->error(L('error'));
             }
         }
-        fclose($handle); //关闭指针 
+        fclose($handle); //关闭指针
         $this->success(L('success'));
     }
 
@@ -226,7 +229,7 @@ class AdminController extends Controller {
         }else{
             $type="controllers";
         }
-        $filename = 'event'.$eid.$type.'.csv'; //设置文件名 
+        $filename = 'event'.$eid.$type.'.csv'; //设置文件名
         export_csv($filename,$str); //导出
     }
 }

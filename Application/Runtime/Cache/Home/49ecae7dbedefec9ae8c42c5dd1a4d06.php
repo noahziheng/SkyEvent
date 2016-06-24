@@ -76,6 +76,14 @@
     <div class="page-content">
     <div class="row">
       <div class="col-md-2">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title"><?php echo (L("userpanel")); ?></div>
+              </div>
+              <div class="panel-body">
+                <a href="<?php echo (SSO_URL); ?>" class="btn btn-primary btn-lg btn-block"><img class="img-responsive" src="http://www.vatprc.net/media/images/vatsim.png">SSO <?php echo (L("login")); ?></a>
+              </div>
+            </div>
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
@@ -159,7 +167,7 @@
 				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("booking_controller")); ?></h3>
 			</div>
 			<div class="panel-body">
-				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingadd/1/<?php echo ($eid); ?>" method="POST">
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>Admin/bookingadd/2/<?php echo ($eid); ?>" method="POST">
 					<div class="form-group">
 						<label for="inCallsign"><?php echo (L("callsign")); ?></label>
 						<input type="text" class="form-control" id="inCallsign" name="callsign">
@@ -212,99 +220,12 @@
 
     <footer>
          <div class="container">
-         
+
             <div class="copy text-center">
                Copyright 2015 <a href='#'>SkyEvent</a>
             </div>
-            
+
          </div>
       </footer>
-
-      <?php if (isset($user)){ ?>
-      <!-- Modal -->
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="<?php echo (L("close")); ?>"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="loginModalLabel"><?php echo (L("login")); ?></h4>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="<?php echo (ROOT_URL); ?>User/login">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="inputCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label"><?php echo (L("password")); ?></label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="inputPassword" placeholder="Password" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo (L("close")); ?></button>
-              <button type="submit" class="btn btn-primary login-btn"><?php echo (L("login")); ?></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="validateModal" tabindex="-1" role="dialog" aria-labelledby="validateModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="<?php echo (L("close")); ?>"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="validateModalLabel"><?php echo (L("validate")); ?></h4>
-            </div>
-            <div class="modal-body">
-            <div class="alert alert-warning" role="alert"><?php echo (L("nosso")); ?></div>
-            <button type="button" class="btn btn-primary btn-lg center-block"  disabled><img src="http://www.vatprc.net/media/images/vatsim.png" style="width:130px;height:35px"><br />SSO</button>
-            <hr>
-            <h5><?php echo (L("validate_code")); ?></h5>
-              <form class="form-horizontal" method="POST" action="<?php echo (ROOT_URL); ?>User/validate">
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label">VATSIM CID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="cid" id="vCid" placeholder="VATSIM CID" required autofoucs>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label"><?php echo (L("email")); ?></label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="vEmail" placeholder="<?php echo (L("email")); ?>" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label"><?php echo (L("password")); ?></label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="vPassword" placeholder="<?php echo (L("password")); ?>" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label"><?php echo (L("repassword")); ?></label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" name="repass" id="vRepassword" placeholder="<?php echo (L("repassword")); ?>" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCid" class="col-sm-2 control-label"><?php echo (L("validate_code")); ?></label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="code" id="vCode" placeholder="<?php echo (L("validate_code")); ?>" required>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo (L("close")); ?></button>
-              <button type="submit" class="btn btn-primary"><?php echo (L("validate_p")); ?></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php } ?>
   </body>
 </html>

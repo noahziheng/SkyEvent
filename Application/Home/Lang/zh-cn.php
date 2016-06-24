@@ -1,9 +1,8 @@
 <?php
 return  array(
 	'title' => '模拟飞行活动管理系统',
-	'welcome' => '欢迎来到SkyEvent模拟飞行活动管理系统',
+	'userpanel' => '用户面板',
 	'announce' => '公告栏',
-	'welcome_full' => '我们强烈建议您登录本系统以获得更好的体验，如果您尚无本系统账号，请通过SSO或验证码来验证您的VATSIM账号。',
 	'back' => '返回',
 	'guest' => '游客',
 	'home' => '首页',
@@ -60,7 +59,7 @@ return  array(
 	'usergroup_1' => 'VATSIM飞行员',
 	'usergroup_2' => 'VATSIM管制员',
 	'usergroup_3' => 'VATSIM分部职员',
-	'usergroup_4' => 'VATSIM 管理员',
+	'usergroup_4' => 'SkyEvent管理员',
 	//VATSIM等级
 	'rating_0' => '您的账号被禁用。',
 	'rating_1' => 'OBS 飞行员/观察员',

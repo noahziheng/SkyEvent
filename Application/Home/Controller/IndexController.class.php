@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+             $user = D('User')->get("1248613");
     	if (session('?user')) {
     		$user = session('user');
     	}else{

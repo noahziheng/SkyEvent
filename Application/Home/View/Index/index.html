@@ -1,33 +1,4 @@
 <div class="row">
-  <if condition="$user.group eq -1">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">{$Think.lang.welcome}</div>
-        </div>
-        <div class="panel-body">
-          <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
-          <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
-          <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">{$Think.lang.welcome}</div>
-        </div>
-        <div class="panel-body">
-          <p style="font-size:15px;">{$Think.lang.welcome_full}</p>
-          <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#loginModal">{$Think.lang.login}</button>
-          <button type="button" class="btn btn-lg validate btn-block" data-toggle="modal" data-target="#validateModal">{$Think.lang.validate}</button>
-        </div>
-      </div>
-    </div>
-  </if>
-</div>
-
-<div class="row">
   <volist name="event" id="vo">
     <div class="col-md-12">
       <div class="panel panel-default">

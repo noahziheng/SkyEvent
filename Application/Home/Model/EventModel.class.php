@@ -20,12 +20,11 @@ class EventModel extends Model{
         }
         $data['starttime'] = $this->converttime($data['starttime']);
         $data['endtime'] = $this->converttime($data['endtime']);
-        $user = M('User')->field('firstname,lastname')->find($data['author']);
-        $data['author'] = $user['firstname']." ".$user['lastname'];
+        $data['author'] = D("User")->getFullname($data['author']);
         return $data;
     }
 
-    public function getAll($id)
+    public function getAll()
     {
         $datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
         foreach ($datas as $k => $data) {
@@ -38,7 +37,7 @@ class EventModel extends Model{
         	$datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
         }
         unset($statusflaq);
-        foreach ($datas as $k => $data) { 
+        foreach ($datas as $k => $data) {
 	foreach ($data as $key => $value) {
 	        	if(!in_array($key, C('CUSTOM_EVENT_IGNOREJSON'))){
         			$datas[$k][$key] = json_decode($value,true);
@@ -61,8 +60,7 @@ class EventModel extends Model{
     {
     	$datas = $this->order('endtime asc')->field('id,title,type,status,author')->select();
     	foreach ($datas as $k => $data) {
-    		$user = M('User')->field('firstname,lastname')->find(intval($data['author']));
-    		$datas[$k]['author'] = $user['firstname']." ".$user['lastname'];
+    		$datas[$k]['author'] = D('User')->getFullname($data['author']);
     		$datas[$k]['type'] = L('post_type_'.$data['type']);
     		$datas[$k]['statusid'] = $data['status'];
     		$datas[$k]['status'] = L('event_status_'.$data['status']);
@@ -89,7 +87,7 @@ class EventModel extends Model{
     		$data['id'] = $id;
     		$data['status'] = 2;
     		$this->save($data);
-    		return false;
+    		return 2;
     	}elseif ($ctime < $starttime) {
     		if ($status == 3) {
     			return 3;
@@ -97,7 +95,7 @@ class EventModel extends Model{
     		$data['id'] = $id;
     		$data['status'] = 3;
     		$this->save($data);
-    		return false;
+    		return 3;
     	}else{
     		if ($status == 4) {
     			return 4;
@@ -105,7 +103,7 @@ class EventModel extends Model{
     		$data['id'] = $id;
     		$data['status'] = 4;
     		$this->save($data);
-    		return false;
+    		return 4;
     	}
     }
 
