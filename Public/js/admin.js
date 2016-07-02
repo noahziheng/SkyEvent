@@ -1,25 +1,3 @@
-function userlang (obj) {
-	var data = $(obj).attr('data');
-	var id = $(obj).attr('data-id');
-	var lang = $(obj).html();
-	var fdata = {
-		id : id,
-		lang : data,
-	};
-	$.post(p_rooturl+"Admin/useredit",fdata,function(data,status){
-		if (status != 'success') {
-			alert(data);
-		}else{
-			if (data == '1') {
-				alert('Error Code 1!');
-			}else if (data == '0'){
-				$("#userlang_"+id).html(lang);
-			}else{
-				alert('Error Code 0 !');
-			};
-		};
-	});
-}
 function usergroup (obj) {
 	var data = $(obj).attr('data');
 	var id = $(obj).attr('data-id');
@@ -27,8 +5,9 @@ function usergroup (obj) {
 	var fdata = {
 		id : id,
 		group : data,
+		ajax: 1
 	};
-	$.post(p_rooturl+"Admin/useredit",fdata,function(data,status){
+	$.post(p_rooturl+"User/usergroup",fdata,function(data,status){
 		if (status != 'success') {
 			alert(data);
 		}else{
@@ -43,7 +22,11 @@ function usergroup (obj) {
 	});
 }
 function userdel (id) {
-	$.get(p_rooturl+"Admin/userdel/"+id,function(data,status){
+	var fdata = {
+		id : id,
+		ajax: 1
+	};
+	$.post(p_rooturl+"User/userdel/",fdata,function(data,status){
 		if (status != 'success') {
 			alert(data);
 		}else{
@@ -57,7 +40,3 @@ function userdel (id) {
 		};
 	});
 }
-$("#save-btn").click(function() {
-	var code = $("#inputCode").val();
-	$("#validate-body").load(p_rooturl+'Admin/validatecode/'+code);
-});

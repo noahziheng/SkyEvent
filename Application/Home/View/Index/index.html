@@ -1,33 +1,66 @@
 <div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">{$Think.lang.welcome}</div>
+      </div>
+      <div class="panel-body">
+        <h1 class="text-center">SkyEvent&nbsp;&nbsp;&nbsp;| <a href="http://www.vatprc.net"><img src="http://www.vatprc.net/media/images/logo(2).png" style="width:auto;height:39px;"></a></h1>
+        <p class="text-center" style="font-size:18px;">{$Think.lang.welcome_full}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">{$Think.lang.announcement}</div>
+      </div>
+      <table class="table table-hover">
+        <tbody>
+          <volist name="announcements" id="data">
+            <if condition="$data.top eq 1">
+              <tr class="info">
+            <else />
+              <tr>
+            </if>
+              <th scope="row">{$i}</th>
+              <td><a href="{$Think.const.ROOT_URL}Index/{$data.id}" class="pointer">{:byLang($data['title'],$data['title_ch'])}</a></td>
+              <td>{:dateformat($data['time'])}</td>
+            </tr>
+          </volist>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
   <volist name="event" id="vo">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}
-                </div>
-              </div>
-              <div class="panel-body" style="height:auto;">
-                <div class="col-md-8">
-                  <if condition="$vo.banner neq null">
-                    <img class="img-responsive" src="{$vo.banner}"/>
-                  <else />
-                    <p class="eventtext">{$vo.detail}</p>
-                  </if>
-                </div>
-                <div class="col-md-4">
-                  <p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$vo.starttime}</span></p>
-                  <p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$vo.endtime}</span></p>
-                  <hr>
-                  <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary btn-block center-block">{$Think.lang.detail}</a>
-                  <a href="{$Think.const.ROOT_URL}Event/booking/1/{$vo.id}" class="btn btn-lg btn-default btn-block center-block">{$Think.lang.booking_flight}</a>
-                  <if condition="$user.group egt 2">
-                    <a href="{$Think.const.ROOT_URL}Event/booking/2/{$vo.id}" class="btn btn-lg btn-success btn-block center-block">{$Think.lang.booking_controller}</a>
-                  </if>
-                </div>
-              </div>
+              <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}">{$vo.title}</a>&nbsp;<span class="label label-info">{:L('post_type_'.$vo['type'])}</span>&nbsp;{:L('event_status_'.$vo['status'])}
             </div>
+        </div>
+        <div class="panel-body">
+          <if condition="$vo.banner neq null">
+            <img class="img-responsive" src="{$vo.banner}" style="margin:0 auto;"/>
+          <else />
+            <p class="eventtext">{$vo.detail}</p>
+          </if>
+          <hr>
+          <div class="col-md-8">
+            <p class="eventtext"><strong>{$Think.lang.event_starttime} : </strong> <span class="label label-primary">{$vo.starttime}</span></p>
+            <p class="eventtext"><strong>{$Think.lang.event_endtime} : </strong> <span class="label label-primary">{$vo.endtime}</span></p>
           </div>
-        </volist>
+          <div class="col-md-4">
+            <a href="{$Think.const.ROOT_URL}Event/view/{$vo.id}" type="button" class="btn btn-lg btn-primary btn-block center-block">{$Think.lang.detail}</a>
+          </div>
+        </div>
       </div>
     </div>
+  </volist>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center" style="margin:auto 0;">{$page_event}</div>
+</div>

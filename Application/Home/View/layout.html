@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="{$Think.const.ROOT_URL}Public/css/styles.css" rel="stylesheet">
+    <link href="{$Think.const.ROOT_URL}Public/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,6 +21,8 @@
     <script type="text/javascript">
     window.p_rooturl = "{$Think.const.ROOT_URL}";
     window.p_lang = "{$Think.const.LANG_SET}";
+    window.p_controller = "{$Think.const.CONTROLLER_NAME}";
+    window.p_action = "{$Think.const.ACTION_NAME}";
     </script>
     </head>
   <body>
@@ -69,6 +72,9 @@
                     <p><strong>{$user.id}</strong></p>
                     <p><strong>{$user.firstname} {$user.lastname}</strong></p>
                     <p><strong>{:L('usergroup_'.$user['group'])}</strong></p>
+                    <if condition="$user.email neq null">
+                      <a href="/User/dashborad" class="btn btn-primary btn-lg btn-block">{$Think.lang.dashborad}</a>
+                    </if>
                     <a href="/User/logout" class="btn btn-default btn-lg btn-block">{$Think.lang.logout}</a>
                   </div>
                 </if>
@@ -77,13 +83,14 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="pointer"><a href="{$Think.const.ROOT_URL}Index/index"><i class="glyphicon glyphicon-home"></i> {$Think.lang.home}</a></li>
+                    <li class="pointer nav-btn" id="nav-home"><a href="{$Think.const.ROOT_URL}Index/index"><i class="glyphicon glyphicon-home"></i> {$Think.lang.home}</a></li>
                     <if condition="$user.group egt 1">
-                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
+                      <li class="pointer nav-btn" id="nav-new"><a href="{$Think.const.ROOT_URL}Event/post" ><i class="glyphicon glyphicon-pencil"></i> {$Think.lang.newevent}</a></li>
                     </if>
                     <if condition="$user.group egt 3">
-                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Event/admin" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
-                      <li class="pointer"><a href="{$Think.const.ROOT_URL}Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
+                      <li class="pointer nav-btn" id="nav-eventadmin"><a href="{$Think.const.ROOT_URL}Admin/event" ><i class="glyphicon glyphicon-list"></i> {$Think.lang.list}</a></li>
+                      <li class="pointer nav-btn" id="nav-announcementadmin"><a href="{$Think.const.ROOT_URL}Admin/announcement" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.announcement_admin}</a></li>
+                      <li class="pointer nav-btn" id="nav-admin"><a href="{$Think.const.ROOT_URL}Admin/index" ><i class="glyphicon glyphicon-tasks"></i> {$Think.lang.systemadmin}</a></li>
                     </if>
                 </ul>
              </div>
@@ -92,6 +99,7 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{$Think.const.ROOT_URL}Public/js/global.js"></script>
       <div class="col-md-10" id="page">{__CONTENT__}</div>
   </div>
   </div>
@@ -101,7 +109,7 @@
 
             <div class="copy text-center">
                Copyright 2015 <a href='#'>SkyEvent</a><br>
-              V{$Think.const.VERSION} {$Think.const.BUILDTAG}
+              V{$Think.const.VERSION}
             </div>
 
          </div>

@@ -1,0 +1,1892 @@
+[ 2016-06-30T00:13:30+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000097s ]
+
+[ 2016-06-30T01:13:19+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T02:13:08+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T03:12:56+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T04:12:45+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T05:12:34+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+
+[ 2016-06-30T06:12:23+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T07:12:11+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000147s ]
+
+[ 2016-06-30T08:11:59+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T09:11:48+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T10:11:36+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000175s ]
+
+[ 2016-06-30T11:11:24+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000104s ]
+
+[ 2016-06-30T11:54:19+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T12:11:16+08:00 ] 172.17.0.1 //
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000159s ]
+
+[ 2016-06-30T17:11:45+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008831s ]
+
+[ 2016-06-30T17:11:47+08:00 ] 172.17.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T17:16:16+08:00 ] 172.17.0.1 /Event/post
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+
+[ 2016-06-30T17:19:49+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000204s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.709461s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.709527s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0011s ]
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+
+[ 2016-06-30T17:19:58+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000129s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000047s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000188s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.523646s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.523715s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+
+[ 2016-06-30T17:20:02+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000089s ]
+
+[ 2016-06-30T17:20:47+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000055s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000169s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.523766s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.523824s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','1248613')
+
+[ 2016-06-30T17:27:12+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000133s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000056s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.529844s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.529939s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`airports`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','','1248613')
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`airports`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','','1248613')
+
+[ 2016-06-30T17:35:28+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000036s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000173s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.700451s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.700517s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+NOTIC: [2] Cannot use a scalar value as an array /home/Application/Home/Controller/EventController.class.php 第 63 行.
+NOTIC: [2] Cannot use a scalar value as an array /home/Application/Home/Controller/EventController.class.php 第 64 行.
+NOTIC: [2] Cannot use a scalar value as an array /home/Application/Home/Controller/EventController.class.php 第 65 行.
+NOTIC: [2] Cannot use a scalar value as an array /home/Application/Home/Controller/EventController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0006s ]
+NOTIC: [2] Invalid argument supplied for foreach() /home/ThinkPHP/Library/Think/Model.class.php 第 267 行.
+NOTIC: [2] Invalid argument supplied for foreach() /home/ThinkPHP/Library/Think/Db/Driver.class.php 第 802 行.
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` () VALUES ()
+ERR: 1364:Field 'status' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` () VALUES ()
+
+[ 2016-06-30T17:35:47+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000136s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.525724s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.525885s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+ERR: 1364:Field 'notams' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`status`,`airports`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','2','','1248613')
+ERR: 1364:Field 'notams' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`status`,`airports`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','2','','1248613')
+
+[ 2016-06-30T17:36:13+08:00 ] 172.17.0.1 /Event/submit/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000139s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.523214s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.523340s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0008s ]
+SQL: INSERT INTO `event` (`type`,`title`,`detail`,`banner`,`starttime`,`endtime`,`route`,`status`,`airports`,`notams`,`author`) VALUES ('2','{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}','{\"zh-cn\":\"\",\"en-us\":\"\"}','http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png','1467460800','1435852800','[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]','2','','','1248613') [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000140s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000201s ]
+
+[ 2016-06-30T17:36:14+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000138s ]
+
+[ 2016-06-30T17:37:21+08:00 ] 172.17.0.1 /Admin/event
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T09:37:24+00:00 ] 172.17.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+
+[ 2016-06-30T17:37:34+08:00 ] 172.17.0.1 /Event/submit/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000056s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.525586s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.525758s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0004s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}',`detail`='{\"zh-cn\":\"\",\"en-us\":\"\"}',`banner`='http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png',`starttime`='1467460800',`endtime`='1435852800',`route`='[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]',`status`='2',`airports`='',`notams`='{\"zh-cn\":[],\"en-us\":[]}' WHERE `id` = 2 [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000136s ]
+
+[ 2016-06-30T17:37:34+08:00 ] 172.17.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+ERR: 非法操作:admin
+
+[ 2016-06-30T17:38:39+08:00 ] 172.17.0.1 /Admin/Event
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000389s ]
+ERR: 模板不存在:./Application/Home/View/Admin/Event.html
+
+[ 2016-06-30T17:38:44+08:00 ] 172.17.0.1 /Admin/event
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T09:38:47+00:00 ] 172.17.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000117s ]
+
+[ 2016-06-30T17:38:58+08:00 ] 172.17.0.1 /Event/submit/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000181s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000090s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.529339s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.529526s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0007s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}',`detail`='{\"zh-cn\":\"\",\"en-us\":\"\"}',`banner`='http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png',`starttime`='1467460800',`endtime`='1467475200',`route`='[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]',`status`='3',`airports`='',`notams`='{\"zh-cn\":[],\"en-us\":[]}' WHERE `id` = 2 [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000130s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000192s ]
+
+[ 2016-06-30T17:38:58+08:00 ] 172.17.0.1 /Event/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000124s ]
+ERR: 非法操作:admin
+
+[ 2016-06-30T17:39:21+08:00 ] 172.17.0.1 /Event/submit/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000268s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.527460s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.527539s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: id /home/Application/Home/Controller/EventController.class.php 第 58 行.
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0009s ]
+SQL: UPDATE `event` SET `type`='2',`title`='{\"zh-cn\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\",\"en-us\":\"\\u3010Leg8\\u3011Tour of China 2016 & \\u73af\\u4e2d\\u56fd 2016 \\u77f3\\u5bb6\\u5e84-\\u957f\\u6625\"}',`detail`='{\"zh-cn\":\"\",\"en-us\":\"\"}',`banner`='http://forum.vatprc.net/uploads/monthly_06_2016/post-577-0-35561900-1467004935.png',`starttime`='1467460800',`endtime`='1467475200',`route`='[[\"ZBSJ - ZYCC\",\"JB B215 VYK W41 CDY G212 TGO\"]]',`status`='3',`airports`='',`notams`='{\"zh-cn\":[],\"en-us\":[]}' WHERE `id` = 2 [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000109s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000179s ]
+
+[ 2016-06-30T09:39:24+00:00 ] 172.17.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000144s ]
+
+[ 2016-06-30T09:41:13+00:00 ] 172.17.0.1 /Event/post/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000204s ]
+
+[ 2016-06-30T17:41:24+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000111s ]
+
+[ 2016-06-30T17:47:51+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+
+[ 2016-06-30T17:48:01+08:00 ] 172.17.0.1 /User/email/1248613
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000131s ]
+
+[ 2016-06-30T17:48:05+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T17:48:07+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+
+[ 2016-06-30T17:50:18+08:00 ] 172.17.0.1 /User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T17:50:26+08:00 ] 172.17.0.1 /User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T17:50:27+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000076s ]
+
+[ 2016-06-30T17:50:56+08:00 ] 172.17.0.1 /User/login/1248613
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T17:50:59+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000110s ]
+
+[ 2016-06-30T17:51:37+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000091s ]
+
+[ 2016-06-30T17:55:16+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T18:02:10+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000193s ]
+
+[ 2016-06-30T18:02:35+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000139s ]
+
+[ 2016-06-30T18:04:04+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2016-06-30T18:05:00+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000108s ]
+
+[ 2016-06-30T18:05:27+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+
+[ 2016-06-30T18:13:07+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+
+[ 2016-06-30T18:13:19+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000158s ]
+
+[ 2016-06-30T18:13:50+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T18:13:58+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000133s ]
+
+[ 2016-06-30T18:15:03+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+
+[ 2016-06-30T18:15:10+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000138s ]
+
+[ 2016-06-30T18:15:37+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-06-30T18:16:16+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000101s ]
+
+[ 2016-06-30T18:16:37+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T18:23:25+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000111s ]
+
+[ 2016-06-30T18:23:36+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T18:24:32+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000194s ]
+
+[ 2016-06-30T18:35:40+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000127s ]
+
+[ 2016-06-30T18:39:00+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T18:40:55+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000131s ]
+
+[ 2016-06-30T18:41:09+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T18:41:20+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000177s ]
+
+[ 2016-06-30T18:41:23+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000129s ]
+
+[ 2016-06-30T10:41:26+00:00 ] 172.17.0.1 /Booking/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T18:42:51+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+
+[ 2016-06-30T18:43:17+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000105s ]
+
+[ 2016-06-30T18:44:46+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000095s ]
+
+[ 2016-06-30T18:45:15+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T18:45:31+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000147s ]
+
+[ 2016-06-30T18:45:42+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000142s ]
+
+[ 2016-06-30T18:46:20+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000147s ]
+
+[ 2016-06-30T18:46:39+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+
+[ 2016-06-30T18:47:03+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+
+[ 2016-06-30T18:47:15+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+
+[ 2016-06-30T18:55:27+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000117s ]
+
+[ 2016-06-30T18:55:52+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000134s ]
+
+[ 2016-06-30T18:57:30+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T18:58:30+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000150s ]
+
+[ 2016-06-30T18:58:47+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+
+[ 2016-06-30T18:59:24+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000146s ]
+
+[ 2016-06-30T19:01:20+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000158s ]
+
+[ 2016-06-30T19:01:53+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T19:15:14+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T19:15:34+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T19:16:02+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000131s ]
+
+[ 2016-06-30T19:16:14+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000089s ]
+
+[ 2016-06-30T19:16:35+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T19:17:24+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000099s ]
+
+[ 2016-06-30T19:17:40+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000103s ]
+
+[ 2016-06-30T19:17:50+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T19:18:30+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000124s ]
+
+[ 2016-06-30T19:22:58+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T19:23:26+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+
+[ 2016-06-30T19:24:04+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+
+[ 2016-06-30T19:24:54+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T19:25:28+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000188s ]
+
+[ 2016-06-30T19:26:58+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000129s ]
+
+[ 2016-06-30T19:27:12+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000152s ]
+
+[ 2016-06-30T19:27:37+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+
+[ 2016-06-30T19:28:07+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000136s ]
+
+[ 2016-06-30T19:28:21+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T19:29:05+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+
+[ 2016-06-30T19:29:22+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2016-06-30T19:29:51+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T19:30:09+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000125s ]
+
+[ 2016-06-30T19:30:19+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T19:30:36+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T19:30:48+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T19:30:51+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000077s ]
+
+[ 2016-06-30T11:30:54+00:00 ] 172.17.0.1 /Booking/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000141s ]
+
+[ 2016-06-30T19:31:26+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000132s ]
+
+[ 2016-06-30T19:32:14+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000165s ]
+
+[ 2016-06-30T19:32:52+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000151s ]
+
+[ 2016-06-30T19:33:00+08:00 ] 172.17.0.1 /Event/view/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000131s ]
+
+[ 2016-06-30T19:44:52+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000124s ]
+
+[ 2016-06-30T19:44:53+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000131s ]
+
+[ 2016-06-30T19:45:23+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T19:47:19+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000134s ]
+
+[ 2016-06-30T19:51:45+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T19:52:30+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+
+[ 2016-06-30T19:53:44+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000108s ]
+
+[ 2016-06-30T19:57:14+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000124s ]
+
+[ 2016-06-30T19:57:24+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000136s ]
+ERR: 非法操作:1
+
+[ 2016-06-30T20:02:59+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000099s ]
+
+[ 2016-06-30T20:03:02+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+ERR: 非法操作:1
+
+[ 2016-06-30T20:03:09+08:00 ] 172.17.0.1 /Admin/delannouncement/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2016-06-30T20:03:11+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000108s ]
+
+[ 2016-06-30T21:15:11+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000127s ]
+
+[ 2016-06-30T21:16:46+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T21:22:19+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+
+[ 2016-06-30T21:22:54+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+
+[ 2016-06-30T21:23:12+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000153s ]
+
+[ 2016-06-30T21:23:43+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000134s ]
+
+[ 2016-06-30T21:25:39+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-06-30T21:26:20+08:00 ] 172.17.0.1 /User/dashborad
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T21:41:54+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000134s ]
+
+[ 2016-06-30T21:42:33+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+
+[ 2016-06-30T21:47:20+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000098s ]
+ERR: 1364:Field 'user' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `announcement` (`title`,`title_ch`,`detail`,`detail_ch`) VALUES (' Test Announcement','测试公告',' Test Announcement Detail','测试公告内容')
+
+[ 2016-06-30T21:47:47+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+ERR: 1364:Field 'user' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `announcement` (`title`,`title_ch`,`detail`,`detail_ch`) VALUES (' Test Announcement','测试公告',' Test Announcement Detail','测试公告内容')
+
+[ 2016-06-30T21:51:03+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000173s ]
+
+[ 2016-06-30T21:53:37+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+
+[ 2016-06-30T21:57:53+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000178s ]
+
+[ 2016-06-30T22:01:08+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000127s ]
+
+[ 2016-06-30T22:01:13+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000214s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.712876s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.712970s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:03:56+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T22:04:00+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000099s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:1.118849s ]
+INFO: [ action_begin ] --END-- [ RunTime:1.118911s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2016-06-30T22:04:14+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+
+[ 2016-06-30T22:04:18+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+
+[ 2016-06-30T22:05:20+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000036s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.698838s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.698913s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:05:24+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000102s ]
+
+[ 2016-06-30T22:05:28+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000112s ]
+
+[ 2016-06-30T22:06:10+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.849672s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.849737s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:06:13+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T22:06:17+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000119s ]
+
+[ 2016-06-30T22:07:40+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000078s ]
+
+[ 2016-06-30T22:07:49+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000052s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000219s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.824781s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.824850s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:08:13+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000149s ]
+
+[ 2016-06-30T22:08:16+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000219s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.707222s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.707318s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:08:33+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+
+[ 2016-06-30T22:08:36+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000105s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.928177s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.928276s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2016-06-30T22:10:36+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000112s ]
+
+[ 2016-06-30T22:10:48+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T22:10:51+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000217s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.953970s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.954046s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:10:56+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000092s ]
+
+[ 2016-06-30T22:11:00+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+
+[ 2016-06-30T22:11:15+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.725296s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.725388s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:11:18+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000211s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.717484s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.717578s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:11:34+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+
+[ 2016-06-30T22:11:38+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:1.408939s ]
+INFO: [ action_begin ] --END-- [ RunTime:1.409035s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:12:19+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000135s ]
+
+[ 2016-06-30T22:12:22+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000219s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.705560s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.705669s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2016-06-30T22:12:25+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.721982s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.722086s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2016-06-30T22:14:09+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+
+[ 2016-06-30T22:14:12+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.701736s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.701801s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:14:27+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T22:14:30+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000050s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.703308s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.703385s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:14:34+08:00 ] 172.17.0.1 /Admin/editannouncement/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+
+[ 2016-06-30T22:14:38+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000105s ]
+
+[ 2016-06-30T22:15:16+08:00 ] 172.17.0.1 /Index/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000063s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000492s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:1.097212s ]
+INFO: [ action_begin ] --END-- [ RunTime:1.097307s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T22:15:18+08:00 ] 172.17.0.1 /Admin/editannouncement/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+
+[ 2016-06-30T22:15:25+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+
+[ 2016-06-30T22:15:30+08:00 ] 172.17.0.1 /Admin/delannouncement/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-06-30T22:15:35+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+
+[ 2016-06-30T22:15:39+08:00 ] 172.17.0.1 /Admin/delannouncement/4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T22:15:42+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000119s ]
+
+[ 2016-06-30T22:16:25+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-06-30T22:16:27+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.700816s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.700894s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T22:16:30+08:00 ] 172.17.0.1 /Admin/editannouncement/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000115s ]
+ERR: 1062:Duplicate entry '3' for key 'PRIMARY'
+ [ SQL语句 ] : INSERT INTO `announcement` (`title`,`title_ch`,`detail`,`detail_ch`,`top`,`id`,`user`,`time`) VALUES (' Test Announcement','测试公告',' Test Announcement Detail1','测试公告内容','1','3','1248613','1467296190')
+
+[ 2016-06-30T22:17:05+08:00 ] 172.17.0.1 /Admin/editannouncement/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000089s ]
+
+[ 2016-06-30T22:17:08+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+
+[ 2016-06-30T22:17:13+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000105s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.704541s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.704636s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2016-06-30T22:17:18+08:00 ] 172.17.0.1 /Admin/delannouncement/5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000101s ]
+
+[ 2016-06-30T22:17:21+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000102s ]
+
+[ 2016-06-30T22:20:07+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000366s ]
+
+[ 2016-06-30T22:20:32+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T22:20:38+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000093s ]
+
+[ 2016-06-30T22:29:12+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+
+[ 2016-06-30T22:29:31+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T22:29:46+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000176s ]
+
+[ 2016-06-30T22:30:02+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000103s ]
+
+[ 2016-06-30T22:30:30+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+
+[ 2016-06-30T22:31:14+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+
+[ 2016-06-30T22:31:45+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T22:32:11+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+
+[ 2016-06-30T22:32:23+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000100s ]
+
+[ 2016-06-30T22:32:38+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000114s ]
+
+[ 2016-06-30T22:32:46+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+
+[ 2016-06-30T22:34:43+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000148s ]
+
+[ 2016-06-30T22:35:08+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T22:35:30+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+
+[ 2016-06-30T22:36:16+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000107s ]
+
+[ 2016-06-30T22:36:38+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000109s ]
+
+[ 2016-06-30T22:42:44+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000125s ]
+
+[ 2016-06-30T22:43:29+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000080s ]
+
+[ 2016-06-30T22:44:22+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+
+[ 2016-06-30T22:44:51+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000179s ]
+
+[ 2016-06-30T22:45:06+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T22:45:15+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T22:47:28+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000180s ]
+
+[ 2016-06-30T22:47:43+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+
+[ 2016-06-30T22:48:18+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+
+[ 2016-06-30T22:52:45+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000106s ]
+
+[ 2016-06-30T22:55:23+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000091s ]
+
+[ 2016-06-30T22:55:25+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T22:56:34+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T22:56:45+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000150s ]
+
+[ 2016-06-30T22:56:57+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000129s ]
+
+[ 2016-06-30T22:57:21+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000089s ]
+
+[ 2016-06-30T22:57:32+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000171s ]
+
+[ 2016-06-30T22:57:48+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+
+[ 2016-06-30T23:01:47+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+
+[ 2016-06-30T23:01:51+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000114s ]
+
+[ 2016-06-30T23:03:55+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000149s ]
+
+[ 2016-06-30T23:05:13+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000117s ]
+
+[ 2016-06-30T23:05:30+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T23:05:40+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000125s ]
+
+[ 2016-06-30T23:06:16+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T23:06:54+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000077s ]
+
+[ 2016-06-30T23:07:24+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+
+[ 2016-06-30T23:07:52+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000099s ]
+
+[ 2016-06-30T23:08:04+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000097s ]
+
+[ 2016-06-30T23:08:15+08:00 ] 172.17.0.1 /Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000107s ]
+
+[ 2016-06-30T23:08:26+08:00 ] 172.17.0.1 /index.php/Index/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-30T23:08:31+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000095s ]
+
+[ 2016-06-30T23:08:35+08:00 ] 172.17.0.1 /index.php/Index/index/0/0/1/p/2/1/3/2/4/p/5/2/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000138s ]
+
+[ 2016-06-30T23:08:39+08:00 ] 172.17.0.1 /index.php/Index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-06-30T23:08:46+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T23:08:50+08:00 ] 172.17.0.1 /index.php/Index/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+
+[ 2016-06-30T23:11:44+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000130s ]
+
+[ 2016-06-30T23:11:53+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000089s ]
+
+[ 2016-06-30T23:11:56+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+
+[ 2016-06-30T23:12:04+08:00 ] 172.17.0.1 /index.php/Index/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000155s ]
+
+[ 2016-06-30T23:15:53+08:00 ] 172.17.0.1 /index.php/Index/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000118s ]
+
+[ 2016-06-30T23:16:42+08:00 ] 172.17.0.1 /index.php/Index/index/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+
+[ 2016-06-30T23:16:48+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000208s ]
+
+[ 2016-06-30T23:19:05+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000139s ]
+
+[ 2016-06-30T23:19:19+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-06-30T23:20:08+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+
+[ 2016-06-30T23:20:15+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=[PAGE]
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000158s ]
+
+[ 2016-06-30T23:20:31+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=[PAGE]
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000122s ]
+
+[ 2016-06-30T23:20:35+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000092s ]
+
+[ 2016-06-30T23:20:37+08:00 ] 172.17.0.1 /index.php/Index/index/0/p/1/2/p/1.html?p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+
+[ 2016-06-30T23:20:49+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000101s ]
+
+[ 2016-06-30T23:20:52+08:00 ] 172.17.0.1 /index.php?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000073s ]
+
+[ 2016-06-30T23:21:05+08:00 ] 172.17.0.1 /index.php?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T23:21:08+08:00 ] 172.17.0.1 /Index/6
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+
+[ 2016-06-30T23:27:04+08:00 ] 172.17.0.1 /index.php?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+
+[ 2016-06-30T23:27:11+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+
+[ 2016-06-30T23:27:34+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000083s ]
+
+[ 2016-06-30T23:27:50+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T23:28:41+08:00 ] 172.17.0.1 /Index/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+
+[ 2016-06-30T23:28:49+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000120s ]
+
+[ 2016-06-30T23:29:40+08:00 ] 172.17.0.1 /Event/post
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000170s ]
+
+[ 2016-06-30T23:32:18+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+
+[ 2016-06-30T23:32:43+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000188s ]
+
+[ 2016-06-30T23:32:47+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.706911s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.706976s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-06-30T23:32:51+08:00 ] 172.17.0.1 /Admin/delannouncement/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000127s ]
+
+[ 2016-06-30T23:32:55+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T23:33:36+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T23:44:46+08:00 ] 172.17.0.1 /Admin/editannouncement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000098s ]
+
+[ 2016-06-30T23:44:49+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000118s ]
+
+[ 2016-06-30T23:44:53+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-06-30T23:46:20+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2016-06-30T23:46:23+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000212s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.701452s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.701550s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T23:49:00+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000092s ]
+
+[ 2016-06-30T23:50:17+08:00 ] 172.17.0.1 /Admin/announcement
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000121s ]
+
+[ 2016-06-30T23:50:20+08:00 ] 172.17.0.1 /Index/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.702039s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.702116s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2016-06-30T23:50:23+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000159s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000084s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.696856s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.696964s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `announcement` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2016-06-30T23:50:37+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+
+[ 2016-06-30T23:50:57+08:00 ] 172.17.0.1 /Index/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000125s ]
+
+[ 2016-06-30T23:51:06+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000094s ]
+
+[ 2016-06-30T23:54:04+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000149s ]
+
+[ 2016-06-30T23:56:16+08:00 ] 172.17.0.1 /Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2016-06-30T23:56:19+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+
+[ 2016-06-30T23:57:55+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000177s ]
+
+[ 2016-06-30T23:58:33+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000080s ]
+
+[ 2016-06-30T23:59:14+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000140s ]
+
+[ 2016-06-30T23:59:35+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000181s ]
+
+[ 2016-06-30T23:59:43+08:00 ] 172.17.0.1 /index.php/Index/index?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000080s ]
+

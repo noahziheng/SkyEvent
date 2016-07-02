@@ -25,16 +25,103 @@ class UserModel extends Model{
             $res = array();
             foreach ($data as $key => $v) {
                 foreach ($v as $va) {
-                    $res[] = array('id' => $va, 'name'=>$this->getFullname($va),'group'=>$key);
+                    $name=$this->getFullname($va);
+                    if(!$name){
+                        $name=$this->getFullnameAPI($va);
+                    }
+                    $res[] = array('id' => $va, 'name'=>$name,'group'=>$key);
                 }
             }
             return $res;
         }
     }
 
+    public function AddUser($id,$group)
+    {
+        $data = S('usergroup');
+        if(!$data){
+            return false;
+        }else{
+            $res = array();
+            foreach ($data as $key => $v) {
+                foreach ($v as $va) {
+                    $name=$this->getFullname($va);
+                    if(!$name){
+                        $name=$this->getFullnameAPI($va);
+                    }
+                    $res[] = array('id' => $va, 'name'=>$name,'group'=>$key);
+                }
+            }
+            return true;
+        }
+    }
+
+    public function DelUser($id,$group)
+    {}
+
+    public function getUserEmail($id)
+    {
+        $data = S('user-'.$id.'-email');
+        if(!$data){
+            return false;
+        }else{
+            return $data;
+        }
+    }
+
+    public function SetUserEmail($id,$email)
+    {
+        $data = S('user-'.$id.'-email',$email);
+        if(!$data){
+            return false;
+        }else{
+            return $data;
+        }
+    }
+
+    public function getUserGroup($id)
+    {
+        $group=S('usergroup');
+        foreach ($group as $key => $v) {
+            if(in_array($id, $v)){
+                return $key;
+            }
+        }
+        return 0;
+    }
+
+    public function setUserGroup($id,$groupid)
+    {
+        $group=S('usergroup');
+        foreach ($group as $key => &$v) {
+            array_splice($v, array_search($id,$v,false), 1);
+        }
+        $group[$groupid][]=$id;
+        return S("usergroup",$group);
+    }
+
+    public function delUserGroup($id)
+    {
+        $group=S('usergroup');
+        foreach ($group as $key => &$v) {
+            array_splice($v, array_search($id,$v,false), 1);
+        }
+        return S("usergroup",$group);
+    }
+
     public function getFullname($id)
     {
         $data = $this->get($id);
+        if(!$data){
+            return false;
+        }else{
+            return $data['firstname']." ".$data['lastname'];
+        }
+    }
+
+    public function getFullnameAPI($id)
+    {
+        $data = json_decode(\Org\Net\HttpCurl::get('http://api.vateud.net/members/id/'.$id.'.json'),true);
         return $data['firstname']." ".$data['lastname'];
     }
 
@@ -44,24 +131,14 @@ class UserModel extends Model{
         $arr['id']=$orig['id'];
         $arr['firstname']=$orig['name_first'];
         $arr['lastname']=$orig['name_last'];
-        $arr['group']=$this->checkgroup($orig['id']);
+        $arr['group']=$this->getUserGroup($orig['id']);
         $arr['rating']=$orig['rating']['id'];
         $arr['reg_date']=$orig['reg_date'];
         $arr["division"]=$orig["division"]["code"];
         $arr["region"]=$orig["region"]["code"];
         $arr["country"]=$orig["country"]["code"];
+        $arr['email']=$this->getUserEmail($orig['id']);
         $arr["token"]=$orig["token"];
         return $arr;
-    }
-
-    private function checkgroup($id)
-    {
-        $group=S('usergroup');
-        foreach ($group as $key => $v) {
-            if(in_array($id, $v)){
-                return $key;
-            }
-        }
-        return 0;
     }
 }

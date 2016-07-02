@@ -8,11 +8,4 @@ return array(
 	'wrongcode' => '验证码错误！',
 	'havewrong' => '信息有错误？',
 	'userexist' => '用户已存在！',
-	'v_name' => '姓名',
-	'v_division' => '所属分部',
-	'v_region' => '所属大区',
-	'v_country' => '所在国家',
-	'v_group' => '用户组',
-	'v_rating' => 'VATSIM等级',
-	'successvalidate' => '信息已录入！',
 );

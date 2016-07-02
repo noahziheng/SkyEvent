@@ -1075,3 +1075,46 @@ INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000142s ]
 
+[ 2016-06-24T21:31:13+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008826s ]
+ERR: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'db' (4)
+
+[ 2016-06-24T21:31:14+08:00 ] 172.17.0.5 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000115s ]
+
+[ 2016-06-24T21:31:34+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000164s ]
+ERR: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'db' (4)
+
+[ 2016-06-24T21:32:04+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000137s ]
+ERR: SQLSTATE[HY000] [2003] Can't connect to MySQL server on 'db' (4)
+
+[ 2016-06-24T21:49:28+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000563s ]
+
+[ 2016-06-24T22:14:14+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-06-24T22:16:30+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011972s ]
+
+[ 2016-06-24T22:17:33+08:00 ] 172.17.0.5 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+

@@ -28,6 +28,7 @@ function input_csv($handle) {
 }
 
 function export_csv($filename,$data) {
+    C('SHOW_PAGE_TRACE',false);
     header("Content-type:text/csv");
     header("Content-Disposition:attachment;filename=".$filename);
     header('Cache-Control:must-revalidate,post-check=0,pre-check=0');
@@ -47,6 +48,60 @@ function token_ident($group){
         return false;
     }
 }
+
+function byLang($en,$ch)
+{
+    if(LANG_SET=='zh-cn'){
+        return htmlspecialchars_decode($ch);
+    }else{
+        return htmlspecialchars_decode($en);
+    }
+}
+
+function getAirportName($code)
+{
+    return $code;
+}
+
+function getEventTitle($id)
+{
+    $data = D('Event')->find($id);
+    $data = json_decode($data['title'],true);
+    return $data[LANG_SET];
+}
+
+function timeformat($time=0)
+{
+    return D('Event')->converttime($time);
+}
+
+function dateformat($time=0)
+{
+    return date('Y-n-j',$time);
+}
+
+function getUserFullName($id=0)
+{
+    if($id==0){
+        return "Invalid User";
+    }
+    $res = D('User')->getFullName($id);
+    if (!$res) {
+        return D('User')->getFullNameAPI($id);;
+    }else{
+        return $res;
+    }
+}
+
+function outtime($time)
+{
+    if(time() > $time){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 /**
  * 系统邮件发送函数
  * @param string $to    接收邮件者邮箱
@@ -83,3 +138,24 @@ function token_ident($group){
     }
     return $mail->Send() ? true : $mail->ErrorInfo;
  }
+
+/**
+ * 自定义邮件发送函数
+ * @param array $user 标准用户信息数组
+ * @param string $name  模板名称
+ * @param array $data 模板定义数组
+ * @return boolean
+ */
+ function send_mail($user, $name, $data){
+    $tpl = C('EMAIL_TPL');
+    $notice="<br><div style=\"font-size: 11px; color: #333333;\"><p>本邮件由 SkyEvent 系统自动发出，请勿直接回复</p><p>This email is for informational purposes only - replies to this email will not be read.</p></div>";
+    foreach ($data as $key => $value) {
+        $tpl[$name][LANG_SET][1]=str_replace('$'.($key+1), $value, $tpl[$name][LANG_SET][1]);
+    }
+    $tpl[$name][LANG_SET][0]=str_replace('$TITLE', $data[0], $tpl[$name][LANG_SET][0]);
+    $tpl[$name][LANG_SET][1]=str_replace('$ID', $user['id'], $tpl[$name][LANG_SET][1]);
+    $tpl[$name][LANG_SET][1]=str_replace('$USERNAME', $user['firstname'].' '.$user['lastname'], $tpl[$name][LANG_SET][1]);
+    $mail = think_send_mail($user['email'],$user['firstname'].' '.$user['lastname'],$tpl[$name][LANG_SET][0],$tpl[$name][LANG_SET][1].$notice);
+    return $mail;
+ }
+

@@ -14,9 +14,11 @@ class EventModel extends Model{
         if (!$data['title'][LANG_SET]) {
             $data['title'] = $data['title']['en-us'];
             $data['detail'] = $data['detail']['en-us'];
+            $data['notams'] = $data['notams']['en-us'];
         }else{
             $data['title'] = $data['title'][LANG_SET];
             $data['detail'] = $data['detail'][LANG_SET];
+            $data['notams'] = $data['notams'][LANG_SET];
         }
         $data['starttime'] = $this->converttime($data['starttime']);
         $data['endtime'] = $this->converttime($data['endtime']);
@@ -58,7 +60,7 @@ class EventModel extends Model{
 
     public function adminlist()
     {
-    	$datas = $this->order('endtime asc')->field('id,title,type,status,author')->select();
+    	$datas = $this->order('endtime desc')->field('id,title,type,status,author')->select();
     	foreach ($datas as $k => $data) {
     		$datas[$k]['author'] = D('User')->getFullname($data['author']);
     		$datas[$k]['type'] = L('post_type_'.$data['type']);
@@ -74,51 +76,47 @@ class EventModel extends Model{
     	return $datas;
     }
 
-    public function statusCheck($status,$starttime,$endtime,$id)
+    public function statusCheck($status,$starttime,$endtime,$id=0)
     {
-    	if($status == 1){
-    		return 1;
-    	}
-    	if($status == 2){
-    		return 2;
-    	}
-    	$ctime = time();
-    	if ($ctime > $endtime) {
-    		$data['id'] = $id;
-    		$data['status'] = 2;
-    		$this->save($data);
-    		return 2;
-    	}elseif ($ctime < $starttime) {
-    		if ($status == 3) {
-    			return 3;
-    		}
-    		$data['id'] = $id;
-    		$data['status'] = 3;
-    		$this->save($data);
-    		return 3;
-    	}else{
-    		if ($status == 4) {
-    			return 4;
-    		}
-    		$data['id'] = $id;
-    		$data['status'] = 4;
-    		$this->save($data);
-    		return 4;
-    	}
+        if($status == 1 || $status == 2){
+            return $status;
+        }
+        $ctime = time();
+        if ($ctime > $endtime) {
+            $data['status'] = 2;
+            if($id!=0){
+                $data['id'] = $id;
+                $this->save($data);
+            }
+        }elseif ($ctime < $starttime) {
+            $data['status'] = 3;
+            if($id!=0){
+                $data['id'] = $id;
+                $this->save($data);
+            }
+        }else{
+            $data['status'] = 4;
+            if($id!=0){
+                $data['id'] = $id;
+                $this->save($data);
+            }
+        }
+        return $data['status'];
     }
 
-    private function converttime($data=0)
+    public function converttime($data=0)
     {
     	date_default_timezone_set('UTC');
     	if (LANG_SET == 'zh-cn') {
-    		$res = date('Y年 n月 j日 l Hi',$data).'z'.' (';
+    		$res = date('Y年 n月 j日 Hi',$data).'z'.' (';
     		date_default_timezone_set('PRC');
     		$res = $res.date('H:i',$data).' CST)';
     	}else{
-    		$res = date('l,F jS,Y Hi',$data).'z'.' (';
+    		$res = date('F jS,Y Hi',$data).'z'.' (';
     		date_default_timezone_set('PRC');
     		$res = $res.date('H:i',$data).' CST)';
     	}
     	return $res;
+             date_default_timezone_set('UTC');
     }
 }

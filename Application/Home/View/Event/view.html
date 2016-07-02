@@ -17,18 +17,21 @@
 				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_starttime}:&nbsp;</strong> {$event.starttime}</span></p>
 				<p class="eventtext"><span class="eventfont"><strong>{$Think.lang.event_endtime}:&nbsp;</strong> {$event.endtime}</span></p>
 				<br/>
-				<p class="eventtext"><span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_airport}</strong></span></span></p>
-				<volist name="event.airports" id="vo">
-					<p class="eventtext">{$vo.name} ({$vo.code})</p>
-				</volist>
-				<br/>
 				<p class="eventtext">
-				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span><br/></p></span>
+				<span class="eventfont"><span class="eventtextred"><strong>{$Think.lang.event_route}</strong></span></span></p>
 				<volist name="event.route" id="vo" >
-					<p class="eventtext"><em>{$vo.0}</em></p>
+					<p class="eventtext"><strong><em>{$vo.0}</em></strong></p>
 					<div class="eventtext">{$vo.1}</div>
 					<br/>
 				</volist>
+				<if condition="$event.notams neq array()">
+					<p class="eventtext">
+					<span class="eventfont"><span class="eventtextred"><strong>NOTAMS</strong></span></span></p>
+					<volist name="event.notams" id="vo" >
+						<p class="eventtext"><strong>{$i}</strong>.  {$vo}</p>
+						<br/>
+					</volist>
+				</if>
 			</div>
 		</div>
 	</div>
@@ -40,10 +43,41 @@
                   		<p class="eventtext"><strong>{$Think.lang.post_type} : </strong> <span class="label label-info">{:L('post_type_'.$event['type'])}</span></p><br>
                   		<p class="eventtext"><strong>{$Think.lang.event_author} : </strong> <span class="label label-default">{$event.author}</span></p><hr>
 			<a href="/Index/index" class="btn-block btn btn-lg btn-default">{$Think.lang.back}{$Think.lang.home}</a><br>
-			<a href="{$Think.const.ROOT_URL}Event/booking/1/{$event.id}" class="btn-block btn btn-lg btn-primary">{$Think.lang.booking_flight}</a>
-			<if condition="$user.group egt 2">
-				<a href="{$Think.const.ROOT_URL}Event/booking/2/{$event.id}" class="btn-block btn btn-lg btn-success">{$Think.lang.booking_controller}</a>
+			<a href="{$Think.const.ROOT_URL}Booking/{$event.id}" class="btn-block btn btn-lg btn-primary">{$Think.lang.booking_flight}</a>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$Think.lang.controllers}</h3>
+			</div>
+			<if condition="$booked neq false">
+				<div class="panel-body">
+					<div class="alert alert-info" role="alert"><p>{$Think.lang.notaken} {$booked.callsign}&nbsp;&nbsp;&nbsp;<a class="btn btn-warning btn-sm" href="{$Think.const.ROOT_URL}Event/controller/{$event.id}/{$booked.id}" role="button">{$Think.lang.cancel}</a></p></div>
+				</div>
 			</if>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>{$Think.lang.callsign}</th>
+						<th>{$Think.lang.bookeduser}</th>
+						<if condition="$user.group egt 3"><th>{$Think.lang.action}</th></if>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="event.controllers" id="vo">
+						<tr>
+							<td><strong>{$vo.0}</strong></td>
+							<td><strong>{$vo[1]=='0'?L('available'):getUserFullName($vo[1])}</strong></td>
+							<if condition="$user.group egt 3">
+								<if condition="$booked neq false">
+									<td><a href="{$Think.const.ROOT_URL}Event/controller/{$event.id}/{$i-1}" role="button" class="btn {$vo[1]==$user['id']?'btn-warning':'btn-default'} btn-sm" {$vo[1]==$user['id']?'':'disabled'}>{$vo[1]==$user['id']?L('cancel'):L('notaken')}</a></td>
+								<else />
+									<td><a href="{$Think.const.ROOT_URL}Event/controller/{$event.id}/{$i-1}" role="button" class="btn {$vo[1]=='0'?'btn-primary':'btn-default'} btn-sm" {$vo[1]=='0'?'':'disabled'}>{$vo[1]=='0'?L('take'):L('taken')}</a></td>
+								</if>
+							</if>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

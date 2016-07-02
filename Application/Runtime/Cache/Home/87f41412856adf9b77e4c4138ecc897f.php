@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo (ROOT_URL); ?>Public/css/styles.css" rel="stylesheet">
+    <link href="<?php echo (ROOT_URL); ?>Public/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,6 +21,8 @@
     <script type="text/javascript">
     window.p_rooturl = "<?php echo (ROOT_URL); ?>";
     window.p_lang = "<?php echo (LANG_SET); ?>";
+    window.p_controller = "<?php echo (CONTROLLER_NAME); ?>";
+    window.p_action = "<?php echo (ACTION_NAME); ?>";
     </script>
     </head>
   <body>
@@ -68,6 +71,7 @@
                     <p><strong><?php echo ($user["id"]); ?></strong></p>
                     <p><strong><?php echo ($user["firstname"]); ?> <?php echo ($user["lastname"]); ?></strong></p>
                     <p><strong><?php echo L('usergroup_'.$user['group']);?></strong></p>
+                    <?php if($user["email"] != null): ?><a href="/User/dashborad" class="btn btn-primary btn-lg btn-block"><?php echo (L("dashborad")); ?></a><?php endif; ?>
                     <a href="/User/logout" class="btn btn-default btn-lg btn-block"><?php echo (L("logout")); ?></a>
                   </div><?php endif; ?>
               </div>
@@ -75,10 +79,11 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="pointer"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
-                    <?php if($user["group"] >= 1): ?><li class="pointer"><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
-                    <?php if($user["group"] >= 3): ?><li class="pointer"><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
-                      <li class="pointer"><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
+                    <li class="pointer nav-btn" id="nav-home"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <?php if($user["group"] >= 1): ?><li class="pointer nav-btn" id="nav-new"><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li class="pointer nav-btn" id="nav-eventadmin"><a href="<?php echo (ROOT_URL); ?>Admin/event" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                      <li class="pointer nav-btn" id="nav-announcementadmin"><a href="<?php echo (ROOT_URL); ?>Admin/announcement" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("announcement_admin")); ?></a></li>
+                      <li class="pointer nav-btn" id="nav-admin"><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
                 </ul>
              </div>
       </div>
@@ -86,6 +91,7 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
       <div class="col-md-10" id="page"><div class="row">
 	<div class="col-md-8">
 		<div class="panel panel-default">
@@ -101,14 +107,15 @@
 				<p class="eventtext"><span class="eventfont"><strong><?php echo (L("event_starttime")); ?>:&nbsp;</strong> <?php echo ($event["starttime"]); ?></span></p>
 				<p class="eventtext"><span class="eventfont"><strong><?php echo (L("event_endtime")); ?>:&nbsp;</strong> <?php echo ($event["endtime"]); ?></span></p>
 				<br/>
-				<p class="eventtext"><span class="eventfont"><span class="eventtextred"><strong><?php echo (L("event_airport")); ?></strong></span></span></p>
-				<?php if(is_array($event["airports"])): $i = 0; $__LIST__ = $event["airports"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><?php echo ($vo["name"]); ?> (<?php echo ($vo["code"]); ?>)</p><?php endforeach; endif; else: echo "" ;endif; ?>
-				<br/>
 				<p class="eventtext">
-				<span class="eventfont"><span class="eventtextred"><strong><?php echo (L("event_route")); ?></strong></span><br/></p></span>
-				<?php if(is_array($event["route"])): $i = 0; $__LIST__ = $event["route"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><em><?php echo ($vo["0"]); ?></em></p>
+				<span class="eventfont"><span class="eventtextred"><strong><?php echo (L("event_route")); ?></strong></span></span></p>
+				<?php if(is_array($event["route"])): $i = 0; $__LIST__ = $event["route"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><strong><em><?php echo ($vo["0"]); ?></em></strong></p>
 					<div class="eventtext"><?php echo ($vo["1"]); ?></div>
 					<br/><?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php if($event["notams"] != array()): ?><p class="eventtext">
+					<span class="eventfont"><span class="eventtextred"><strong>NOTAMS</strong></span></span></p>
+					<?php if(is_array($event["notams"])): $i = 0; $__LIST__ = $event["notams"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p class="eventtext"><strong><?php echo ($i); ?></strong>.  <?php echo ($vo); ?></p>
+						<br/><?php endforeach; endif; else: echo "" ;endif; endif; ?>
 			</div>
 		</div>
 	</div>
@@ -120,8 +127,33 @@
                   		<p class="eventtext"><strong><?php echo (L("post_type")); ?> : </strong> <span class="label label-info"><?php echo L('post_type_'.$event['type']);?></span></p><br>
                   		<p class="eventtext"><strong><?php echo (L("event_author")); ?> : </strong> <span class="label label-default"><?php echo ($event["author"]); ?></span></p><hr>
 			<a href="/Index/index" class="btn-block btn btn-lg btn-default"><?php echo (L("back")); echo (L("home")); ?></a><br>
-			<a href="<?php echo (ROOT_URL); ?>Event/booking/1/<?php echo ($event["id"]); ?>" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></a>
-			<?php if($user["group"] >= 2): ?><a href="<?php echo (ROOT_URL); ?>Event/booking/2/<?php echo ($event["id"]); ?>" class="btn-block btn btn-lg btn-success"><?php echo (L("booking_controller")); ?></a><?php endif; ?>
+			<a href="<?php echo (ROOT_URL); ?>Booking/<?php echo ($event["id"]); ?>" class="btn-block btn btn-lg btn-primary"><?php echo (L("booking_flight")); ?></a>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo (L("controllers")); ?></h3>
+			</div>
+			<?php if($booked != false): ?><div class="panel-body">
+					<div class="alert alert-info" role="alert"><p><?php echo (L("notaken")); ?> <?php echo ($booked["callsign"]); ?>&nbsp;&nbsp;&nbsp;<a class="btn btn-warning btn-sm" href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($booked["id"]); ?>" role="button"><?php echo (L("cancel")); ?></a></p></div>
+				</div><?php endif; ?>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th><?php echo (L("callsign")); ?></th>
+						<th><?php echo (L("bookeduser")); ?></th>
+						<?php if($user["group"] >= 5): ?><th><?php echo (L("action")); ?></th><?php endif; ?>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(is_array($event["controllers"])): $i = 0; $__LIST__ = $event["controllers"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+							<td><strong><?php echo ($vo["0"]); ?></strong></td>
+							<td><strong><?php echo ($vo[1]=='0'?L('available'):getUserFullName($vo[1])); ?></strong></td>
+							<?php if($user["group"] >= 5): if($booked != false): ?><td><a href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($i-1); ?>" role="button" class="btn <?php echo ($vo[1]==$user['id']?'btn-warning':'btn-default'); ?> btn-sm" <?php echo ($vo[1]==$user['id']?'':'disabled'); ?>><?php echo ($vo[1]==$user['id']?L('cancel'):L('notaken')); ?></a></td>
+								<?php else: ?>
+									<td><a href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($i-1); ?>" role="button" class="btn <?php echo ($vo[1]=='0'?'btn-primary':'btn-default'); ?> btn-sm" <?php echo ($vo[1]=='0'?'':'disabled'); ?>><?php echo ($vo[1]=='0'?L('take'):L('taken')); ?></a></td><?php endif; endif; ?>
+						</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div></div>
@@ -133,7 +165,7 @@
 
             <div class="copy text-center">
                Copyright 2015 <a href='#'>SkyEvent</a><br>
-              V<?php echo (VERSION); ?> <?php echo (BUILDTAG); ?>
+              V<?php echo (VERSION); ?>
             </div>
 
          </div>

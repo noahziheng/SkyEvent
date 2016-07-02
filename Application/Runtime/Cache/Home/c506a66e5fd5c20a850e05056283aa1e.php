@@ -20,6 +20,8 @@
     <script type="text/javascript">
     window.p_rooturl = "<?php echo (ROOT_URL); ?>";
     window.p_lang = "<?php echo (LANG_SET); ?>";
+    window.p_controller = "<?php echo (CONTROLLER_NAME); ?>";
+    window.p_action = "<?php echo (ACTION_NAME); ?>";
     </script>
     </head>
   <body>
@@ -68,6 +70,7 @@
                     <p><strong><?php echo ($user["id"]); ?></strong></p>
                     <p><strong><?php echo ($user["firstname"]); ?> <?php echo ($user["lastname"]); ?></strong></p>
                     <p><strong><?php echo L('usergroup_'.$user['group']);?></strong></p>
+                    <a href="/User/dashborad" class="btn btn-primary btn-lg btn-block"><?php echo (L("dashborad")); ?></a>
                     <a href="/User/logout" class="btn btn-default btn-lg btn-block"><?php echo (L("logout")); ?></a>
                   </div><?php endif; ?>
               </div>
@@ -75,10 +78,10 @@
         <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="pointer"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
-                    <?php if($user["group"] >= 1): ?><li class="pointer"><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
-                    <?php if($user["group"] >= 3): ?><li class="pointer"><a href="<?php echo (ROOT_URL); ?>Event/admin" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
-                      <li class="pointer"><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
+                    <li class="pointer nav-btn" id="nav-home"><a href="<?php echo (ROOT_URL); ?>Index/index"><i class="glyphicon glyphicon-home"></i> <?php echo (L("home")); ?></a></li>
+                    <?php if($user["group"] >= 1): ?><li class="pointer nav-btn" id="nav-new"><a href="<?php echo (ROOT_URL); ?>Event/post" ><i class="glyphicon glyphicon-pencil"></i> <?php echo (L("newevent")); ?></a></li><?php endif; ?>
+                    <?php if($user["group"] >= 3): ?><li class="pointer nav-btn" id="nav-eventadmin"><a href="<?php echo (ROOT_URL); ?>Admin/event" ><i class="glyphicon glyphicon-list"></i> <?php echo (L("list")); ?></a></li>
+                      <li class="pointer nav-btn" id="nav-admin"><a href="<?php echo (ROOT_URL); ?>Admin/index" ><i class="glyphicon glyphicon-tasks"></i> <?php echo (L("systemadmin")); ?></a></li><?php endif; ?>
                 </ul>
              </div>
       </div>
@@ -86,14 +89,28 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
       <div class="col-md-10" id="page"><div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("validate_code")); ?></h3>
+				<h3 class="panel-title"><?php echo (L("add")); ?> <?php echo (L("privilegeduser")); ?></h3>
 			</div>
-			<div class="panel-body" id="validate-body">
-				<input id="inputCode" type="text" class="form-control" placeholder="Validate Code"><button id="save-btn" type="button" class="btn btn-default"><?php echo (L("save")); ?></button>
+			<div class="panel-body">
+				<form class="form-inline" action="<?php echo (ROOT_URL); ?>User/usergroup" method="POST">
+				  <div class="form-group">
+				    <label for="puserId">VATSIMID</label>
+				    <input type="text" class="form-control" id="puserId" name="id">
+				  </div>
+				  <select class="form-control" name="group">
+					<option value="-2"><?php echo (L("usergroup_-2")); ?></option>
+					<option value="1"><?php echo (L("usergroup_1")); ?></option>
+					<option value="2"><?php echo (L("usergroup_2")); ?></option>
+					<option value="3"><?php echo (L("usergroup_3")); ?></option>
+					<option value="4"><?php echo (L("usergroup_4")); ?></option>
+				  </select>
+				  <button type="submit" class="btn btn-primary"><?php echo (L("save")); ?></button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -102,7 +119,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("user")); ?></h3>
+				<h3 class="panel-title"><?php echo (L("manage")); ?> <?php echo (L("privilegeduser")); ?></h3>
 			</div>
 			<div class="panel-body">
 				<table class="table">
@@ -149,7 +166,7 @@
 
             <div class="copy text-center">
                Copyright 2015 <a href='#'>SkyEvent</a><br>
-              V<?php echo (VERSION); ?> <?php echo (BUILDTAG); ?>
+              V<?php echo (VERSION); ?>
             </div>
 
          </div>

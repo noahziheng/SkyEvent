@@ -17,23 +17,89 @@ class AdminController extends Controller {
         $this->assign('user',$user);
         $this->display();
     }
-    public function useredit(){
-        if (!IS_POST) {
-            $this->show("<span style=\"font-size:48px;\"><strong>Bad Request!</strong></span>");
-        }
+
+    public function event()
+    {
         if (!session('?user')) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
+            $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
         $user = session('user');
-        if ($user['group'] < 1) {
-            $this->error("Bad Request!");
+        if ($user['group'] < 3) {
+            $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
-        $data=$_POST;
-        $res = M('User')->save($data);
-        if (!$res) {
-            echo 1;
+        $this->assign('user',$user);
+        $events = D('Event')->adminlist();
+        $this->assign('events',$events);
+        $this->display();
+    }
+
+    public function announcement()
+    {
+        if (!session('?user')) {
+            $this->error(L('nologin'),ROOT_URL.'Index/index');
+        }
+        $user = session('user');
+        if (!token_ident(3)) {
+            $this->error(L('nopermission'),ROOT_URL.'Index/index');
+        }
+        $this->assign('user',$user);
+        $datas = M('Announcement')->select();
+        $this->assign('datas',$datas);
+        $this->display();
+    }
+
+    public function editannouncement($id=0)
+    {
+        if (!session('?user')) {
+            $this->error(L('nologin'),ROOT_URL.'Index/index');
+        }
+        $user = session('user');
+        if (!token_ident(3)) {
+            $this->error(L('nopermission'),ROOT_URL.'Index/index');
+        }
+        $Announcement = M("Announcement"); // 实例化User对象
+        // 根据表单提交的POST数据创建数据对象
+        if($Announcement->create()){
+            $user=session("user");
+            if($id!=0){
+                $Announcement->id=$id;
+            }
+            $Announcement->user=$user['id'];
+            $Announcement->time=time();
+            if($Announcement->top=='on'){
+                $Announcement->top=1;
+            }else{
+                $Announcement->top=0;
+            }
+            if($id!=0){
+                $result = $Announcement->save();
+            }else{
+                $result = $Announcement->add();
+            }
+            if (!$result) {
+                $this->error(L('error'));
+            }else{
+                $this->success(L('success'));
+            }
         }else{
-            echo 0;
+            $this->error(L('error'));
+        }
+    }
+
+    public function delannouncement($id)
+    {
+        if (!session('?user')) {
+            $this->error(L('nologin'),ROOT_URL.'Index/index');
+        }
+        $user = session('user');
+        if (!token_ident(3)) {
+            $this->error(L('nopermission'),ROOT_URL.'Index/index');
+        }
+        $res = M('Announcement')->delete(intval($id));
+        if (!$res) {
+            $this->error(L('error'));
+        }else{
+            $this->success(L('success'));
         }
     }
 
@@ -47,10 +113,8 @@ class AdminController extends Controller {
         if ($user['group'] < 1) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
-        $con = array('type' => 1, 'eid' => $id );
-        $flights = M('Booking')->where($con)->order('id asc')->select();
-        $con['type'] = 2;
-        $controllers = M('Booking')->where($con)->order('custom asc,id asc')->select();
+        $con = array('eid' => $id );
+        $flights = M('Booking')->where($con)->order('type asc,pushtime desc')->select();
         date_default_timezone_set('UTC');
         foreach ($flights as $key => $value) {
             if ($value['user']==0) {
@@ -60,100 +124,21 @@ class AdminController extends Controller {
                 $flights[$key]['user'] = D('User')->getFullname($value['user']);
                 $flights[$key]['usermark'] = 1;
             }
-            $flights[$key]['info'] = json_decode($value['info'],true);
-            $flights[$key]['time'] = date('Hi',$value['time']).'z';
         }
-        foreach ($controllers as $key => $value) {
-            if ($value['user']==0) {
-                $controllers[$key]['user'] = L('unbooked');
-                $controllers[$key]['usermark'] = 0;
-            }else{
-                $controllers[$key]['user'] = D('User')->getFullname($value['user']);
-                $controllers[$key]['usermark'] = 1;
-            }
-            $controllers[$key]['info'] = json_decode($value['info'],true);
-            $controllers[$key]['time'] = date('Hi',$value['time']).'z';
-        }
+        $event = D('Event')->getOne($id);
+        $this->assign('event',$event);
         $this->assign('flights',$flights);
         $this->assign('eid',$id);
-        $this->assign('controllers',$controllers);
         $this->display();
     }
 
-    public function bookingadd($type,$eid)
+    public function bookingimport($eid)
     {
         if (!session('?user')) {
             $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
         $user = session('user');
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        date_default_timezone_set('UTC');
-        $data['callsign'] = $_POST['callsign'];
-        if ($type == '1') {
-            $data['info']['airport'] = $_POST['airport'];
-            $data['info']['route'] = $_POST['route'];
-        }else{
-            $data['info']['name'] = $_POST['name'];
-            $data['custom'] = $_POST['custom'];
-        }
-        $data['info'] = json_encode($data['info']);
-        $data['time'] = "2015-01-01 ".substr($_POST['time'],0,2).":".substr($_POST['time'],2,2).":00";
-        $data['time'] = strtotime($data['time']);
-        $data['user'] = 0;
-        $data['eid'] = $eid;
-        $res = M('Booking')->add($data);
-        if (!$res) {
-            $this->error(L('error'));
-        }else{
-            $this->success(L('success'));
-        }
-    }
-
-    public function bookingclean($id)
-    {
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $data['id'] = $id;
-        $data['user'] = 0;
-        $res = M('Booking')->save($data);
-        if (!$res) {
-            $this->error(L('error'));
-        }else{
-            $this->success(L('success'));
-        }
-    }
-
-    public function bookingdel($id)
-    {
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $res = M('Booking')->where('id='.$id)->delete();
-        if (!$res) {
-            $this->error(L('error'));
-        }else{
-            $this->success(L('success'));
-        }
-    }
-
-    public function bookingimport($type,$eid)
-    {
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        if ($user['group'] < 1) {
+        if (!token_ident(1)) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
         $filename = $_FILES['file']['tmp_name'];
@@ -166,24 +151,19 @@ class AdminController extends Controller {
         if($len_result==0){
             $this->error('没有任何数据！');
         }
+        date_default_timezone_set('UTC');
         foreach ($result as $key => $r) {
             $data['user'] = 0;
             $data['eid'] = $eid;
-            $data['type'] = $type;
+            $data['type'] = 0;
             $data['callsign'] = $r[0];
-            if ($type == '1') {
-                $data['info']['airport'] = $r[1];
-                $data['info']['route'] = $r[2];
-                $data['time'] = "2015-01-01 ".substr($r[3],0,2).":".substr($r[3],2,2).":00";
-            }else{
-                $data['info']['name'] = $r[1];
-                $data['time'] = "2015-01-01 ".substr($r[2],0,2).":".substr($r[2],2,2).":00";
-                $data['custom'] = $r[3];
-            }
+            $data['dep'] = $r[1]=='*' ? $data['dep'] : $r[1];
+            $data['arr'] = $r[2]=='*' ? $data['arr'] : $r[2];
+            $data['route'] = $r[3]=='*' ? $data['route'] : $r[3];
+            $data['time'] = substr($r[4],0,4).'-'.substr($r[4],4,2).'-'.substr($r[4],6,2).' '.substr($r[4],8,2).":".substr($r[4],8,2).":00";
             $data['info'] = json_encode($data['info']);
-            $data['time'] = strtotime($data['time']);
+            $data['pushtime'] = strtotime($data['time']);
             $res = M('Booking')->add($data);
-            unset($data);
             if (!$res) {
                 fclose($handle); //关闭指针
                 $this->error(L('error'));
@@ -193,43 +173,30 @@ class AdminController extends Controller {
         $this->success(L('success'));
     }
 
-    public function bookingexport($type,$eid)
+    public function bookingexport($eid)
     {
         if (!session('?user')) {
             $this->error(L('nologin'),ROOT_URL.'Index/index');
         }
         $user = session('user');
-        if ($user['group'] < 1) {
+        if (!token_ident(3)) {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
-        $con['eid'] = $eid;
-        $con['type'] = $type;
-        $res = M('Booking')->where($con)->field('callsign,info,time,user')->select();
+        $Booking = M('Booking');
+        $res = $Booking->where('eid='.$eid)->select();
         if (!$res) {
             $this->error(L('error'));
         }
         $str='';
-        foreach ($res as $key => $r) {
-            $r['info'] = json_decode($r['info'],true);
-            if ($type=='1') {
-                $r['info'] = $r['info']['airport'].','.$r['info']['route'];
-            }else{
-                $r['info'] = $r['info']['name'];
+        foreach ($res as $key => &$r) {
+            date_default_timezone_set('UTC');
+            $r['time'] = date('YmdHi',$r['pushtime']);
+            if ($r['user']!=0) {
+                $r['user'] = $r['user'].','.D('User')->getFullname($r['user']);
+                $str = $str.$r['callsign'].','.$r['dep'].','.$r['arr'].','.$r['route'].','.$r['time'].','.$r['user']."\n";
             }
-            $r['time'] = date('Hi',$r['time']);
-            if ($r['user']==0) {
-                $r['user'] = "";
-            }else{
-                $r['user'] = ','.D('User')->getFullname($r['user']);
-            }
-            $str = $str.$r['callsign'].','.$r['info'].','.$r['time'].$r['user']."\n";
         }
-        if ($type=='1') {
-            $type="flights";
-        }else{
-            $type="controllers";
-        }
-        $filename = 'event'.$eid.$type.'.csv'; //设置文件名
+        $filename = 'event'.$eid.'.csv'; //设置文件名
         export_csv($filename,$str); //导出
     }
 }

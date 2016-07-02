@@ -30,7 +30,7 @@ class Page{
         'next'   => '>>',
         'first'  => '1...',
         'last'   => '...%TOTAL_PAGE%',
-        'theme'  => '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%',
+        'theme'  => '%UP_PAGE% %LINK_PAGE% %DOWN_PAGE%',
     );
 
     /**
@@ -67,7 +67,7 @@ class Page{
      * @return string
      */
     private function url($page){
-        return str_replace(urlencode('[PAGE]'), $page, $this->url);
+        return str_replace('[PAGE]', $page, $this->url);
     }
 
     /**
@@ -78,8 +78,7 @@ class Page{
         if(0 == $this->totalRows) return '';
 
         /* 生成URL */
-        $this->parameter[$this->p] = '[PAGE]';
-        $this->url = U(ACTION_NAME, $this->parameter);
+        $this->url = $_SERVER['PHP_SELF'].'?'.$this->p.'=[PAGE]';
         /* 计算分页信息 */
         $this->totalPages = ceil($this->totalRows / $this->listRows); //总页数
         if(!empty($this->totalPages) && $this->nowPage > $this->totalPages) {
@@ -93,11 +92,11 @@ class Page{
 
         //上一页
         $up_row  = $this->nowPage - 1;
-        $up_page = $up_row > 0 ? '<a class="prev" href="' . $this->url($up_row) . '">' . $this->config['prev'] . '</a>' : '';
+        $up_page = $up_row > 0 ? '<li><a aria-label="Previous" href="' . $this->url($up_row) . '"><span aria-hidden="true">&raquo;</span></a></li>' : '';
 
         //下一页
         $down_row  = $this->nowPage + 1;
-        $down_page = ($down_row <= $this->totalPages) ? '<a class="next" href="' . $this->url($down_row) . '">' . $this->config['next'] . '</a>' : '';
+        $down_page = ($down_row <= $this->totalPages) ? '<li><a aria-label="Next" href="' . $this->url($down_row) . '">' . $this->config['next'] . '</a></li>' : '';
 
         //第一页
         $the_first = '';
@@ -124,13 +123,13 @@ class Page{
             if($page > 0 && $page != $this->nowPage){
 
                 if($page <= $this->totalPages){
-                    $link_page .= '<a class="num" href="' . $this->url($page) . '">' . $page . '</a>';
+                    $link_page .= '<li><a href="' . $this->url($page) . '">' . $page . '</a></li>';
                 }else{
                     break;
                 }
             }else{
                 if($page > 0 && $this->totalPages != 1){
-                    $link_page .= '<span class="current">' . $page . '</span>';
+                    $link_page .= '<li class="active"><span>' . $page . '<span class="sr-only">(current)</span></span></li>';
                 }
             }
         }
@@ -140,6 +139,6 @@ class Page{
             array('%HEADER%', '%NOW_PAGE%', '%UP_PAGE%', '%DOWN_PAGE%', '%FIRST%', '%LINK_PAGE%', '%END%', '%TOTAL_ROW%', '%TOTAL_PAGE%'),
             array($this->config['header'], $this->nowPage, $up_page, $down_page, $the_first, $link_page, $the_end, $this->totalRows, $this->totalPages),
             $this->config['theme']);
-        return "<div>{$page_str}</div>";
+        return "<nav><ul class=\"pagination\">{$page_str}</ul></nav>";
     }
 }

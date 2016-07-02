@@ -12,60 +12,39 @@
 				</if>
 				<form class="form-horizontal">
 					<if condition="$type eq 1">
-					<div class="form-group">
-						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
-						<div class="col-sm-10">
-							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary <if condition="$event.type eq 1">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="1" <if condition="$event.type eq 1">checked</if>> {$Think.lang.post_type_1}
-								</label>
-								<label class="btn btn-primary  <if condition="$event.type eq 2">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="2" <if condition="$event.type eq 2">checked</if>> {$Think.lang.post_type_2}
-								</label>
-								<label class="btn btn-primary <if condition="$event.type eq 3">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="3" <if condition="$event.type eq 3">checked</if>> {$Think.lang.post_type_3}
-								</label>
+						<div class="form-group">
+							<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
+							<div class="col-sm-10">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-primary <if condition="$event.type eq 1">active</if>">
+										<input type="radio" name="type" autocomplete="off" value="1" <if condition="$event.type eq 1">checked</if>> {$Think.lang.post_type_1}
+									</label>
+									<label class="btn btn-primary  <if condition="$event.type eq 2">active</if>">
+										<input type="radio" name="type" autocomplete="off" value="2" <if condition="$event.type eq 2">checked</if>> {$Think.lang.post_type_2}
+									</label>
+									<label class="btn btn-primary <if condition="$event.type eq 3">active</if>">
+										<input type="radio" name="type" autocomplete="off" value="3" <if condition="$event.type eq 3">checked</if>> {$Think.lang.post_type_3}
+									</label>
+								</div>
 							</div>
 						</div>
-					</div>
 					<else />
-					<div class="form-group">
-						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
-						<div class="col-sm-10">
-							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary <if condition="$user.group lt 3">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="1" <if condition="$user.group lt 3">checked</if>> {$Think.lang.post_type_1}
-								</label>
-								<label class="btn btn-primary  <if condition="$user.group egt 3">active</if>">
-									<input type="radio" name="type" autocomplete="off" value="2" <if condition="$user.group egt 3">checked</if>> {$Think.lang.post_type_2}
-								</label>
-								<label class="btn btn-primary">
-									<input type="radio" name="type" autocomplete="off" value="3"> {$Think.lang.post_type_3}
-								</label>
+						<div class="form-group">
+							<label for="post_type" class="col-sm-2 control-label">{$Think.lang.post_type}</label>
+							<div class="col-sm-10">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-primary <if condition="$user.group lt 3">active</if>">
+										<input type="radio" name="type" autocomplete="off" value="1" <if condition="$user.group lt 3">checked</if>> {$Think.lang.post_type_1}
+									</label>
+									<label class="btn btn-primary  <if condition="$user.group egt 3">active</if>">
+										<input type="radio" name="type" autocomplete="off" value="2" <if condition="$user.group egt 3">checked</if>> {$Think.lang.post_type_2}
+									</label>
+									<label class="btn btn-primary">
+										<input type="radio" name="type" autocomplete="off" value="3"> {$Think.lang.post_type_3}
+									</label>
+								</div>
 							</div>
 						</div>
-					</div>
-					</if>
-					<if condition="$type eq 1">
-					<div class="form-group">
-						<label for="post_type" class="col-sm-2 control-label">{$Think.lang.event_status}</label>
-						<div class="col-sm-10">
-							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary <if condition="$event.status eq 1">active</if>">
-									<input type="radio" name="status" autocomplete="off" value="1" <if condition="$event.status eq 1">checked</if>> {$Think.lang.event_status_1}
-								</label>
-								<label class="btn btn-primary  <if condition="$event.status eq 2">active</if>">
-									<input type="radio" name="status" autocomplete="off" value="2" <if condition="$event.status eq 2">checked</if>> {$Think.lang.event_status_2}
-								</label>
-								<label class="btn btn-primary <if condition="$event.status eq 3">active</if>">
-									<input type="radio" name="status" autocomplete="off" value="3" <if condition="$event.status eq 3">checked</if>> {$Think.lang.event_status_3}
-								</label>
-								<label class="btn btn-primary <if condition="$event.status eq 4">active</if>">
-									<input type="radio" name="status" autocomplete="off" value="4" <if condition="$event.status eq 4">checked</if>> {$Think.lang.event_status_4}
-								</label>
-							</div>
-						</div>
-					</div>
 					</if>
 					<div class="form-group">
 						<label for="post_lang" class="col-sm-2 control-label">{$Think.lang.post_lang}</label>
@@ -130,16 +109,16 @@
 					</if>
 					<div class="form-group">
 						<label for="post_route" class="control-label col-md-2">{$Think.lang.post_route}</label>
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<input type="text" class="form-control" id="post_route_dep" placeholder="Depature">
 						</div>
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<input type="text" class="form-control" id="post_route_arr" placeholder="Arrival">
 						</div>
-						<div class="col-md-4">
+						<div class="col-sm-4">
 							<input type="text" class="form-control" id="post_route" placeholder="Route">
 						</div>
-						<div class="col-md-2">
+						<div class="col-sm-2">
 							<button class="btn btn-success" type="button" id="route_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>{$Think.lang.add}</button>
 						</div>
 						<div class="row">
@@ -164,7 +143,7 @@
 												<th scope="row">{$k}</th>
 												<td>{$vo.0}</td>
 												<td>{$vo.1}</td>
-												<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_rte(this);" data="{$k}">{$Think.lang.admin_del}</button></td>
+												<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_rte(this);" data="{$k}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
 											</tr>
 											<script>
 												routelist.push(["{$vo.0}","{$vo.1}"]);
@@ -177,16 +156,107 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="post_time" class="col-md-2 control-label">NOTAMS</label>
+						<div class="col-md-10">
+							<script>
+							var notamlist = new Array();
+							var notamid = 1;
+							</script>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Content</th>
+										<th>Lang</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody id="notams-tbody">
+									<if condition="$type eq 1">
+									<volist name="event['notams']" id="vo" key="k">
+										<tr id="notam-{$k}">
+											<th scope="row">{$k}</th>
+											<td>{$vo.0}</td>
+											<td>{$vo.1}</td>
+											<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_notam(this);" data="{$k}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+										</tr>
+										<script>
+										notamlist.push(["{$vo.0}","{$vo.1}"]);
+										notamid = notamid+1;
+										</script>
+									</volist>
+									</if>
+								</tbody>
+							</table>
+							<input type="hidden" class="form-control" id="post_notams_lang" value="{$Think.const.LANG_SET}">
+							<div class="input-group">
+								<input type="text" class="form-control" id="post_notams_content" value="" placeholder="Content">
+								<div class="input-group-btn">
+									<button id="notams-lang-btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></button>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a onclick="notams_lang('en-us');">{$Think.lang.english}</a></li>
+										<li><a onclick="notams_lang('zh-cn');">{$Think.lang.chinese}</a></li>
+									</ul>
+								</div><!-- /btn-group -->
+								<div class="input-group-btn">
+									<button id="notams_add" type="button" class="btn btn-success">{$Think.lang.add}</button>
+								</div><!-- /btn-group -->
+							</div><!-- /input-group -->
+							<br>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="post_controller" class="control-label col-md-2">{$Think.lang.controllers}</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control" id="post_controller_code" placeholder="Code(ICAO)">
+						</div>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="post_controller_user" placeholder="User VATSIM ID (Default:0,bookingable)">
+						</div>
+						<div class="col-sm-4">
+							<button class="btn btn-success" type="button" id="controller_add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>{$Think.lang.add}</button>
+						</div>
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Code</th>
+											<th>User</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody id="controller-tbody">
+										<script>
+											var controllerlist = new Array();
+											var controllerid = 1;
+										</script>
+										<if condition="$type eq 1">
+										<volist name="event['controllers']" id="vo" key="k">
+											<tr id="controller-{$k}">
+												<th scope="row">{$k}</th>
+												<td>{$vo.0}</td>
+												<td>{$vo.1}</td>
+												<td><button type="button" class="btn btn-danger btn-sm" onclick="delete_controller(this);" data="{$k}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+											</tr>
+											<script>
+												controllerlist.push(["{$vo.0}","{$vo.1}"]);
+												controllerid = controllerid+1;
+											</script>
+										</volist>
+										</if>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 					<div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary btn-block" onclick="edit();">{$Think.lang.submit}</button></div>
 				</form>
-
-
-				<script src="{$Think.const.ROOT_URL}Public/js/ckeditor/ckeditor.js"></script>
-				<script src="{$Think.const.ROOT_URL}Public/js/ckeditor/adapters/jquery.js"></script>
 				<script type="text/javascript">
 					var title = {"cn":"","us":''};
 					var detail = {"cn":"","us":''};
-					var charts = {"cn":"","us":''};
 					<if condition="$type eq 1">
 					title.cn = '{$event.title.zh-cn}';
 					title.us = '{$event.title.en-us}';

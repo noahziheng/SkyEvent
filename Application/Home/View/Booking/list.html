@@ -1,0 +1,134 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$Think.lang.booking_flight} {$event.title}</h3>
+			</div>
+			<div></div>
+			<if condition="$booked neq false">
+				<div class="panel-body">
+					<div class="alert alert-info" role="alert"><p class="lead">{$Think.lang.notaken} {$booked.callsign}&nbsp;&nbsp;&nbsp;<a href="{$Think.const.ROOT_URL}Booking/view/{$booked.id}" class="btn btn-primary">{$Think.lang.view}</a>&nbsp;&nbsp;<a class="btn btn-warning" href="{$Think.const.ROOT_URL}Booking/cancel/{$booked.id}" role="button">{$Think.lang.cancel}</a></p></div>
+				</div>
+			<else />
+				<div class="panel-body">
+					<form action="{$Think.const.ROOT_URL}Booking/submit/{$event.id}" method="POST"><div class="row">
+						<div class="col-md-2 text-center"><strong style="font-size:18px">{$Think.lang.booking_new} >></strong></div>
+						<div class="col-md-2"><input type="text" class="form-control" id="inputCallsign" placeholder="{$Think.lang.callsign} 如:CCA001" name="callsign"></div>
+						<div class="col-md-1"><button type="button" id="route-btn" class="btn btn-default" data-toggle="modal" data-target="#routeModal">{$Think.lang.choose_route}</button><input type="hidden" id="inputDep" name="dep"><input type="hidden" id="inputArr" name="arr"><input type="hidden" id="inputRoute" name="route"></div>
+						<div class="col-md-3"><div class="input-group date form_datetime" data-date="2016-07-01T12:00:00Z" data-date-format="yyyy-mm-dd HH:ii" data-link-field="inputTime"><input class="form-control" size="16" type="text" value="" placeholder="UTC {$Think.lang.pushtime}" readonly><span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span><span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span></div><input type="hidden" name="pushtime" id="inputTime" value="" /></div>
+						<div class="col-md-1"><button type="submit" class="btn btn-primary">{$Think.lang.take}</button></div>
+					</div></form>
+				</div>
+			</if>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{$Think.lang.callsign}</th>
+						<th>{$Think.lang.dep}</th>
+						<th>{$Think.lang.arr}</th>
+						<th>{$Think.lang.pushtime}</th>
+						<th>{$Think.lang.bookeduser}</th>
+						<th>{$Think.lang.action}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="bookings" id="booking">
+						<tr>
+							<td><strong>{$booking.callsign}</strong></td>
+							<td>{$booking.dep}</td>
+							<td>{$booking.arr}</td>
+							<td>{$booking.time}</td>
+							<td>{$booking.user}</td>
+							<td>
+								<a href="{$Think.const.ROOT_URL}Booking/view/{$booking.id}" class="btn btn-default btn-sm">{$Think.lang.view}</a>
+								<if condition="$booked neq false">
+									<button type="button" class="btn btn-default btn-sm" disabled="disabled">{$Think.lang.notaken}</button>
+								<else />
+									<if condition="$booking.usermark eq 0">
+										<a href="{$Think.const.ROOT_URL}Booking/book/{$booking.id}" class="btn btn-primary btn-sm">{$Think.lang.take}</a>
+									<else />
+										<button type="button" class="btn btn-default btn-sm" disabled="disabled">{$Think.lang.taken}</button>
+									</if>
+								</if>
+							</td>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="routeModal" tabindex="-1" role="dialog" aria-labelledby="routeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="routeModalLabel">{$Think.lang.choose_route}</h4>
+      </div>
+      <table class="table table-hover">
+      		<thead>
+      			<tr>
+      				<th>#</th>
+      				<th>{$Think.lang.dep} - {$Think.lang.arr}</th>
+      				<th>{$Think.lang.route}</th>
+      				<th>{$Think.lang.action}</th>
+      			</tr>
+      		</thead>
+      		<tbody>
+      			<volist name="event.route" id="r">
+	      			<tr>
+	      				<th scope="row">{$i}</th>
+	      				<td>{$r.0}</td>
+	      				<td>{$r.1}</td>
+	      				<td><button class="btn btn-default" type="button" onclick="route({$i-1});">{$Think.lang.choose}</button></td>
+	      			</tr>
+      			</volist>
+      		</tbody>
+      </table>
+      <div class="modal-body">
+      		<div class="row">
+      			<div class="col-md-2">
+				<input type="text" class="form-control" id="inDep" placeholder="{$Think.lang.dep}">
+			</div>
+			<div class="col-md-2">
+				<input type="text" class="form-control" id="inArr" placeholder="{$Think.lang.arr}">
+			</div>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="inRoute" placeholder="{$Think.lang.route}">
+			</div>
+			<div class="col-md-2"><button type="submit" class="btn btn-default" onclick="route(-1);">{$Think.lang.choose}</button></div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{$Think.lang.close}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{$Think.const.ROOT_URL}Public/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="{$Think.const.ROOT_URL}Public/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<if condition="$Think.const.LANG_SET eq 'zh-cn'">
+<script type="text/javascript">
+	var langstr = 'zh-CN';
+</script>
+</if>
+<script type="text/javascript">
+	window.p_event={$event.id};
+	var config={
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		showMeridian: 1
+	};
+	if(langstr){
+		config.language = langstr;
+	}
+	$('.form_datetime').datetimepicker(config);
+</script>
+<script type="text/javascript" src="{$Think.const.ROOT_URL}Public/js/booking.js"></script>

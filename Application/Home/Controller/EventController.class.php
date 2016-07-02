@@ -16,12 +16,21 @@ class EventController extends Controller {
         }
         $this->assign('user',$user);
         $event = D('Event')->getOne($id);
-        /*if ($event['status'] == 1 and $user['group'] < 3) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }*/
         $this->assign('event',$event);
+        $tmp=$event['controllers'];
+        $booked=false;
+        foreach ($tmp as $k => $t) {
+            if($t[1]==$user['id']){
+                $booked=array();
+                $booked['id']=$k;
+                $booked['callsign']=$t[0];
+                $booked['user']=$t[1];
+            }
+        }
+        $this->assign('booked',$booked);
         $this->display();
     }
+
     public function post($id=0)
     {
         if (!session('?user')) {
@@ -39,6 +48,16 @@ class EventController extends Controller {
             $event['title'] = json_decode($event['title'],true);
             $event['detail'] = json_decode($event['detail'],true);
             $event['route'] = json_decode($event['route'],true);
+            $tmp = json_decode($event['notams']);
+            $event['notams']=array();
+            foreach ($tmp as $key => $value) {
+                foreach ($value as $v) {
+                    $t[]=$v;
+                    $t[]=$key;
+                    $event['notams'][]=$t;
+                    unset($t);
+                }
+            }
             $this->assign('event',$event);
             $this->assign('id',$id);
         }else{
@@ -56,16 +75,26 @@ class EventController extends Controller {
         if ($user['group'] < 1) {
             $this->error("Bad Request!");
         }
+        $Event = D('Event');
         $data = $_POST;
+        $data['status'] = $Event->statusCheck(5,$data['starttime'],$data['endtime'],$data['id']);
         $tmp['title']['zh-cn'] = \_strip_tags($data['title']['cn']);
         $tmp['title']['en-us'] = \_strip_tags($data['title']['us']);
         $tmp['detail']['zh-cn'] = \_strip_tags($data['detail']['cn']);
         $tmp['detail']['en-us'] = \_strip_tags($data['detail']['us']);
         $data['title'] = json_encode($tmp['title']);
         $data['detail'] = json_encode($tmp['detail']);
+        $tmp = json_decode($data['notams']);
+        $data['notams'] = array();
+        $data['controllers'] = \_strip_tags($data['controllers']);
+        foreach ($tmp as $t) {
+            $k=$t[1];
+            $data['notams'][$k][]=$t[0];
+        }
+        $data['notams'] = json_encode($data['notams']);
         if ($id !== '0') {
-            $data['id'] = $id;
-            $res = M('Event')->save($data);
+            $con['id'] = $id;
+            $res = M('Event')->where($con)->save($data);
         }else{
             $data['author'] = $user['id'];
             $res = M('Event')->add($data);
@@ -77,13 +106,27 @@ class EventController extends Controller {
         }
     }
 
+    public function route($eid,$rid)
+    {
+        $data = M('Event')->field('route')->find($eid);
+        $data = json_decode($data['route']);
+        $data = $data[$rid];
+        $arr=explode(' - ', $data[0]);
+        $data=array(
+            'dep' => $arr[0],
+            'arr' => $arr[1],
+            'route' => $data[1]
+        );
+        $this->ajaxReturn($data);
+    }
+
     public function delete($id)
     {
         if (!session('?user')) {
             $this->error('Bad Request');
         }
         $user = session('user');
-        if ($user['group'] < 3) {
+        if (!token_ident(3)) {
             $this->error("Bad Request!");
         }
         $res = M('Event')->delete(intval($id));
@@ -92,21 +135,6 @@ class EventController extends Controller {
         }else{
             echo 0;
         }
-    }
-
-    public function admin()
-    {
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        if ($user['group'] < 3) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $this->assign('user',$user);
-        $events = D('Event')->adminlist();
-        $this->assign('events',$events);
-        $this->display();
     }
 
     public function publish($id)
@@ -127,98 +155,39 @@ class EventController extends Controller {
         }
     }
 
-    public function booking($type=0,$eid=0)
+    public function controller($id,$bid)
     {
-        if ($type == 0 or $eid == 0) {
-            $this->error("Bad Request!");
-        }
         if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
+            $this->error('Bad Request');
         }
         $user = session('user');
-        $this->assign('user',$user);
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        if ($type != '1' and $type != '2') {
+        if (!token_ident(3)) {
             $this->error("Bad Request!");
         }
-        $event = M('Event');
-        $event = $event->where('id='.$eid)->field('status,title')->find();
-        $event['title'] = json_decode($event['title'],true);
-        if (!$event['title'][LANG_SET]) {
-            $event['title'] = $event['title']['en-us'];
+        $res = M('Event')->field('controllers')->find(intval($id));
+        if (!$res) {
+            $this->error(L('error'));
         }else{
-            $event['title'] = $event['title'][LANG_SET];
-        }
-        if ($event['status'] == 2) {
-            $this->error(L('event_outdate'));
-        }
-        $con = array('type' => $type, 'eid' => $eid );
-        $bookings = M('Booking')->where($con)->order('custom asc,id asc')->select();
-        date_default_timezone_set('UTC');
-        $con = array('eid' => $eid,'user' => $user['id']);
-        $booked = M('Booking')->where($con)->field('id,callsign')->find();
-        foreach ($bookings as $key => $value) {
-            if ($value['user']==0) {
-                $bookings[$key]['user'] = L('unbooked');
-                $bookings[$key]['usermark'] = 0;
+            $tmp = json_decode($res['controllers']);
+            $booking = $tmp[$bid];
+            if($booking[1]=='0'){
+                $booking[1]=$user['id'];
             }else{
-                $bookings[$key]['user'] = D('User')->getFullname($value['user']);
-                $bookings[$key]['usermark'] = 1;
+                if($booking[1]==$user['id']){
+                    $booking[1]='0';
+                }else{
+                    $this->error(L('error'));
+                }
             }
-            $bookings[$key]['info'] = json_decode($value['info'],true);
-            $bookings[$key]['time'] = date('Hi',$value['time']).'z';
+            $tmp[$bid] = $booking;
+            $data['controllers'] = json_encode($tmp);
+            $con['id']=$id;
+            $res = M('Event')->where($con)->save($data);
         }
-        $this->assign('bookings',$bookings);
-        $this->assign('booked',$booked);
-        $this->assign('type',$type);
-        $this->assign('event',$event);
-        $this->display();
-    }
-
-    public function book($id=0)
-    {
-        if ($id == 0) {
-            $this->error("Bad Request!");
-        }
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        $this->assign('user',$user);
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $data['id'] = $id;
-        $data['user'] = $user['id'];
-        $res = M('Booking')->save($data);
         if (!$res) {
             $this->error(L('error'));
         }else{
-            $this->success(L('success'));
-        }
-    }
-    public function cancel($id=0)
-    {
-        if ($id == 0) {
-            $this->error("Bad Request!");
-        }
-        if (!session('?user')) {
-            $this->error(L('nologin'),ROOT_URL.'Index/index');
-        }
-        $user = session('user');
-        $this->assign('user',$user);
-        if ($user['group'] < 1) {
-            $this->error(L('nopermission'),ROOT_URL.'Index/index');
-        }
-        $data['id'] = $id;
-        $data['user'] = 0;
-        $res = M('Booking')->save($data);
-        if (!$res) {
-            $this->error(L('error'));
-        }else{
-            $this->success(L('success'));
+            $this->success(L('success'),ROOT_URL.'Event/view/'.$id);
         }
     }
 }

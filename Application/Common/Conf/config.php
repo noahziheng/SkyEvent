@@ -9,7 +9,7 @@ return array(
 	'DB_TYPE'   => 'mysql', // 数据库类型
 	'DB_HOST'   => 'db', // 服务器地址
 	'DB_NAME'   => 'skyevent', // 数据库名
-	'DB_USER'   => 'root', // 用户名
+	'DB_USER'   => 'skyevent', // 用户名
 	'DB_PWD'    => '12345678', // 密码
 	'DB_PORT'   => 3306, // 端口
 	'DB_PREFIX' => '', // 数据库表前缀
@@ -22,6 +22,6 @@ return array(
 		'SMTP_HOST'   => 'smtp.exmail.qq.com', //SMTP服务器
 		'SMTP_PORT'   => '465', //SMTP服务器端口
 		'SMTP_USER'   => 'noreply@noahgao.net', //SMTP服务器用户名
-		'SMTP_PASS'   => 'vatprc12138', //SMTP服务器密码
+		'SMTP_PASS'   => 'VATprc12138', //SMTP服务器密码
 	),
 );
