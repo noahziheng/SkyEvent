@@ -1,0 +1,59 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><if condition="$type eq 1">{$Think.lang.booking_flight}<else />{$Think.lang.booking_controller}</if> {$event.title}</h3>
+			</div>
+			<div></div>
+			<if condition="$booked neq false">
+				<div class="panel-body">
+					<div class="alert alert-info" role="alert"><p class="lead">{$Think.lang.notaken} {$booked.callsign}&nbsp;&nbsp;&nbsp;<a class="btn btn-warning" href="{$Think.const.ROOT_URL}Event/cancel/{$booked.id}" role="button">{$Think.lang.cancel}</a></p></div>
+				</div>
+			</if>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{$Think.lang.callsign}</th>
+						<if condition="$type eq 1">
+							<th>{$Think.lang.airport}</th>
+							<th>{$Think.lang.route}</th>
+							<th>{$Think.lang.pushtime}</th>
+						<else />
+							<th>{$Think.lang.controllerseat}</th>
+							<th>{$Think.lang.onlinetime}</th>
+						</if>
+						<th>{$Think.lang.bookeduser}</th>
+						<th>{$Think.lang.action}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="bookings" id="booking">
+						<tr>
+							<td><strong>{$booking.callsign}</strong></td>
+							<if condition="$type eq 1">
+								<td>{$booking.info.airport}</td>
+								<td>{$booking.info.route}</td>
+							<else />
+								<td>{$booking.info.name}</td>
+							</if>
+							<td><span class="label label-default">{$booking.time}</span></td>
+							<td>{$booking.user}</td>
+							<td>
+								<if condition="$booked neq false">
+									<button type="button" class="btn btn-default btn-sm" disabled="disabled">{$Think.lang.notaken}</button>
+								<else />
+									<if condition="$booking.usermark eq 0">
+										<a href="{$Think.const.ROOT_URL}Event/book/{$booking.id}" class="btn btn-primary btn-sm">{$Think.lang.take}</a>
+									<else />
+										<button type="button" class="btn btn-default btn-sm" disabled="disabled">{$Think.lang.taken}</button>
+									</if>
+								</if>
+							</td>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{$Think.lang.ROOT_URL}Public/js/booking.js"></script>

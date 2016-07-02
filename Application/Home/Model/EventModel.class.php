@@ -36,7 +36,7 @@ class EventModel extends Model{
         	}
         }
         if (!$statusflaq) {
-        	$datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
+        	$datas = $this->order('status desc,starttime desc')->where('status != 1')->select();
         }
         unset($statusflaq);
         foreach ($datas as $k => $data) {

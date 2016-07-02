@@ -11,23 +11,9 @@
 
 // 应用入口文件
 
-/**
-* 获取环境变量
-* @param $key
-* @param null $default
-* @return null|string
-*/
-function env($key, $default = null)
-{
-  $value = getenv($key);
-  if ($value === false) {
-    return $default;
-  }
-  return $value;
-}
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
-define('VERSION', '1.1 Alpha');
+define('VERSION', '1.1 Beta');
 define('ROOT_URL', 'http://fuck.io/');
 define('APP_DEBUG',True);
 define('SSO_URL', 'http://sso.skyevent.tk/?callback='.ROOT_URL.'User/login/');
