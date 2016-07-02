@@ -28,7 +28,7 @@ class EventModel extends Model{
 
     public function getAll()
     {
-        $datas = $this->order('status desc,starttime asc')->where('status != 1')->select();
+        $datas = $this->order('status desc,starttime desc')->where('status != 1')->select();
         foreach ($datas as $k => $data) {
         	$statusflaq = $this->statusCheck($data['status'],$data['starttime'],$data['endtime'],$data['id']);
         	if($statusflaq != false){
