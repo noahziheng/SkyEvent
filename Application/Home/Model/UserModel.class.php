@@ -94,8 +94,12 @@ class UserModel extends Model{
     {
         $group=S('usergroup');
         dump($group);
-        foreach ($group as $key => &$v) {
-            array_splice($v, array_search($id,$v,false), 1);
+        foreach ($group as $key => $v) {
+            foreach ($v as $i => $c) {
+                if($c==$id){
+                    unset($group[$key][$i]);
+                }
+            }
         }
         $group[$groupid][]=$id;
         dump($group);
