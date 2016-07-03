@@ -16,8 +16,8 @@ return  array(
 	'check_email' => 'Check E-mail',
 	'welcome' => 'Welcome to SkyEvent',
 	'welcome_full' => 'SkyEvent is VATSIM P.R.C Division\'s Event Manager and Flight information System<br>We\'ll improve your flight feeling!',
-	'welcome_email' => 'Please submit your email,Start your travel on SkyEvent!',\
-	'successemail' => 'The validate email is sended,continue by the link in this email!',\
+	'welcome_email' => 'Please submit your email,Start your travel on SkyEvent!',
+	'successemail' => 'The validate email is sended,continue by the link in this email!',
 	'email' => 'E-mail',
 	'update' => 'Update',
 	'repassword' => 'Repeat Password',
