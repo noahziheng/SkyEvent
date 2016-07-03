@@ -100,7 +100,7 @@ class BookingController extends Controller {
             $Booking->eid=$data['eid'];
             $res = $Booking->add();
             if (!$res) {
-                $this->error(L('error'),'',100000);
+                $this->error(L('error'));
             }else{
                 if($admin!=0){
                     $con['eid'] = $data['eid'];
@@ -108,10 +108,10 @@ class BookingController extends Controller {
                     $bid=$Booking->field('id')->where($con)->find();
                     $this->email($bid['id']);
                 }
-                $this->success(L('success'),'',100000);
+                $this->success(L('success'));
             }
         }else{
-            $this->error(L('error'),'',100000);
+            $this->error(L('error'));
         }
     }
 
