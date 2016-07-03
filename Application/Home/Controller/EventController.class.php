@@ -161,7 +161,7 @@ class EventController extends Controller {
             $this->error('Bad Request');
         }
         $user = session('user');
-        if (!token_ident(3)) {
+        if (!token_ident(2)) {
             $this->error("Bad Request!");
         }
         $res = M('Event')->field('controllers')->find(intval($id));
