@@ -9,7 +9,7 @@ return array(
 	'REDIS_HOST' => '216.189.52.222',
 	'LAYOUT_ON'=>true,
 	'LAYOUT_NAME'=>'layout',
-	'SHOW_PAGE_TRACE' =>true,
+	//'SHOW_PAGE_TRACE' =>true,
 	'EMAIL_TPL' => array(
 		'usercheck' => array(
 			'zh-cn' => array(
