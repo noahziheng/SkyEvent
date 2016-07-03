@@ -141,14 +141,14 @@
 					<tr>
 						<th><?php echo (L("callsign")); ?></th>
 						<th><?php echo (L("bookeduser")); ?></th>
-						<?php if($user["group"] >= 5): ?><th><?php echo (L("action")); ?></th><?php endif; ?>
+						<?php if($user["group"] >= 3): ?><th><?php echo (L("action")); ?></th><?php endif; ?>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if(is_array($event["controllers"])): $i = 0; $__LIST__ = $event["controllers"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
 							<td><strong><?php echo ($vo["0"]); ?></strong></td>
 							<td><strong><?php echo ($vo[1]=='0'?L('available'):getUserFullName($vo[1])); ?></strong></td>
-							<?php if($user["group"] >= 5): if($booked != false): ?><td><a href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($i-1); ?>" role="button" class="btn <?php echo ($vo[1]==$user['id']?'btn-warning':'btn-default'); ?> btn-sm" <?php echo ($vo[1]==$user['id']?'':'disabled'); ?>><?php echo ($vo[1]==$user['id']?L('cancel'):L('notaken')); ?></a></td>
+							<?php if($user["group"] >= 3): if($booked != false): ?><td><a href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($i-1); ?>" role="button" class="btn <?php echo ($vo[1]==$user['id']?'btn-warning':'btn-default'); ?> btn-sm" <?php echo ($vo[1]==$user['id']?'':'disabled'); ?>><?php echo ($vo[1]==$user['id']?L('cancel'):L('notaken')); ?></a></td>
 								<?php else: ?>
 									<td><a href="<?php echo (ROOT_URL); ?>Event/controller/<?php echo ($event["id"]); ?>/<?php echo ($i-1); ?>" role="button" class="btn <?php echo ($vo[1]=='0'?'btn-primary':'btn-default'); ?> btn-sm" <?php echo ($vo[1]=='0'?'':'disabled'); ?>><?php echo ($vo[1]=='0'?L('take'):L('taken')); ?></a></td><?php endif; endif; ?>
 						</tr><?php endforeach; endif; else: echo "" ;endif; ?>

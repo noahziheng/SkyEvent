@@ -178,14 +178,15 @@
         </thead>
         <tbody>
           <?php if(is_array($bookings)): $i = 0; $__LIST__ = $bookings;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$booking): $mod = ($i % 2 );++$i;?><tr>
-              <td><?php echo getEventTitle($booking);?></td>
+              <?php echo dump($booking);?>
+              <td><?php echo getEventTitle($booking['eid']);?></td>
               <td><?php echo ($booking["callsign"]); ?></td>
               <td>
                   <div class="btn-group" role="group" aria-label="...">
                     <a href="<?php echo (ROOT_URL); ?>Booking/view/<?php echo ($booking["id"]); ?>" role="button" class="btn btn-default">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </a>
-                    <a href="<?php echo (ROOT_URL); ?>Booking/cancel/<?php echo ($booking["id"]); ?>" role="button" class="btn btn-danger">
+                    <a href="<?php echo (ROOT_URL); ?>Booking/cancel/<?php echo ($booking["id"]); ?>" role="button" class="btn btn-warning">
                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
                   </div>

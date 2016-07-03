@@ -58,6 +58,7 @@ class EventController extends Controller {
                     unset($t);
                 }
             }
+            $event['controllers'] = json_decode($event['controllers']);
             $this->assign('event',$event);
             $this->assign('id',$id);
         }else{

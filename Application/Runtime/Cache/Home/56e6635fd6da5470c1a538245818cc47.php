@@ -107,7 +107,7 @@
 					<form action="<?php echo (ROOT_URL); ?>Booking/submit/<?php echo ($event["id"]); ?>" method="POST"><div class="row">
 						<div class="col-md-2 text-center"><strong style="font-size:18px"><?php echo (L("booking_new")); ?> >></strong></div>
 						<div class="col-md-2"><input type="text" class="form-control" id="inputCallsign" placeholder="<?php echo (L("callsign")); ?> 如:CCA001" name="callsign"></div>
-						<div class="col-md-1"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#routeModal"><?php echo (L("choose_route")); ?></button><input type="hidden" id="inputDep" name="dep"><input type="hidden" id="inputArr" name="arr"><input type="hidden" id="inputRoute" name="route"></div>
+						<div class="col-md-1"><button type="button" id="route-btn" class="btn btn-default" data-toggle="modal" data-target="#routeModal"><?php echo (L("choose_route")); ?></button><input type="hidden" id="inputDep" name="dep"><input type="hidden" id="inputArr" name="arr"><input type="hidden" id="inputRoute" name="route"></div>
 						<div class="col-md-3"><div class="input-group date form_datetime" data-date="2016-07-01T12:00:00Z" data-date-format="yyyy-mm-dd HH:ii" data-link-field="inputTime"><input class="form-control" size="16" type="text" value="" placeholder="UTC <?php echo (L("pushtime")); ?>" readonly><span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span><span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span></div><input type="hidden" name="pushtime" id="inputTime" value="" /></div>
 						<div class="col-md-1"><button type="submit" class="btn btn-primary"><?php echo (L("take")); ?></button></div>
 					</div></form>
