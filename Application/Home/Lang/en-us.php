@@ -126,6 +126,7 @@ return  array(
 	'post_division' => 'Divisions',
 	'post_route' => 'Route',
 	'post_choose' => 'Choose in library',
+	'event_outdate' => 'This event is out-date!',
 	'admin_publish' => 'Publish',
 	'admin_edit' => 'Edit',
 	'admin_del' => 'Delete',
