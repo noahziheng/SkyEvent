@@ -93,7 +93,6 @@ class UserModel extends Model{
     public function setUserGroup($id,$groupid)
     {
         $group=S('usergroup');
-        dump($group);
         foreach ($group as $key => $v) {
             foreach ($v as $i => $c) {
                 if($c==$id){
@@ -102,7 +101,6 @@ class UserModel extends Model{
             }
         }
         $group[$groupid][]=$id;
-        dump($group);
         return S("usergroup",$group);
     }
 

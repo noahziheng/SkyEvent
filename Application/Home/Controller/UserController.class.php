@@ -86,7 +86,6 @@ class UserController extends Controller {
             $this->error(L('nopermission'),ROOT_URL.'Index/index');
         }
         $data=$_POST;
-        dump($data);
         $res = D('User')->setUserGroup($data['id'],$data['group']);
         if ($data['ajax']==1) {
             if (!$res) {
@@ -98,7 +97,7 @@ class UserController extends Controller {
             if (!$res) {
                 $this->error(L('error'),ROOT_URL.'Admin/index');
             }else{
-                $this->success(L('success'),ROOT_URL.'Admin/index',1000000);
+                $this->success(L('success'),ROOT_URL.'Admin/index');
             }
         }
     }
