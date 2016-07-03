@@ -93,10 +93,12 @@ class UserModel extends Model{
     public function setUserGroup($id,$groupid)
     {
         $group=S('usergroup');
+        dump($group);
         foreach ($group as $key => &$v) {
             array_splice($v, array_search($id,$v,false), 1);
         }
         $group[$groupid][]=$id;
+        dump($group);
         return S("usergroup",$group);
     }
 
