@@ -220,7 +220,7 @@ class BookingController extends Controller {
         }else{
             $user = session('user');
             $data[]=\getUserFullname($user['id']);
-            $data[]={:L('usergroup_'.$user['group'])};
+            $data[]=L('usergroup_'.$user['group']);
         }
         $r=\send_mail($user,$cancel ? 'booking_cancel' : 'booking',$data);
     }
