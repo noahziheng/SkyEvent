@@ -92,8 +92,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
-      <div class="col-md-10" id="page"><script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/login.js"></script>
-<div class="row">
+      <div class="col-md-10" id="page"><div class="row">
   <div class="col-md-6">
     <div class="panel panel-default" style="height:auto;">
       <div class="panel-heading">
@@ -150,7 +149,7 @@
               <div class="input-group col-md-8">
                 <input type="email" class="form-control input-sm" id="inputEmail" value="<?php echo ($user["email"]); ?>" name="email">
                 <div class="input-group-btn">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="email('<?php echo ($user["id"]); ?>');"><?php echo (L("update")); ?></button>
+                  <button id="email-btn" type="button" class="btn btn-primary btn-sm" data="<?php echo ($user["id"]); ?>"><?php echo (L("update")); ?></button>
                 </div>
               </div>
             </div>
@@ -197,7 +196,8 @@
       </table>
     </div>
   </div>
-</div></div>
+</div>
+<script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/login.js"></script></div>
   </div>
   </div>
 

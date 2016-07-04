@@ -1,6 +1,9 @@
 var lang = p_lang;
 $(function() {
 	$("#alertEmail").hide();
+	$("#email-btn").click(function(event) {
+		email($(this).attr('data'));
+	});
 });
 function email(id) {
 	var fdata = {

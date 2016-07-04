@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo (ROOT_URL); ?>Public/css/styles.css" rel="stylesheet">
+    <link href="<?php echo (ROOT_URL); ?>Public/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,7 +64,7 @@
               <div class="panel-heading">
                 <div class="panel-title"><?php echo (L("userpanel")); ?></div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body text-center">
                 <?php if($user["group"] == -1): ?><a href="<?php echo (SSO_URL); ?>" class="btn btn-primary btn-lg btn-block"><img class="img-responsive" src="<?php echo (ROOT_URL); ?>Public/images/vatsim.png">SSO <?php echo (L("login")); ?></a>
                 <?php else: ?>
                   <div class="text-center">

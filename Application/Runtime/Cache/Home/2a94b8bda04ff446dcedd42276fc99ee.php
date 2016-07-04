@@ -64,7 +64,7 @@
               <div class="panel-heading">
                 <div class="panel-title"><?php echo (L("userpanel")); ?></div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body text-center">
                 <?php if($user["group"] == -1): ?><a href="<?php echo (SSO_URL); ?>" class="btn btn-primary btn-lg btn-block"><img class="img-responsive" src="<?php echo (ROOT_URL); ?>Public/images/vatsim.png">SSO <?php echo (L("login")); ?></a>
                 <?php else: ?>
                   <div class="text-center">
