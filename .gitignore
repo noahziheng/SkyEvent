@@ -1,4 +1,4 @@
-/Application/Runtime/Logs/*
-/Application/Runtime/Cache/*
+/Application/Runtime/Logs/Home/*
+/Application/Runtime/Cache/Home/*
 /Application/Runtime/Temp/*
 /Application/Runtime/Data/*
