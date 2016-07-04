@@ -3,13 +3,14 @@ web:
   privileged: false
   restart: always
   links:
+  - redis
   - db
   expose:
   - '80'
   volumes:
-  - /home/noah/Documents/SkyEvent:/home
+  - /data/skyevent/code:/home
   environment:
-  - VIRTUAL_HOST=fuck.io
+  - VIRTUAL_HOST=skyevent.tk,www.skyevent.tk
   - APP_ENV=dev
 phpmyadmin:
   image: phpmyadmin/phpmyadmin:4.6.2-2
@@ -17,18 +18,38 @@ phpmyadmin:
   restart: always
   links:
   - db
-  ports:
-  - 8080:80
+  expose:
+  - '80'
+  environment:
+  - VIRTUAL_HOST=sql.skyevent.tk
 db:
-  image: daocloud.io/library/mysql:5
+  image: index.docker.io/library/mysql:5
   privileged: false
   restart: always
   ports:
   - 3306:3306
   volumes:
-  - /data/mysql/skyevent:/var/lib/mysql
+  - /data/skyevent/mysql:/var/lib/mysql
   environment:
   - MYSQL_PASSWORD=12345678
   - MYSQL_ROOT_PASSWORD=12345678
   - MYSQL_USER=skyevent
   - MYSQL_DATABASE=skyevent
+sso:
+  image: daocloud.io/noahziheng/skyevent-sso:master-a7f3e84
+  privileged: false
+  restart: always
+  links:
+  - redis
+  expose:
+  - '80'
+  environment:
+  - VIRTUAL_HOST=sso.skyevent.tk
+redis:
+  image: redis
+  privileged: false
+  restart: always
+  ports:
+  - 6379:6379
+  environment:
+  - REDIS_PASS=**None**

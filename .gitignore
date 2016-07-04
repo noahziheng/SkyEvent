@@ -1,0 +1,4 @@
+/Application/Runtime/Logs/*
+/Application/Runtime/Cache/*
+/Application/Runtime/Temp/*
+/Application/Runtime/Data/*
