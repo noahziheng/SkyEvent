@@ -15,6 +15,7 @@
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 define('VERSION', '1.1 Beta');
 define('ROOT_URL', 'http://fuck.io/');
+define('APP_ENV', 'debug');
 define('APP_DEBUG',True);
 define('SSO_URL', 'http://sso.skyevent.tk/?callback='.ROOT_URL.'User/login/');
 define('USER_EXPIRES', 3600 * 24 *30);

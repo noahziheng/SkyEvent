@@ -9,6 +9,16 @@ class UserTokenBehavior extends \Think\Behavior {
 
     // 行为扩展的执行入口必须是run
     public function run(&$params){
+        if(APP_ENV=='release'){
+            C('THINK_EMAIL',array(
+                'SMTP_HOST'   => 'hwsmtp.exmail.qq.com', //SMTP服务器
+                'SMTP_PORT'   => '465', //SMTP服务器端口
+                'SMTP_USER'   => 'noreply@noahgao.net', //SMTP服务器用户名
+                'SMTP_PASS'   => 'VATprc12138', //SMTP服务器密码
+            ));
+        }else{
+            C('REDIS_HOST','45.32.20.78');
+        }
         // 检测令牌
         $res=$this->checkToken();
         if(!$res){

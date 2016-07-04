@@ -92,7 +92,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/global.js"></script>
-      <div class="col-md-10" id="page"><div class="row">
+      <div class="col-md-10" id="page"><script type="text/javascript" src="<?php echo (ROOT_URL); ?>Public/js/login.js"></script>
+<div class="row">
   <div class="col-md-6">
     <div class="panel panel-default" style="height:auto;">
       <div class="panel-heading">
@@ -100,6 +101,7 @@
       </div>
       <div class="panel-body">
         <form class="form-horizontal" action="<?php echo (ROOT_URL); ?>User/email/<?php echo ($user["id"]); ?>" method="POST">
+        <div class="alert alert-success" role="alert" id="alertEmail"><?php echo (L("successemail")); ?></div>
           <div class="form-group">
             <label class="col-sm-2 control-label">VATSIM ID</label>
             <div class="col-sm-10">
@@ -148,7 +150,7 @@
               <div class="input-group col-md-8">
                 <input type="email" class="form-control input-sm" id="inputEmail" value="<?php echo ($user["email"]); ?>" name="email">
                 <div class="input-group-btn">
-                  <button type="submit" class="btn btn-primary btn-sm"><?php echo (L("update")); ?></button>
+                  <button type="button" class="btn btn-primary btn-sm" onclick="email('<?php echo ($user["id"]); ?>');"><?php echo (L("update")); ?></button>
                 </div>
               </div>
             </div>
@@ -178,7 +180,6 @@
         </thead>
         <tbody>
           <?php if(is_array($bookings)): $i = 0; $__LIST__ = $bookings;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$booking): $mod = ($i % 2 );++$i;?><tr>
-              <?php echo dump($booking);?>
               <td><?php echo getEventTitle($booking['eid']);?></td>
               <td><?php echo ($booking["callsign"]); ?></td>
               <td>
