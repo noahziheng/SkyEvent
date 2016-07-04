@@ -791,3 +791,89 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000041s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000073s ]
 
+[ 2016-07-03T20:16:06+08:00 ] 172.17.0.1 /User/emailcheck/46ccb13164fd83547585408f376c34a9
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011995s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000052s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000488s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.804789s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.804865s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000029s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000079s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030585s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030650s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000054s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000085s ]
+
+[ 2016-07-03T20:16:07+08:00 ] 172.17.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+
+[ 2016-07-03T20:16:10+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.021239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021387s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.715332s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.715422s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0308s ]
+SQL: SELECT * FROM `announcement` ORDER BY top desc,time desc LIMIT 5   [ RunTime:0.0085s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `event` LIMIT 1   [ RunTime:0.0618s ]
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime desc LIMIT 0,6   [ RunTime:0.0099s ]
+SQL: UPDATE `event` SET `status`='4' WHERE `id` = 2 [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.100412s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.100468s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000051s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000076s ]
+
+[ 2016-07-03T20:16:11+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000044s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.735793s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.735881s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `announcement` ORDER BY top desc,time desc LIMIT 5   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `event` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime desc LIMIT 0,6   [ RunTime:0.0003s ]
+SQL: UPDATE `event` SET `status`='4' WHERE `id` = 2 [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008764s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008807s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000046s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000077s ]
+

@@ -6,7 +6,7 @@ return array(
 	'VAR_LANGUAGE'     => 'l', // 默认语言切换变量
 	'CUSTOM_EVENT_IGNOREJSON' => array('id' , 'starttime' , 'endtime' , 'banner' , 'type' , 'status'),
 	'DATA_CACHE_TYPE'       =>  'Redis',
-	'REDIS_HOST' => '216.189.52.222',
+	'REDIS_HOST' => 'redis',
 	'LAYOUT_ON'=>true,
 	'LAYOUT_NAME'=>'layout',
 	//'SHOW_PAGE_TRACE' =>true,
