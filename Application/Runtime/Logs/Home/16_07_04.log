@@ -504,3 +504,38 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000046s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000078s ]
 
+[ 2016-07-04T17:05:05+08:00 ] 172.17.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009139s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007933s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.026813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.034876s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behaviors\UserTokenBehavior [ RunTime:0.545459s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.545550s ]
+SQL: SHOW COLUMNS FROM `announcement` [ RunTime:0.0134s ]
+SQL: SELECT * FROM `announcement` ORDER BY top desc,time desc LIMIT 5   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `event` [ RunTime:0.0017s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `event` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `event` WHERE ( status != 1 ) ORDER BY status desc,starttime desc LIMIT 0,6   [ RunTime:0.0268s ]
+SQL: UPDATE `event` SET `status`='4' WHERE `id` = 2 [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067476s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067529s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.012352s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012408s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.011233s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011291s ]
+
+[ 2016-07-04T17:05:06+08:00 ] 172.17.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000076s ]
+
