@@ -7,6 +7,7 @@ return array(
 	'CUSTOM_EVENT_IGNOREJSON' => array('id' , 'starttime' , 'endtime' , 'banner' , 'type' , 'status'),
 	'DATA_CACHE_TYPE'       =>  'Redis',
 	'REDIS_HOST' => 'redis',
+	'REDIS_AUTH'=>'4OwqwaCo7nGxhQLRDSdd',
 	'LAYOUT_ON'=>true,
 	'LAYOUT_NAME'=>'layout',
 	//'SHOW_PAGE_TRACE' =>true,

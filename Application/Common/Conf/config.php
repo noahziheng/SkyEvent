@@ -10,7 +10,7 @@ return array(
 	'DB_HOST'   => 'db', // 服务器地址
 	'DB_NAME'   => 'skyevent', // 数据库名
 	'DB_USER'   => 'skyevent', // 用户名
-	'DB_PWD'    => '12345678', // 密码
+	'DB_PWD'    => 'mDMFt8GVDuU5PiPhkQGsGgFInKlpO59P', // 密码
 	'DB_PORT'   => 3306, // 端口
 	'DB_PREFIX' => '', // 数据库表前缀
 	'DB_CHARSET'=> 'utf8', // 字符集
