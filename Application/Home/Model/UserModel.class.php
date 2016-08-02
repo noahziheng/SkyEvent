@@ -83,6 +83,7 @@ class UserModel extends Model{
     {
         $group=S('usergroup');
         if(!$group){
+            $group=array();
             $group[4]=array("1248613");
             $group[3]=array(
                 "1191126",
