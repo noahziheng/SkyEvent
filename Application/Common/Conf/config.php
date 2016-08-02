@@ -6,6 +6,7 @@ return array(
 	'URL_PARAMS_BIND'       =>  true, // URL变量绑定到操作方法作为参数
 	'URL_PARAMS_BIND_TYPE'  =>  1, // 设置参数绑定按照变量顺序绑定
 	//数据库配置信息
+	//
 	'DB_TYPE'   => 'mysql', // 数据库类型
 	'DB_HOST'   => 'db', // 服务器地址
 	'DB_NAME'   => 'skyevent', // 数据库名
