@@ -87,7 +87,7 @@ class UserModel extends Model{
                 return $key;
             }
         }
-        return 0;
+        return 1;
     }
 
     public function setUserGroup($id,$groupid)

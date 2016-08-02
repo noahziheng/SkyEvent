@@ -19,15 +19,10 @@ phpmyadmin:
   ports:
   - 8080:80
 db:
-  image: daocloud.io/library/mysql:5
+  image: daocloud.io/noahziheng/skyevent-db:latest
   privileged: false
   restart: always
-  ports:
-  - 3306:3306
+  expose:
+  - 3306
   volumes:
-  - /data/mysql/skyevent:/var/lib/mysql
-  environment:
-  - MYSQL_PASSWORD=12345678
-  - MYSQL_ROOT_PASSWORD=12345678
-  - MYSQL_USER=skyevent
-  - MYSQL_DATABASE=skyevent
+  - /data/mysql/skyevent-test:/var/lib/mysql

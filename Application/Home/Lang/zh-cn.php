@@ -73,8 +73,8 @@ return  array(
 	'usergroup_-2' => '禁止访问用户',
 	'usergroup_-1' => '游客',
 	'usergroup_0' => '游客',
-	'usergroup_1' => 'VATSIM飞行员',
-	'usergroup_2' => 'VATSIM管制员',
+	'usergroup_1' => 'VATSIM会员',
+	'usergroup_2' => 'VATSIM会员',
 	'usergroup_3' => 'VATSIM分部职员',
 	'usergroup_4' => 'SkyEvent管理员',
 	//VATSIM等级
