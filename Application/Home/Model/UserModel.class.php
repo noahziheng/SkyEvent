@@ -82,6 +82,20 @@ class UserModel extends Model{
     public function getUserGroup($id)
     {
         $group=S('usergroup');
+        if(!$group){
+            $group[4]=array("1248613");
+            $group[3]=array(
+                "1191126",
+                "1193569",
+                "1255570",
+                "1251477",
+                "1212751",
+                "1282162",
+                "1259390",
+                "1279052",
+            );
+            S('usergroup',$group);
+        }
         foreach ($group as $key => $v) {
             if(in_array($id, $v)){
                 return $key;
