@@ -1,0 +1,79 @@
+/*************************/
+//                       //
+// SkyEventAPI标准数据参考 //
+//       Noah Gao        //
+//        2016.2         //
+//                       //
+/*************************/
+// standard event data:
+{
+  "title":"[string]",
+  "description":"[string]",
+  "image":"[string/URL]",
+  "starttime":"[DATE]",
+  "endtime":"[DATE]",
+  "status":"[number/Status]",
+  "airport":
+  [
+    "[string/Airport_objectId]"
+  ],
+  "route":
+  [
+    {
+      "id":"[number]",
+      "dep":"[string]",
+      "app":"[string]",
+      "route":"[string]"
+    }
+  ],
+  "controllers":
+  [
+    {
+      "code":"[string]",
+      "type":"[string]",
+      "user":"[string/VATSIMPID or undefined]"
+    }
+  ]
+}
+//standard airport data
+{
+  "code":"[string/4bit]",
+  "name":{
+    "zh":["[string/city]","[string/name]"],
+    "en":["[string/city]","[string/name]"]
+  },
+  "fir":"[string/4bit.FIRcode]",
+  "scenery":[
+    {
+      "game":"[string]",
+      "type":"[number/0Free1Payware]",
+      "url":"[string]",
+      "remark":"[string]"
+    }
+  ]
+}
+//standard booking data
+{
+  "code":"[string/callsign]",
+  "user":"[string/VATSIMPID or undefined]",
+  "event":"[string/objectid or undefined]",
+  "deptime":"[DATE/Push Timepoint]",
+  "route":"[number/route(subobject)_id]"
+}
+//standard user data
+{
+  "pid":"[string/VATSIM PID]",
+  "lastname":"[string/VATSIM PID]",
+  "firstname":"[string/VATSIM PID]",
+  "usergroup":"[number/0user1admin]",
+  "rating":"[object/VATSIM Level]",
+  "division":"[string]",
+  "logintoken":"[string/Token by UserAuth Subsystem]"
+}
+//event status
+{
+  "0":"预存，未上线",
+  "1":"筹备中",
+  "2":"进行中",
+  "3":"已过期",
+}
